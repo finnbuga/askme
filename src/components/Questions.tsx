@@ -1,12 +1,6 @@
-import React, { useState } from "react";
-import {
-  IconButton,
-  Card,
-  CardContent,
-  CardActions,
-  makeStyles,
-} from "@material-ui/core";
-import { Favorite, SkipPrevious, SkipNext } from "@material-ui/icons";
+import React, { useState } from "react"
+import { IconButton, Card, CardContent, CardActions, makeStyles } from "@material-ui/core"
+import { Favorite, SkipPrevious, SkipNext } from "@material-ui/icons"
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -16,27 +10,26 @@ const useStyles = makeStyles((theme) => ({
     lineHeight: "6rem",
     minHeight: 300,
   },
-}));
+}))
 
 const useQuestions = () => {
   const questions = [
     "What do you appreciate the most about your partner?",
     "What is the most important thing to you?",
     "What would you like your partner to appreciate more?",
-  ];
-  const [index, setIndex] = useState(0);
-  const showPrevious = () =>
-    setIndex((index + questions.length - 1) % questions.length);
-  const showNext = () => setIndex((index + 1) % questions.length);
-  const question = questions[index];
+  ]
+  const [index, setIndex] = useState(0)
+  const showPrevious = () => setIndex((index + questions.length - 1) % questions.length)
+  const showNext = () => setIndex((index + 1) % questions.length)
+  const question = questions[index]
 
-  return { question, showPrevious, showNext };
-};
+  return { question, showPrevious, showNext }
+}
 
 function Questions() {
-  const { question, showPrevious, showNext } = useQuestions();
+  const { question, showPrevious, showNext } = useQuestions()
 
-  const classes = useStyles();
+  const classes = useStyles()
 
   return (
     <main style={{ backgroundColor: "white", padding: "1rem" }}>
@@ -58,7 +51,7 @@ function Questions() {
         </IconButton>
       </CardActions>
     </main>
-  );
+  )
 }
 
-export default Questions;
+export default Questions
