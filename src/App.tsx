@@ -1,6 +1,7 @@
-import React from "react";
-import Header from "./components/Header";
-import Questions from "./components/Questions";
+import React from "react"
+import Header from "./components/Header"
+import Questions from "./components/Questions"
+import SignIn from "./components/SignIn"
 
 const style = {
   background: {
@@ -13,17 +14,18 @@ const style = {
     maxWidth: 500,
     margin: "0 auto",
   },
-};
+}
 
 function App() {
   return (
     <div style={style.background}>
       <div style={style.middleStripe}>
         <Header />
+        <SignIn />
         <Questions />
       </div>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

@@ -1,6 +1,6 @@
-import firebase from "firebase/app";
-import "firebase/auth";
-import "firebase/firestore";
+import firebase from "firebase/app"
+import "firebase/auth"
+import "firebase/firestore"
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
@@ -12,8 +12,8 @@ const firebaseConfig = {
   messagingSenderId: "639620704508",
   appId: "1:639620704508:web:9a56cc1e00012d6089cf79",
   measurementId: "G-GMNDNKXF59",
-};
+}
 
-firebase.initializeApp(firebaseConfig);
-export const auth = firebase.auth();
-export const firestore = firebase.firestore();
+firebase.initializeApp(firebaseConfig)
+export const auth = firebase.auth()
+export const firestore = firebase.firestore()

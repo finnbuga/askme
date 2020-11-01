@@ -1,13 +1,6 @@
-import React from "react";
-import {
-  AppBar,
-  Toolbar,
-  IconButton,
-  Typography,
-  Button,
-  makeStyles,
-} from "@material-ui/core";
-import { Menu } from "@material-ui/icons";
+import React from "react"
+import { AppBar, Toolbar, IconButton, Typography, Button, makeStyles } from "@material-ui/core"
+import { Menu } from "@material-ui/icons"
 
 const useStyles = makeStyles((theme) => ({
   menuButton: {
@@ -16,21 +9,16 @@ const useStyles = makeStyles((theme) => ({
   title: {
     flexGrow: 1,
   },
-}));
+}))
 
 function Header() {
-  const classes = useStyles();
+  const classes = useStyles()
 
   return (
     <header className="App-header">
       <AppBar position="static">
         <Toolbar>
-          <IconButton
-            edge="start"
-            className={classes.menuButton}
-            color="inherit"
-            aria-label="menu"
-          >
+          <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
             <Menu />
           </IconButton>
 
@@ -42,7 +30,7 @@ function Header() {
         </Toolbar>
       </AppBar>
     </header>
-  );
+  )
 }
 
-export default Header;
+export default Header
