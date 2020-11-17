@@ -2,7 +2,6 @@ import firebase from "firebase/app"
 import "firebase/auth"
 import "firebase/firestore"
 
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: "AIzaSyA8G157LylZEv3elf0pd15J8Htl2wCBz3c",
   authDomain: "askme-questions.firebaseapp.com",
@@ -15,5 +14,9 @@ const firebaseConfig = {
 }
 
 firebase.initializeApp(firebaseConfig)
+
+const provider = new firebase.auth.GoogleAuthProvider()
+
 export const auth = firebase.auth()
+export const signInWithGoogle = () => firebase.auth().signInWithPopup(provider)
 export const firestore = firebase.firestore()
