@@ -6,9 +6,8 @@ const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
     textAlign: "center",
-    fontSize: "1.2rem",
-    lineHeight: "6rem",
-    minHeight: 300,
+    lineHeight: "3rem",
+    minHeight: 250,
   },
 }))
 
@@ -32,7 +31,7 @@ function Questions() {
   const classes = useStyles()
 
   return (
-    <main style={{ backgroundColor: "white", padding: "1rem" }}>
+    <main style={{ margin: 24, marginBottom: 0 }}>
       <Card className={classes.root}>
         <CardContent>
           <h1>{question}</h1>
@@ -41,13 +40,13 @@ function Questions() {
 
       <CardActions style={{ justifyContent: "center" }}>
         <IconButton aria-label="previous" onClick={showPrevious}>
-          <SkipPrevious style={{ fontSize: "4rem" }} />
+          <SkipPrevious style={{ fontSize: "3rem" }} />
         </IconButton>
         <IconButton aria-label="like">
-          <Favorite style={{ fontSize: "3rem" }} />
+          <Favorite style={{ fontSize: "2.1rem" }} />
         </IconButton>
         <IconButton aria-label="next" onClick={showNext}>
-          <SkipNext style={{ fontSize: "4rem" }} />
+          <SkipNext style={{ fontSize: "3rem" }} />
         </IconButton>
       </CardActions>
     </main>
