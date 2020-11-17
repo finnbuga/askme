@@ -1,29 +1,25 @@
 import React from "react"
+import { Card, Container } from "@material-ui/core"
+
 import Header from "./components/Header"
 import Questions from "./components/Questions"
-import SignIn from "./components/SignIn"
 
 const style = {
-  background: {
-    height: "100vh",
+  wrapper: {
+    minHeight: "100vh",
     backgroundColor: "rgb(245, 245, 245)",
-  },
-  middleStripe: {
-    height: "100vh",
-    backgroundColor: "white",
-    maxWidth: 500,
-    margin: "0 auto",
   },
 }
 
 function App() {
   return (
-    <div style={style.background}>
-      <div style={style.middleStripe}>
-        <Header />
-        <SignIn />
-        <Questions />
-      </div>
+    <div style={style.wrapper}>
+      <Container maxWidth="xs">
+        <Card>
+          <Header />
+          <Questions />
+        </Card>
+      </Container>
     </div>
   )
 }
