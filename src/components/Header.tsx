@@ -1,49 +1,39 @@
-import React, { useState, useEffect } from "react"
-import firebase from "firebase/app"
-import { AppBar, Toolbar, IconButton, Typography, Button, makeStyles } from "@material-ui/core"
-import { Menu } from "@material-ui/icons"
+import React from "react"
+import { AppBar, Toolbar, IconButton, Typography, Button } from "@material-ui/core"
+import { Menu as MenuIcon } from "@material-ui/icons"
 
-import { signInWithGoogle, auth } from "../firebase"
+import useUser from "./useUser"
 
-const useStyles = makeStyles((theme) => ({
-  menuButton: {
-    marginRight: theme.spacing(1),
-  },
-  title: {
+const style = {
+  expand: {
     flexGrow: 1,
   },
-}))
+}
 
 function Header() {
-  const [user, setUser] = useState<firebase.User | null>(null)
-
-  const classes = useStyles()
-
-  useEffect(() => {
-    auth.onAuthStateChanged(setUser)
-  }, [])
+  const { user, signIn, signOut } = useUser()
 
   return (
     <header className="App-header">
       <AppBar position="static">
         <Toolbar>
-          <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-            <Menu />
+          <IconButton edge="start" color="inherit" aria-label="menu">
+            <MenuIcon />
           </IconButton>
 
-          <Typography variant="h6" className={classes.title}>
+          <Typography variant="h6" style={style.expand}>
             Ask me!
           </Typography>
 
           {user ? (
             <>
-              {user.displayName} -
-              <Button color="inherit" onClick={() => auth.signOut()}>
+              {user.name} -
+              <Button color="inherit" onClick={signOut}>
                 Log out
               </Button>
             </>
           ) : (
-            <Button color="inherit" onClick={signInWithGoogle}>
+            <Button color="inherit" onClick={signIn}>
               Login
             </Button>
           )}
