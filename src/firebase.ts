@@ -21,3 +21,4 @@ export const auth = firebase.auth()
 export const signInWithGoogle = () => firebase.auth().signInWithPopup(provider)
 
 export const questionsRef = firebase.firestore().collection("questions")
+export const usersRef = firebase.firestore().collection("users")
