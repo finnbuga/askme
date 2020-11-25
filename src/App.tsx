@@ -2,9 +2,9 @@ import React from "react"
 import { Card, Container } from "@material-ui/core"
 import { Router } from "@reach/router"
 
-import Header from "./components/Header"
-import AllQuestionsPage from "./components/AllQuestionsPage"
-import MyQuestionsPage from "./components/MyQuestionsPage"
+import Header from "components/Header"
+import AllQuestionsPage from "components/AllQuestionsPage"
+import MyQuestionsPage from "components/MyQuestionsPage"
 
 const style = {
   wrapper: {
