@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react"
 import { RouteComponentProps } from "@reach/router"
 
 import { questionsRef } from "../firebase"
-import Question from "../interfaces/Question"
-import QuestionsSlider from "./QuestionsSlider"
+import Question from "interfaces/Question"
+import QuestionsSlider from "components/QuestionsSlider"
 
 const useQuestions = () => {
   const [questions, setQuestions] = useState<Question[]>([])
