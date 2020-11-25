@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 import firebase from "firebase/app"
 
-import { signInWithGoogle, auth, usersRef } from "../firebase"
+import { signInWithGoogle, auth, usersRef } from "../../firebase"
 
 class User {
   constructor(public email?: string | null, public name?: string | null, public id?: string) {}
