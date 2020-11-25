@@ -1,8 +1,10 @@
 import React from "react"
 import { Card, Container } from "@material-ui/core"
+import { Router } from "@reach/router"
 
 import Header from "./components/Header"
 import AllQuestionsPage from "./components/AllQuestionsPage"
+import MyQuestionsPage from "./components/MyQuestionsPage"
 
 const style = {
   wrapper: {
@@ -17,7 +19,10 @@ function App() {
       <Container maxWidth="xs">
         <Card>
           <Header />
-          <AllQuestionsPage />
+          <Router>
+            <AllQuestionsPage path="/" />
+            <MyQuestionsPage path="my-questions" />
+          </Router>
         </Card>
       </Container>
     </div>

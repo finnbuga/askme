@@ -1,4 +1,5 @@
 import React, { useRef } from "react"
+import { Link } from "@reach/router"
 import { IconButton, Menu, MenuItem, ListItemIcon, ListItemText } from "@material-ui/core"
 import MenuIcon from "@material-ui/icons/Menu"
 import FavoriteIcon from "@material-ui/icons/Favorite"
@@ -21,7 +22,9 @@ function MainMenu() {
           <ListItemIcon>
             <FolderIcon />
           </ListItemIcon>
-          <ListItemText primary="My Questions" />
+          <ListItemText>
+            <Link to="/my-questions">My Questions</Link>
+          </ListItemText>
         </MenuItem>
         <MenuItem onClick={closeMenu}>
           <ListItemIcon>

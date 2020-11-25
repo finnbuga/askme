@@ -12,7 +12,7 @@ const useQuestions = () => {
     questionsRef.get().then((querySnapshot) => {
       const fetchedQuestions: Question[] = []
       querySnapshot.forEach((doc) => {
-        fetchedQuestions.push({ id: doc.id, text: doc.data().text })
+        fetchedQuestions.push({ id: doc.id, text: "***" + doc.data().text })
       })
       setQuestions(fetchedQuestions)
     })
@@ -21,10 +21,10 @@ const useQuestions = () => {
   return questions
 }
 
-const AllQuestionsPage: React.FC<RouteComponentProps> = () => {
+const MyQuestionsPage: React.FC<RouteComponentProps> = () => {
   const questions = useQuestions()
 
   return <QuestionsSlider questions={questions} />
 }
 
-export default AllQuestionsPage
+export default MyQuestionsPage
