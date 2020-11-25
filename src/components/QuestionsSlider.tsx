@@ -1,6 +1,8 @@
 import React from "react"
 import { IconButton, Card, CardContent, CardActions, makeStyles } from "@material-ui/core"
-import { Favorite, SkipPrevious, SkipNext } from "@material-ui/icons"
+import FavoriteIcon from "@material-ui/icons/Favorite"
+import SkipPreviousIcon from "@material-ui/icons/SkipPrevious"
+import SkipNextIcon from "@material-ui/icons/SkipNext"
 
 import Question from "../interfaces/Question"
 import useNavigator from "./useNavigator"
@@ -33,13 +35,13 @@ const QuestionsSlider: React.FC<Props> = ({ questions }) => {
 
       <CardActions style={{ justifyContent: "center" }}>
         <IconButton onClick={goToPrev} disabled={!goToPrev}>
-          <SkipPrevious style={{ fontSize: "3rem" }} />
+          <SkipPreviousIcon style={{ fontSize: "3rem" }} />
         </IconButton>
         <IconButton disabled={!questions[current]}>
-          <Favorite style={{ fontSize: "2.1rem" }} />
+          <FavoriteIcon style={{ fontSize: "2.1rem" }} />
         </IconButton>
         <IconButton onClick={goToNext} disabled={!goToNext}>
-          <SkipNext style={{ fontSize: "3rem" }} />
+          <SkipNextIcon style={{ fontSize: "3rem" }} />
         </IconButton>
       </CardActions>
     </main>
