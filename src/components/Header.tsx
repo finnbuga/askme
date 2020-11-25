@@ -1,4 +1,5 @@
 import React from "react"
+import { Link } from "@reach/router"
 import { AppBar, Toolbar, Typography } from "@material-ui/core"
 
 import MainMenu from "./MainMenu"
@@ -18,7 +19,7 @@ function Header() {
           <MainMenu />
 
           <Typography variant="h6" style={style.expand}>
-            Ask me!
+            <Link to="/">Ask me!</Link>
           </Typography>
 
           <UserMenu />
