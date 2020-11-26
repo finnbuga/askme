@@ -4,7 +4,7 @@ import FavoriteIcon from "@material-ui/icons/Favorite"
 import SkipPreviousIcon from "@material-ui/icons/SkipPrevious"
 import SkipNextIcon from "@material-ui/icons/SkipNext"
 
-import Question from "interfaces/Question"
+import Question from "api/interfaces/Question"
 import useNavigator from "./useNavigator"
 
 const useStyles = makeStyles((theme) => ({

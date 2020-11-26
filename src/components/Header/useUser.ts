@@ -1,8 +1,8 @@
 import { useState } from "react"
 import firebase from "firebase/app"
 
-import User from "interfaces/User"
-import { signInWithGoogle, auth, usersRef } from "../../firebase"
+import User from "api/interfaces/User"
+import { signInWithGoogle, auth, usersRef } from "api/firebase"
 
 const userConverter = (id: string) => ({
   toFirestore: (user: User): firebase.firestore.DocumentData => user,
