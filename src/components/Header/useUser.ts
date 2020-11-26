@@ -3,26 +3,23 @@ import firebase from "firebase/app"
 
 import { signInWithGoogle, auth, usersRef } from "../../firebase"
 
-class User {
-  constructor(public email?: string | null, public name?: string | null, public id?: string) {}
+interface User {
+  id?: string
+  email?: string | null
+  name?: string | null
 }
 
-const userConverter = {
+const userConverter = (id: string) => ({
   toFirestore: (user: User): firebase.firestore.DocumentData => user,
   fromFirestore: (
     snapshot: firebase.firestore.QueryDocumentSnapshot,
     options: firebase.firestore.SnapshotOptions
-  ): User => {
-    const data = snapshot.data(options)
-    return new User(data.email, data.name)
-  },
-}
+  ): User => ({ id, ...snapshot.data(options) }),
+})
 
 const useUser = () => {
   const [user, setUser] = useState<User | null>(null)
-
   const signOut = () => auth.signOut().then(() => setUser(null))
-
   const signIn = signInWithGoogle
 
   useEffect(() => {
@@ -33,16 +30,17 @@ const useUser = () => {
 
       usersRef
         .doc(user.uid)
-        .withConverter(userConverter)
+        .withConverter(userConverter(user.uid))
         .get()
         .then((doc) => {
           if (doc.exists) {
             setUser(doc.data()!)
           } else {
+            const newUser = { email: user.email, name: user.displayName }
             usersRef
               .doc(user.uid)
-              .set({ email: user.email, name: user.displayName })
-              .then(() => setUser(new User(user.email, user.displayName)))
+              .set(newUser)
+              .then(() => setUser({ id: user.uid, ...newUser }))
           }
         })
     })
