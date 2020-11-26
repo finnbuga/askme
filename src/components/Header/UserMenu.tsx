@@ -5,10 +5,11 @@ import useUser from "./useUser"
 
 function UserMenu() {
   const { user, signIn, signOut } = useUser()
+  const isLoggedIn = Boolean(user)
 
-  return user ? (
+  return isLoggedIn ? (
     <>
-      {user.name} -
+      {user!.name} -
       <Button color="inherit" onClick={signOut}>
         Log out
       </Button>
