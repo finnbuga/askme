@@ -9,6 +9,10 @@ const style = {
   expand: {
     flexGrow: 1,
   },
+  logo: {
+    color: "inherit",
+    textDecoration: "none",
+  },
 }
 
 function Header() {
@@ -19,7 +23,9 @@ function Header() {
           <MainMenu />
 
           <Typography variant="h6" style={style.expand}>
-            <Link to="/">Ask me!</Link>
+            <Link to="/" style={style.logo}>
+              Ask me!
+            </Link>
           </Typography>
 
           <UserMenu />
