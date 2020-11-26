@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import firebase from "firebase/app"
 
 import { signInWithGoogle, auth, usersRef } from "../../firebase"
@@ -19,32 +19,28 @@ const userConverter = (id: string) => ({
 
 const useUser = () => {
   const [user, setUser] = useState<User | null>(null)
-  const signOut = () => auth.signOut().then(() => setUser(null))
-  const signIn = signInWithGoogle
 
-  useEffect(() => {
-    auth.onAuthStateChanged((user) => {
-      if (!user) {
-        return
-      }
+  const signOut = () => auth.signOut().then(() => setUser(null))
+
+  const signIn = () =>
+    signInWithGoogle().then(({ user: authUser }) => {
+      const { uid: id, email, displayName: name } = authUser!
 
       usersRef
-        .doc(user.uid)
-        .withConverter(userConverter(user.uid))
+        .doc(id)
+        .withConverter(userConverter(id))
         .get()
         .then((doc) => {
           if (doc.exists) {
             setUser(doc.data()!)
           } else {
-            const newUser = { email: user.email, name: user.displayName }
             usersRef
-              .doc(user.uid)
-              .set(newUser)
-              .then(() => setUser({ id: user.uid, ...newUser }))
+              .doc(id)
+              .set({ email, name })
+              .then(() => setUser({ id, email, name }))
           }
         })
     })
-  }, [])
 
   return { user, signIn, signOut }
 }
