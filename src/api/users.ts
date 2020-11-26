@@ -1,7 +1,7 @@
-import firebase from "firebase/app"
+import "firebase/firestore"
 
 import User from "./interfaces/User"
-import { usersRef } from "./firebase"
+import firebase from "./firebase"
 
 const userConverter = (id: string) => ({
   toFirestore: (user: User): firebase.firestore.DocumentData => user,
@@ -13,6 +13,8 @@ const userConverter = (id: string) => ({
     return { id, email: data.email, name: data.name }
   },
 })
+
+export const usersRef = firebase.firestore().collection("users")
 
 export const addUser = (user: User) => usersRef.doc(user.id).set(user)
 

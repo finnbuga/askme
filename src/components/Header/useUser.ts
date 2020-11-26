@@ -1,7 +1,7 @@
 import { useState } from "react"
 
 import User from "api/interfaces/User"
-import { signInWithGoogle, signOut as apiSignOut } from "api/firebase"
+import { signInWithGoogle, signOut as apiSignOut } from "api/authentication"
 import { getUser, addUser } from "api/users"
 
 const useUser = () => {
