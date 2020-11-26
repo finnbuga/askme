@@ -1,13 +1,13 @@
 import { useState } from "react"
 
 import User from "api/interfaces/User"
-import { signInWithGoogle, auth } from "api/firebase"
+import { signInWithGoogle, signOut as apiSignOut } from "api/firebase"
 import { getUser, addUser } from "api/users"
 
 const useUser = () => {
   const [currentUser, setCurrentUser] = useState<User | null>(null)
 
-  const signOut = () => auth.signOut().then(() => setCurrentUser(null))
+  const signOut = () => apiSignOut().then(() => setCurrentUser(null))
 
   const signIn = () =>
     signInWithGoogle().then(({ user: authUser }) => {
