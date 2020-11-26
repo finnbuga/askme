@@ -1,5 +1,5 @@
 import React, { useRef } from "react"
-import { Link } from "@reach/router"
+import { navigate } from "@reach/router"
 import { IconButton, Menu, MenuItem, ListItemIcon, ListItemText } from "@material-ui/core"
 import MenuIcon from "@material-ui/icons/Menu"
 import FavoriteIcon from "@material-ui/icons/Favorite"
@@ -18,13 +18,11 @@ function MainMenu() {
       </IconButton>
 
       <Menu open={isOpen} onClose={closeMenu} anchorEl={menuButtonRef.current} keepMounted>
-        <MenuItem onClick={closeMenu}>
+        <MenuItem onClick={() => navigate("/my-questions").then(closeMenu)}>
           <ListItemIcon>
             <FolderIcon />
           </ListItemIcon>
-          <ListItemText>
-            <Link to="/my-questions">My Questions</Link>
-          </ListItemText>
+          <ListItemText>My Questions</ListItemText>
         </MenuItem>
         <MenuItem onClick={closeMenu}>
           <ListItemIcon>
