@@ -1,46 +1,27 @@
 import { useState } from "react"
-import firebase from "firebase/app"
 
 import User from "api/interfaces/User"
-import { signInWithGoogle, auth, usersRef } from "api/firebase"
-
-const userConverter = (id: string) => ({
-  toFirestore: (user: User): firebase.firestore.DocumentData => user,
-  fromFirestore: (
-    snapshot: firebase.firestore.QueryDocumentSnapshot,
-    options: firebase.firestore.SnapshotOptions
-  ): User => {
-    const data = snapshot.data(options)
-    return { id, email: data.email, name: data.name }
-  },
-})
+import { signInWithGoogle, auth } from "api/firebase"
+import { getUser, addUser } from "api/users"
 
 const useUser = () => {
-  const [user, setUser] = useState<User | null>(null)
+  const [currentUser, setCurrentUser] = useState<User | null>(null)
 
-  const signOut = () => auth.signOut().then(() => setUser(null))
+  const signOut = () => auth.signOut().then(() => setCurrentUser(null))
 
   const signIn = () =>
     signInWithGoogle().then(({ user: authUser }) => {
-      const { uid: id, email, displayName: name } = authUser!
-
-      usersRef
-        .doc(id)
-        .withConverter(userConverter(id))
-        .get()
-        .then((doc) => {
-          if (doc.exists) {
-            setUser(doc.data()!)
-          } else {
-            usersRef
-              .doc(id)
-              .set({ email, name })
-              .then(() => setUser({ id, email, name }))
-          }
-        })
+      getUser(authUser!.uid).then((user) => {
+        if (user) {
+          setCurrentUser(user)
+        } else {
+          const newUser = { id: authUser!.uid, email: authUser!.email, name: authUser!.displayName }
+          addUser(newUser).then(() => setCurrentUser(newUser))
+        }
+      })
     })
 
-  return { user, signIn, signOut }
+  return { user: currentUser, signIn, signOut }
 }
 
 export default useUser
