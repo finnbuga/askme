@@ -9,17 +9,19 @@ const useUser = () => {
 
   const signOut = () => apiSignOut().then(() => setCurrentUser(null))
 
-  const signIn = () =>
-    signInWithGoogle().then(({ user: authUser }) => {
-      getUser(authUser!.uid).then((user) => {
-        if (user) {
-          setCurrentUser(user)
-        } else {
-          const newUser = { id: authUser!.uid, email: authUser!.email, name: authUser!.displayName }
-          addUser(newUser).then(() => setCurrentUser(newUser))
-        }
-      })
-    })
+  const signIn = async () => {
+    const { user: authUser } = await signInWithGoogle()
+
+    const existingUser = await getUser(authUser!.uid)
+
+    if (existingUser) {
+      setCurrentUser(existingUser)
+    } else {
+      const newUser = { id: authUser!.uid, email: authUser!.email, name: authUser!.displayName }
+      await addUser(newUser)
+      setCurrentUser(newUser)
+    }
+  }
 
   return { user: currentUser, signIn, signOut }
 }
