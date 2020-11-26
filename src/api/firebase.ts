@@ -17,8 +17,8 @@ firebase.initializeApp(firebaseConfig)
 
 const provider = new firebase.auth.GoogleAuthProvider()
 
-export const auth = firebase.auth()
-export const signInWithGoogle = () => firebase.auth().signInWithPopup(provider)
+export const signOut = firebase.auth().signOut.bind(firebase.auth())
+export const signInWithGoogle = firebase.auth().signInWithPopup.bind(firebase.auth(), provider)
 
 export const questionsRef = firebase.firestore().collection("questions")
 export const usersRef = firebase.firestore().collection("users")
