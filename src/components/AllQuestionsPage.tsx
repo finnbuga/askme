@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react"
 import { RouteComponentProps } from "@reach/router"
 
-import { questionsRef } from "api/firebase"
+import { questionsRef } from "api/questions"
 import Question from "api/interfaces/Question"
 import QuestionsSlider from "components/QuestionsSlider"
 
