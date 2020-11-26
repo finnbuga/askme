@@ -1,25 +1,8 @@
-import React, { useState, useEffect } from "react"
+import React from "react"
 import { RouteComponentProps } from "@reach/router"
 
-import { questionsRef } from "api/questions"
-import Question from "api/interfaces/Question"
+import useQuestions from "./useQuestions"
 import QuestionsSlider from "components/QuestionsSlider"
-
-const useQuestions = () => {
-  const [questions, setQuestions] = useState<Question[]>([])
-
-  useEffect(() => {
-    questionsRef.get().then((querySnapshot) => {
-      const fetchedQuestions: Question[] = []
-      querySnapshot.forEach((doc) => {
-        fetchedQuestions.push({ id: doc.id, text: doc.data().text })
-      })
-      setQuestions(fetchedQuestions)
-    })
-  }, [])
-
-  return questions
-}
 
 const AllQuestionsPage: React.FC<RouteComponentProps> = () => {
   const questions = useQuestions()
