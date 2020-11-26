@@ -1,20 +1,18 @@
 import { useState } from "react"
 import firebase from "firebase/app"
 
+import User from "interfaces/User"
 import { signInWithGoogle, auth, usersRef } from "../../firebase"
-
-interface User {
-  id?: string
-  email?: string | null
-  name?: string | null
-}
 
 const userConverter = (id: string) => ({
   toFirestore: (user: User): firebase.firestore.DocumentData => user,
   fromFirestore: (
     snapshot: firebase.firestore.QueryDocumentSnapshot,
     options: firebase.firestore.SnapshotOptions
-  ): User => ({ id, ...snapshot.data(options) }),
+  ): User => {
+    const data = snapshot.data(options)
+    return { id, email: data.email, name: data.name }
+  },
 })
 
 const useUser = () => {
