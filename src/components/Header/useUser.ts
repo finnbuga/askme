@@ -1,13 +1,12 @@
-import { useState } from "react"
-
-import User from "api/interfaces/User"
+import { useSelector, dispatch } from "store"
+import { setUser } from "store/userSlice"
 import { signInWithGoogle, signOut as apiSignOut } from "api/authentication"
 import { getUser, addUser } from "api/users"
 
 const useUser = () => {
-  const [currentUser, setCurrentUser] = useState<User | null>(null)
+  const currentUser = useSelector((state) => state.user)
 
-  const signOut = () => apiSignOut().then(() => setCurrentUser(null))
+  const signOut = () => apiSignOut().then(() => dispatch(setUser(null)))
 
   const signIn = async () => {
     const { user: authUser } = await signInWithGoogle()
@@ -15,11 +14,11 @@ const useUser = () => {
     const existingUser = await getUser(authUser!.uid)
 
     if (existingUser) {
-      setCurrentUser(existingUser)
+      dispatch(setUser(existingUser))
     } else {
       const newUser = { id: authUser!.uid, email: authUser!.email, name: authUser!.displayName }
       await addUser(newUser)
-      setCurrentUser(newUser)
+      dispatch(setUser(newUser))
     }
   }
 
