@@ -24,7 +24,7 @@ function MainMenu() {
           </ListItemIcon>
           <ListItemText>My Questions</ListItemText>
         </MenuItem>
-        <MenuItem onClick={closeMenu}>
+        <MenuItem onClick={() => navigate("/my-favourites").then(closeMenu)}>
           <ListItemIcon>
             <FavoriteIcon />
           </ListItemIcon>
