@@ -13,3 +13,7 @@ export const getQuestions = async () => {
   })
   return fetchedQuestions
 }
+
+export const deleteQuestion = async (id: Question["id"]) => {
+  questionsRef.doc(id).delete()
+}

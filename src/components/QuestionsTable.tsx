@@ -1,5 +1,6 @@
 import React from "react"
-import { Table, TableHead, TableBody, TableRow, TableCell } from "@material-ui/core"
+import { Table, TableHead, TableBody, TableRow, TableCell, IconButton } from "@material-ui/core"
+import DeleteIcon from "@material-ui/icons/Delete"
 
 import Question from "api/interfaces/Question"
 
@@ -15,13 +16,17 @@ const styles = {
   },
 }
 
-const QuestionsTable: React.FC<{ questions: Question[] }> = ({ questions }) => {
+const QuestionsTable: React.FC<{
+  questions: Question[]
+  onDelete: (id: Question["id"]) => void
+}> = ({ questions, onDelete: handleDelete }) => {
   return (
     <Table style={styles.fixedTable}>
       <TableHead>
         <TableRow>
           <TableCell style={styles.narrowCol}>Id</TableCell>
           <TableCell>Name</TableCell>
+          <TableCell style={styles.narrowCol} />
         </TableRow>
       </TableHead>
 
@@ -30,6 +35,11 @@ const QuestionsTable: React.FC<{ questions: Question[] }> = ({ questions }) => {
           <TableRow key={id}>
             <TableCell style={styles.narrowCol}>{id}</TableCell>
             <TableCell>{text}</TableCell>
+            <TableCell style={styles.narrowCol}>
+              <IconButton onClick={() => handleDelete(id)}>
+                <DeleteIcon />
+              </IconButton>
+            </TableCell>
           </TableRow>
         ))}
       </TableBody>
