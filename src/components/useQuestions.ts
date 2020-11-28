@@ -1,13 +1,13 @@
-import { useState, useEffect } from "react"
+import { useEffect } from "react"
 
-import Question from "api/interfaces/Question"
-import { getQuestions } from "api/questions"
+import { useSelector, dispatch } from "store"
+import { getQuestions } from "store/questionsSlice"
 
 const useQuestions = () => {
-  const [questions, setQuestions] = useState<Question[]>([])
+  const questions = useSelector((state) => state.questions)
 
   useEffect(() => {
-    getQuestions().then(setQuestions)
+    dispatch(getQuestions())
   }, [])
 
   return questions
