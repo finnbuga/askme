@@ -5,6 +5,7 @@ import { Router } from "@reach/router"
 import Header from "components/Header"
 import AllQuestionsPage from "components/AllQuestionsPage"
 import MyQuestionsPage from "components/MyQuestionsPage"
+import MyFavouritesPage from "components/MyFavouritesPage"
 
 const style = {
   triplePadding: {
@@ -21,6 +22,7 @@ function App() {
         <Router component="main" style={style.triplePadding}>
           <AllQuestionsPage path="/" />
           <MyQuestionsPage path="my-questions" />
+          <MyFavouritesPage path="my-favourites" />
         </Router>
       </Card>
     </Container>
