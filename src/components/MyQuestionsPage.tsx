@@ -6,9 +6,15 @@ import useQuestions from "./useQuestions"
 import QuestionsTable from "components/QuestionsTable"
 
 const MyQuestionsPage: React.FC<RouteComponentProps> = () => {
-  const questions = useQuestions()
+  const { questions, isLoading, error } = useQuestions()
 
-  return <QuestionsTable questions={questions} onDelete={deleteQuestion} />
+  return isLoading ? (
+    <div>Loading...</div>
+  ) : error ? (
+    <div>Error: {error}</div>
+  ) : (
+    <QuestionsTable questions={questions!} onDelete={deleteQuestion} />
+  )
 }
 
 export default MyQuestionsPage
