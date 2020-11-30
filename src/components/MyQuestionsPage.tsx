@@ -1,7 +1,8 @@
 import React from "react"
 import { RouteComponentProps } from "@reach/router"
 
-import { deleteQuestion } from "api/questions"
+import { dispatch } from "store"
+import { deleteQuestion } from "store/questionsSlice"
 import useQuestions from "./useQuestions"
 import QuestionsTable from "components/QuestionsTable"
 
@@ -13,7 +14,7 @@ const MyQuestionsPage: React.FC<RouteComponentProps> = () => {
   ) : error ? (
     <div>Error: {error}</div>
   ) : (
-    <QuestionsTable questions={questions!} onDelete={deleteQuestion} />
+    <QuestionsTable questions={questions!} onDelete={(id) => dispatch(deleteQuestion(id))} />
   )
 }
 
