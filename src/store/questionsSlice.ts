@@ -2,10 +2,15 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"
 
 import * as api from "api/questions"
 import Question from "api/interfaces/Question"
+import { dispatch } from "store"
 
-export const getQuestions = createAsyncThunk("questions/getQuestions", api.getQuestions)
+const getQuestions = createAsyncThunk("questions/getQuestions", api.getQuestions)
+const dispatchGetQuestion = () => dispatch(getQuestions())
+export { dispatchGetQuestion as getQuestions }
 
-export const deleteQuestion = createAsyncThunk("questions/deleteQuestion", api.deleteQuestion)
+const deleteQuestion = createAsyncThunk("questions/deleteQuestion", api.deleteQuestion)
+const dispatchDeleteQuestion = (id: Question["id"]) => dispatch(deleteQuestion(id))
+export { dispatchDeleteQuestion as deleteQuestion }
 
 const userSlice = createSlice({
   name: "questions",
