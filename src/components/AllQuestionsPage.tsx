@@ -5,9 +5,15 @@ import useQuestions from "./useQuestions"
 import QuestionsSlider from "components/QuestionsSlider"
 
 const AllQuestionsPage: React.FC<RouteComponentProps> = () => {
-  const questions = useQuestions()
+  const { questions, isLoading, error } = useQuestions()
 
-  return <QuestionsSlider questions={questions} />
+  return isLoading ? (
+    <div>Loading...</div>
+  ) : error ? (
+    <div>Error: {error}</div>
+  ) : (
+    <QuestionsSlider questions={questions!} />
+  )
 }
 
 export default AllQuestionsPage
