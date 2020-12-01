@@ -5,6 +5,8 @@ import firebase from "./firebase"
 
 const questionsRef = firebase.firestore().collection("questions")
 
+export const addQuestion = (question: Omit<Question, "id">) => questionsRef.add(question)
+
 export const getQuestions = () =>
   questionsRef.get().then(({ docs }) => docs.map((doc) => ({ id: doc.id, text: doc.data().text })))
 
