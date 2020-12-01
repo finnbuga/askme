@@ -1,8 +1,7 @@
 import React from "react"
 import { RouteComponentProps } from "@reach/router"
 
-import { addQuestion } from "api/questions"
-import { deleteQuestion } from "store/questionsSlice"
+import { addQuestion, deleteQuestion } from "store/questionsSlice"
 import useQuestions from "./useQuestions"
 import QuestionsTable from "components/QuestionsTable"
 import AddQuestion from "components/AddQuestion"
