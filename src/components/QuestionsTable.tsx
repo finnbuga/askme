@@ -25,7 +25,9 @@ const QuestionsTable: React.FC<{
       <TableHead>
         <TableRow>
           <TableCell style={styles.narrowCol}>Id</TableCell>
+
           <TableCell>Name</TableCell>
+
           <TableCell style={styles.narrowCol} />
         </TableRow>
       </TableHead>
@@ -34,7 +36,9 @@ const QuestionsTable: React.FC<{
         {questions.map(({ id, text }) => (
           <TableRow key={id}>
             <TableCell style={styles.narrowCol}>{id}</TableCell>
+
             <TableCell>{text}</TableCell>
+
             <TableCell style={styles.narrowCol}>
               <IconButton onClick={() => handleDelete(id)}>
                 <DeleteIcon />
