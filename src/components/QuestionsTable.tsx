@@ -1,5 +1,13 @@
-import React from "react"
-import { Table, TableHead, TableBody, TableRow, TableCell, IconButton } from "@material-ui/core"
+import React, { useState } from "react"
+import {
+  Table,
+  TableHead,
+  TableBody,
+  TableRow,
+  TableCell,
+  IconButton,
+  CircularProgress,
+} from "@material-ui/core"
 import DeleteIcon from "@material-ui/icons/Delete"
 
 import Question from "api/interfaces/Question"
@@ -18,8 +26,16 @@ const styles = {
 
 const QuestionsTable: React.FC<{
   questions: Question[]
-  onDelete: (id: Question["id"]) => void
-}> = ({ questions, onDelete: handleDelete }) => {
+  onDelete: (id: Question["id"]) => Promise<any>
+}> = ({ questions, onDelete }) => {
+  const [isLoading, setIsLoading] = useState<Record<any, boolean>>({})
+
+  const handleDelete = async (id: Question["id"]) => {
+    setIsLoading((state) => ({ ...state, [id]: true }))
+    await onDelete(id)
+    setIsLoading((state) => ({ ...state, [id]: false }))
+  }
+
   return (
     <Table style={styles.fixedTable}>
       <TableHead>
@@ -41,7 +57,7 @@ const QuestionsTable: React.FC<{
 
             <TableCell style={styles.narrowCol}>
               <IconButton onClick={() => handleDelete(id)}>
-                <DeleteIcon />
+                {isLoading[id] ? <CircularProgress size={24} /> : <DeleteIcon />}
               </IconButton>
             </TableCell>
           </TableRow>

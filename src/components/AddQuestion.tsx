@@ -1,34 +1,49 @@
-import React, { useRef } from "react"
-import { Box, Button, TextField } from "@material-ui/core"
+import React, { useState, useRef, useEffect } from "react"
+import { Box, Button, CircularProgress, TextField, makeStyles } from "@material-ui/core"
 
 import Question from "api/interfaces/Question"
 
-export const AddQuestion: React.FC<{
-  onAdd: (question: Omit<Question, "id">) => void
-}> = ({ onAdd }) => {
+const useStyles = makeStyles((theme) => ({
+  container: {
+    marginTop: theme.spacing(3),
+    display: "flex",
+
+    "& .MuiCircularProgress-root": {
+      position: "absolute",
+    },
+  },
+}))
+
+export const AddQuestion: React.FC<{ onAdd: (question: Omit<Question, "id">) => Promise<any> }> = ({
+  onAdd,
+}) => {
   const textRef = useRef<HTMLInputElement>(null)
 
+  const [isLoading, setIsLoading] = useState(false)
+
+  const classes = useStyles()
+
+  const handleSubmit = async (e: React.FormEvent<HTMLElement>) => {
+    e.preventDefault()
+    if (textRef.current?.value) {
+      setIsLoading(true)
+      await onAdd({ text: textRef.current.value })
+      setIsLoading(false)
+      textRef.current.value = ""
+    }
+  }
+
   return (
-    <Box
-      component="form"
-      mt={3}
-      display="flex"
-      onSubmit={(e) => {
-        if (textRef.current?.value) {
-          onAdd({ text: textRef.current.value })
-          textRef.current.value = ""
-        }
-        e.preventDefault()
-      }}
-    >
+    <form className={classes.container} onSubmit={handleSubmit}>
       <Box mr={1}>
         <TextField inputRef={textRef} variant="outlined" size="small" />
       </Box>
 
-      <Button type="submit" color="primary" variant="contained">
+      <Button type="submit" color="primary" variant="contained" disabled={isLoading}>
         Add question
+        {isLoading && <CircularProgress size={24} />}
       </Button>
-    </Box>
+    </form>
   )
 }
 
