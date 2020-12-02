@@ -14,9 +14,9 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-export const AddQuestion: React.FC<{ onAdd: (question: Omit<Question, "id">) => Promise<any> }> = ({
-  onAdd,
-}) => {
+export const AddQuestion: React.FC<{
+  onAdd: (question: Omit<Question, "id" | "userId">) => Promise<any>
+}> = ({ onAdd }) => {
   const textRef = useRef<HTMLInputElement>(null)
 
   const [isLoading, setIsLoading] = useState(false)
