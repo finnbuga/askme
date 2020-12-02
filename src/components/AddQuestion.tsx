@@ -33,6 +33,10 @@ export const AddQuestion: React.FC<{ onAdd: (question: Omit<Question, "id">) => 
     }
   }
 
+  useEffect(() => {
+    textRef.current?.focus()
+  }, [])
+
   return (
     <form className={classes.container} onSubmit={handleSubmit}>
       <Box mr={1}>
