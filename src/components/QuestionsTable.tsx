@@ -40,7 +40,7 @@ const QuestionsTable: React.FC<{
     <Table style={styles.fixedTable}>
       <TableHead>
         <TableRow>
-          <TableCell style={styles.narrowCol}>Id</TableCell>
+          <TableCell style={styles.narrowCol}>User Id</TableCell>
 
           <TableCell>Name</TableCell>
 
@@ -49,9 +49,9 @@ const QuestionsTable: React.FC<{
       </TableHead>
 
       <TableBody>
-        {questions.map(({ id, text }) => (
+        {questions.map(({ id, text, userId }) => (
           <TableRow key={id}>
-            <TableCell style={styles.narrowCol}>{id}</TableCell>
+            <TableCell style={styles.narrowCol}>{userId}</TableCell>
 
             <TableCell>{text}</TableCell>
 
