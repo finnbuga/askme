@@ -15,17 +15,13 @@ const MyQuestionsPage: React.FC<RouteComponentProps> = () => {
   const handleAddQuestion = (question: Omit<Question, "id" | "userId">) =>
     addQuestion({ userId: user!.id, ...question })
 
-  if (isLoading) {
-    return <div>Loading...</div>
-  }
-
-  if (error) {
+  if (!isLoading && error) {
     return <div>Error: {error}</div>
   }
 
   return (
     <>
-      <QuestionsTable questions={questions!} onDelete={deleteQuestion} />
+      <QuestionsTable questions={questions!} onDelete={deleteQuestion} isLoading={isLoading} />
       <AddQuestion onAdd={handleAddQuestion} />
     </>
   )
