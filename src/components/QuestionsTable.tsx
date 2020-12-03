@@ -9,6 +9,7 @@ import {
   CircularProgress,
 } from "@material-ui/core"
 import DeleteIcon from "@material-ui/icons/Delete"
+import { Skeleton } from "@material-ui/lab"
 
 import Question from "api/interfaces/Question"
 
@@ -27,13 +28,14 @@ const styles = {
 const QuestionsTable: React.FC<{
   questions: Question[]
   onDelete: (id: Question["id"]) => Promise<any>
-}> = ({ questions, onDelete }) => {
-  const [isLoading, setIsLoading] = useState<Record<any, boolean>>({})
+  isLoading: boolean
+}> = ({ questions, onDelete, isLoading }) => {
+  const [isDeleting, setIsDeleting] = useState<Record<any, boolean>>({})
 
   const handleDelete = async (id: Question["id"]) => {
-    setIsLoading((state) => ({ ...state, [id]: true }))
+    setIsDeleting((state) => ({ ...state, [id]: true }))
     await onDelete(id)
-    setIsLoading((state) => ({ ...state, [id]: false }))
+    setIsDeleting((state) => ({ ...state, [id]: false }))
   }
 
   return (
@@ -49,22 +51,42 @@ const QuestionsTable: React.FC<{
       </TableHead>
 
       <TableBody>
-        {questions.map(({ id, text, userId }) => (
-          <TableRow key={id}>
-            <TableCell style={styles.narrowCol}>{userId}</TableCell>
+        {questions ? (
+          questions.map(({ id, text, userId }) => (
+            <TableRow key={id}>
+              <TableCell style={styles.narrowCol}>{userId}</TableCell>
 
-            <TableCell>{text}</TableCell>
+              <TableCell>{text}</TableCell>
 
-            <TableCell style={styles.narrowCol}>
-              <IconButton onClick={() => handleDelete(id)}>
-                {isLoading[id] ? <CircularProgress size={24} /> : <DeleteIcon />}
-              </IconButton>
-            </TableCell>
-          </TableRow>
-        ))}
+              <TableCell style={styles.narrowCol}>
+                <IconButton onClick={() => handleDelete(id)}>
+                  {isDeleting[id] ? <CircularProgress size={24} /> : <DeleteIcon />}
+                </IconButton>
+              </TableCell>
+            </TableRow>
+          ))
+        ) : (
+          <LoadingRows colSpan={3} rowCount={7} height={48} />
+        )}
       </TableBody>
     </Table>
   )
 }
+
+const LoadingRows: React.FC<{ colSpan: number; rowCount: number; height: number }> = ({
+  colSpan,
+  rowCount,
+  height,
+}) => (
+  <>
+    {[...Array(rowCount)].map((_, i) => (
+      <TableRow key={i}>
+        <TableCell colSpan={colSpan}>
+          <Skeleton height={height} />
+        </TableCell>
+      </TableRow>
+    ))}
+  </>
+)
 
 export default QuestionsTable
