@@ -82,7 +82,11 @@ const LoadingRows: React.FC<{ colSpan: number; rowCount: number; height: number 
     {[...Array(rowCount)].map((_, i) => (
       <TableRow key={i}>
         <TableCell colSpan={colSpan}>
-          <Skeleton height={height} />
+          <Skeleton width="100%">
+            <IconButton>
+              <DeleteIcon />
+            </IconButton>
+          </Skeleton>
         </TableCell>
       </TableRow>
     ))}
