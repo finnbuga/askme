@@ -4,19 +4,21 @@ import { useSelector } from "store"
 import { getQuestions } from "store/questionsSlice"
 
 const useQuestions = () => {
-  const [isLoading, setIsLoading] = useState(true)
-  const [error, setError] = useState<string | null>(null)
+  const [state, setState] = useState<{ isLoading: boolean; error: string | null }>({
+    isLoading: true,
+    error: null,
+  })
+
   const questions = useSelector((state) => state.questions)
 
   useEffect(() => {
-    setIsLoading(true)
     getQuestions().then(({ payload }) => {
       // @todo use the error message in payload.error
-      setError(payload ? null : "Failed fetching questions")
-      setIsLoading(false)
+      setState({ isLoading: false, error: payload ? null : "Failed fetching questions" })
     })
   }, [])
 
+  const { isLoading, error } = state
   return { isLoading, error, questions }
 }
 
