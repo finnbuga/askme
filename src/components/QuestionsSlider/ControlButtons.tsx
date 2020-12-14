@@ -1,6 +1,7 @@
 import React from "react"
 import { IconButton, CardActions } from "@material-ui/core"
 import FavoriteIcon from "@material-ui/icons/Favorite"
+import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder"
 import SkipPreviousIcon from "@material-ui/icons/SkipPrevious"
 import SkipNextIcon from "@material-ui/icons/SkipNext"
 
@@ -16,14 +17,19 @@ const styles = {
 const ControlButtons: React.FC<{
   goToPrev?: () => void
   goToNext?: () => void
-  like?: () => void
-}> = ({ goToPrev, goToNext, like }) => (
+  like?: () => Promise<any>
+  isLiked?: boolean
+}> = ({ goToPrev, goToNext, like, isLiked }) => (
   <CardActions style={{ justifyContent: "center" }}>
     <IconButton onClick={goToPrev} disabled={!goToPrev}>
       <SkipPreviousIcon style={styles.bigButton} />
     </IconButton>
-    <IconButton disabled={!like}>
-      <FavoriteIcon style={styles.mediumButton} />
+    <IconButton disabled={!like} onClick={like} color={isLiked ? "secondary" : "default"}>
+      {isLiked ? (
+        <FavoriteIcon style={styles.mediumButton} />
+      ) : (
+        <FavoriteBorderIcon style={styles.mediumButton} />
+      )}
     </IconButton>
     <IconButton onClick={goToNext} disabled={!goToNext}>
       <SkipNextIcon style={styles.bigButton} />
