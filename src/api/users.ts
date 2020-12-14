@@ -10,7 +10,7 @@ const userConverter = (id: string) => ({
     options: firebase.firestore.SnapshotOptions
   ): User => {
     const data = snapshot.data(options)
-    return { id, email: data.email, name: data.name }
+    return { id, email: data.email, name: data.name, likedQuestions: data.likedQuestions }
   },
 })
 
@@ -24,3 +24,13 @@ export const getUser = (id: User["id"]) =>
     .withConverter(userConverter(id))
     .get()
     .then((doc) => doc.data())
+
+export const addLikedQuestion = (userId: string, questionId: string) =>
+  usersRef
+    .doc(userId)
+    .update({ likedQuestions: firebase.firestore.FieldValue.arrayUnion(questionId) })
+
+export const removeLikedQuestion = (userId: string, questionId: string) =>
+  usersRef
+    .doc(userId)
+    .update({ likedQuestions: firebase.firestore.FieldValue.arrayRemove(questionId) })
