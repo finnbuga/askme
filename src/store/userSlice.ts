@@ -9,7 +9,7 @@ const addLikedQuestion = createAsyncThunk<Promise<any>, Question["id"], { state:
   "questions/addLikedQuestion",
   async (questionId: string, { getState }) => api.addLikedQuestion(getState().user!.id, questionId)
 )
-// @todo use connect?
+
 const dispatchAddLikedQuestion = (id: Question["id"]) => dispatch(addLikedQuestion(id))
 export { dispatchAddLikedQuestion as addLikedQuestion }
 
@@ -34,7 +34,6 @@ const userSlice = createSlice({
     builder.addCase(addLikedQuestion.fulfilled, (state, action) => {
       const questionId = action.meta.arg
       if (!state!.likedQuestions) {
-        // @todo use Set()
         state!.likedQuestions = []
       }
       state!.likedQuestions.push(questionId)
