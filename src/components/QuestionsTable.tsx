@@ -44,7 +44,7 @@ const QuestionsTable: React.FC<{
         <TableRow>
           <TableCell style={styles.narrowCol}>User Id</TableCell>
 
-          <TableCell>Name</TableCell>
+          <TableCell>Question</TableCell>
 
           <TableCell style={styles.narrowCol} />
         </TableRow>
