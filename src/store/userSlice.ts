@@ -9,7 +9,6 @@ const addLikedQuestion = createAsyncThunk<Promise<any>, Question["id"], { state:
   "questions/addLikedQuestion",
   async (questionId: string, { getState }) => api.addLikedQuestion(getState().user!.id, questionId)
 )
-
 const dispatchAddLikedQuestion = (id: Question["id"]) => dispatch(addLikedQuestion(id))
 export { dispatchAddLikedQuestion as addLikedQuestion }
 
@@ -48,6 +47,8 @@ const userSlice = createSlice({
   },
 })
 
-export const { setUser } = userSlice.actions
+const { setUser } = userSlice.actions
+const dispatchSetUser = (user: User | null) => dispatch(setUser(user))
+export { dispatchSetUser as setUser }
 
 export default userSlice.reducer
