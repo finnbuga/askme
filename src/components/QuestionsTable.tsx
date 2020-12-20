@@ -42,8 +42,6 @@ const QuestionsTable: React.FC<{
     <Table style={styles.fixedTable}>
       <TableHead>
         <TableRow>
-          <TableCell style={styles.narrowCol}>User Id</TableCell>
-
           <TableCell>Question</TableCell>
 
           <TableCell style={styles.narrowCol} />
@@ -54,8 +52,6 @@ const QuestionsTable: React.FC<{
         {questions ? (
           questions.map(({ id, text, userId }) => (
             <TableRow key={id}>
-              <TableCell style={styles.narrowCol}>{userId}</TableCell>
-
               <TableCell>{text}</TableCell>
 
               <TableCell style={styles.narrowCol}>
