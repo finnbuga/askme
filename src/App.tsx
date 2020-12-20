@@ -1,7 +1,8 @@
 import React from "react"
-import { Card, Container } from "@material-ui/core"
 import { Router } from "@reach/router"
+import { Card, Container } from "@material-ui/core"
 
+import "components/getUser"
 import Header from "components/Header"
 import AllQuestionsPage from "components/AllQuestionsPage"
 import MyQuestionsPage from "components/MyQuestionsPage"

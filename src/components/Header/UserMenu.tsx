@@ -1,10 +1,11 @@
 import React from "react"
+import { useSelector } from "store"
 import { Button } from "@material-ui/core"
 
-import useUser from "./useUser"
+import { signInWithGoogle, signOut } from "api/authentication"
 
 function UserMenu() {
-  const { user, signIn, signOut } = useUser()
+  const user = useSelector((state) => state.user)
   const isLoggedIn = Boolean(user)
 
   return isLoggedIn ? (
@@ -15,7 +16,7 @@ function UserMenu() {
       </Button>
     </>
   ) : (
-    <Button color="inherit" onClick={signIn}>
+    <Button color="inherit" onClick={signInWithGoogle}>
       Login
     </Button>
   )
