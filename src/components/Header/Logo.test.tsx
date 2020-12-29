@@ -12,3 +12,23 @@ test("renders logo as link", () => {
   render(<Logo />)
   expect(screen.getByText("Ask me!").closest("a")).toHaveAttribute("href", "/")
 })
+
+test("renders logo markup", () => {
+  const { container } = render(<Logo />)
+  expect(container).toMatchInlineSnapshot(`
+    <div>
+      <h6
+        class="MuiTypography-root MuiTypography-h6"
+        style="flex-grow: 1;"
+      >
+        <a
+          aria-current="page"
+          href="/"
+          style="text-decoration: none;"
+        >
+          Ask me!
+        </a>
+      </h6>
+    </div>
+  `)
+})
