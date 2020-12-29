@@ -2,20 +2,24 @@ import React from "react"
 import { render, screen } from "@testing-library/react"
 import Logo from "./Logo"
 
-test("renders logo text", () => {
-  render(<Logo />)
-  const linkElement = screen.getByText("Ask me!")
-  expect(linkElement).toBeInTheDocument()
-})
+describe("Logo", () => {
+  let container: HTMLElement
+  beforeEach(() => {
+    container = render(<Logo />).container
+  })
 
-test("renders logo as link", () => {
-  render(<Logo />)
-  expect(screen.getByText("Ask me!").closest("a")).toHaveAttribute("href", "/")
-})
+  test("renders the right text", () => {
+    const linkElement = screen.getByText("Ask me!")
+    expect(linkElement).toBeInTheDocument()
+  })
 
-test("renders logo markup", () => {
-  const { container } = render(<Logo />)
-  expect(container).toMatchInlineSnapshot(`
+  test("links to the right href", () => {
+    const linkElement = screen.getByText("Ask me!")
+    expect(linkElement).toHaveAttribute("href", "/")
+  })
+
+  test("renders the right markup", () => {
+    expect(container).toMatchInlineSnapshot(`
     <div>
       <h6
         class="MuiTypography-root MuiTypography-h6"
@@ -31,4 +35,5 @@ test("renders logo markup", () => {
       </h6>
     </div>
   `)
+  })
 })
