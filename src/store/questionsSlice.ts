@@ -16,7 +16,7 @@ const deleteQuestion = createAsyncThunk("questions/deleteQuestion", api.deleteQu
 const dispatchDeleteQuestion = (id: Question["id"]) => dispatch(deleteQuestion(id))
 export { dispatchDeleteQuestion as deleteQuestion }
 
-const userSlice = createSlice({
+const questionsSlice = createSlice({
   name: "questions",
 
   initialState: null as Question[] | null,
@@ -41,4 +41,4 @@ const userSlice = createSlice({
   },
 })
 
-export default userSlice.reducer
+export default questionsSlice.reducer
