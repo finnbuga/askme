@@ -19,7 +19,7 @@ export { dispatchDeleteQuestion as deleteQuestion }
 const questionsSlice = createSlice({
   name: "questions",
 
-  initialState: null as Question[] | null,
+  initialState: [] as Question[],
 
   reducers: {},
 
@@ -31,12 +31,12 @@ const questionsSlice = createSlice({
 
     builder.addCase(deleteQuestion.fulfilled, (state, action) => {
       const deletedQuestionId = action.meta.arg
-      return state?.filter((question) => question.id !== deletedQuestionId) || null
+      return state.filter((question) => question.id !== deletedQuestionId)
     })
 
     builder.addCase(addQuestion.fulfilled, (state, action) => {
       const newlyAddedQuestion = action.payload
-      return state ? [...state, newlyAddedQuestion] : [newlyAddedQuestion]
+      return [...state, newlyAddedQuestion]
     })
   },
 })
