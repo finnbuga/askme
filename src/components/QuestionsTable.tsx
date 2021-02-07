@@ -44,14 +44,14 @@ const QuestionsTable: React.FC<QuestionsTableProps> = ({ questions, isLoading, o
     <Table style={styles.fixedTable}>
       <TableHead>
         <TableRow>
-          <TableCell>Question</TableCell>
+          <TableCell>Questions</TableCell>
 
           <TableCell style={styles.narrowCol} />
         </TableRow>
       </TableHead>
 
       <TableBody>
-        {!questions ? (
+        {isLoading ? (
           <LoadingRows colSpan={3} rowCount={7} height={48} />
         ) : (
           questions.map(({ id, text, userId }) => (
