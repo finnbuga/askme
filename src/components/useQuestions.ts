@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import { prop } from "lodash/fp"
 
 import { useSelector } from "store"
 import { dispatchGetQuestions } from "store/questionsSlice"
@@ -9,7 +10,7 @@ const useQuestions = () => {
     error: null,
   })
 
-  const questions = useSelector((state) => state.questions)
+  const questions = useSelector(prop("questions"))
 
   useEffect(() => {
     dispatchGetQuestions().then(({ payload }) => {
