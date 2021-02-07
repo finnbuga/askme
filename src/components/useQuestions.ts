@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 
 import { useSelector } from "store"
-import { getQuestions } from "store/questionsSlice"
+import { dispatchGetQuestions } from "store/questionsSlice"
 
 const useQuestions = () => {
   const [state, setState] = useState<{ isLoading: boolean; error: string | null }>({
@@ -12,7 +12,7 @@ const useQuestions = () => {
   const questions = useSelector((state) => state.questions)
 
   useEffect(() => {
-    getQuestions().then(({ payload }) => {
+    dispatchGetQuestions().then(({ payload }) => {
       // @todo use the error message in payload.error
       setState({ isLoading: false, error: payload ? null : "Failed fetching questions" })
     })

@@ -3,7 +3,7 @@ import { RouteComponentProps } from "@reach/router"
 
 import Question from "api/interfaces/Question"
 import { useSelector } from "store"
-import { addQuestion, deleteQuestion } from "store/questionsSlice"
+import { dispatchAddQuestion, dispatchDeleteQuestion } from "store/questionsSlice"
 import useQuestions from "./useQuestions"
 import QuestionsTable from "components/QuestionsTable"
 import AddQuestion from "components/AddQuestion"
@@ -14,7 +14,7 @@ const MyQuestionsPage: React.FC<RouteComponentProps> = () => {
   const myQuestions = questions?.filter((question) => question.userId === user?.id)
 
   const handleAddQuestion = (question: Omit<Question, "id" | "userId">) =>
-    addQuestion({ userId: user!.id, ...question })
+    dispatchAddQuestion({ userId: user!.id, ...question })
 
   if (!isLoading && error) {
     return <div>Error: {error}</div>
@@ -22,7 +22,12 @@ const MyQuestionsPage: React.FC<RouteComponentProps> = () => {
 
   return (
     <>
-      <QuestionsTable questions={myQuestions!} isLoading={isLoading} onDelete={deleteQuestion} />
+      <QuestionsTable
+        questions={myQuestions!}
+        isLoading={isLoading}
+        onDelete={dispatchDeleteQuestion}
+      />
+
       {user && <AddQuestion onAdd={handleAddQuestion} />}
     </>
   )
