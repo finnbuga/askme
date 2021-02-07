@@ -4,13 +4,13 @@ import * as api from "api/questions"
 import Question from "api/interfaces/Question"
 import { dispatch } from "store"
 
-const addQuestion = createAsyncThunk("questions/addQuestion", api.addQuestion)
-const dispatchAddQuestion = (question: Omit<Question, "id">) => dispatch(addQuestion(question))
-export { dispatchAddQuestion as addQuestion }
-
 const getQuestions = createAsyncThunk("questions/getQuestions", api.getQuestions)
 const dispatchGetQuestion = () => dispatch(getQuestions())
 export { dispatchGetQuestion as getQuestions }
+
+const addQuestion = createAsyncThunk("questions/addQuestion", api.addQuestion)
+const dispatchAddQuestion = (question: Omit<Question, "id">) => dispatch(addQuestion(question))
+export { dispatchAddQuestion as addQuestion }
 
 const deleteQuestion = createAsyncThunk("questions/deleteQuestion", api.deleteQuestion)
 const dispatchDeleteQuestion = (id: Question["id"]) => dispatch(deleteQuestion(id))
@@ -29,14 +29,14 @@ const questionsSlice = createSlice({
       return fetchedQuestions
     })
 
-    builder.addCase(deleteQuestion.fulfilled, (state, action) => {
-      const deletedQuestionId = action.meta.arg
-      return state.filter((question) => question.id !== deletedQuestionId)
-    })
-
     builder.addCase(addQuestion.fulfilled, (state, action) => {
       const newlyAddedQuestion = action.payload
       return [...state, newlyAddedQuestion]
+    })
+
+    builder.addCase(deleteQuestion.fulfilled, (state, action) => {
+      const deletedQuestionId = action.meta.arg
+      return state.filter((question) => question.id !== deletedQuestionId)
     })
   },
 })
