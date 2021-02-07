@@ -1,9 +1,11 @@
+import { prop } from "lodash/fp"
+
 import { useSelector } from "store"
 import Question from "api/interfaces/Question"
 import { addLikedQuestion, removeLikedQuestion } from "store/userSlice"
 
 const useLike = (id: Question["id"]) => {
-  const likedQuestions = useSelector((state) => state.user?.likedQuestions)
+  const likedQuestions = useSelector(prop("user.likedQuestions"))
 
   const isLiked = likedQuestions?.includes(id)
   const like = () => (isLiked ? removeLikedQuestion(id) : addLikedQuestion(id))
