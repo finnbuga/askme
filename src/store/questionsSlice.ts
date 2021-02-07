@@ -5,16 +5,14 @@ import Question from "api/interfaces/Question"
 import { dispatch } from "store"
 
 const getQuestions = createAsyncThunk("questions/getQuestions", api.getQuestions)
-const dispatchGetQuestion = () => dispatch(getQuestions())
-export { dispatchGetQuestion as getQuestions }
+export const dispatchGetQuestions = () => dispatch(getQuestions())
 
 const addQuestion = createAsyncThunk("questions/addQuestion", api.addQuestion)
-const dispatchAddQuestion = (question: Omit<Question, "id">) => dispatch(addQuestion(question))
-export { dispatchAddQuestion as addQuestion }
+export const dispatchAddQuestion = (question: Omit<Question, "id">) =>
+  dispatch(addQuestion(question))
 
 const deleteQuestion = createAsyncThunk("questions/deleteQuestion", api.deleteQuestion)
-const dispatchDeleteQuestion = (id: Question["id"]) => dispatch(deleteQuestion(id))
-export { dispatchDeleteQuestion as deleteQuestion }
+export const dispatchDeleteQuestion = (id: Question["id"]) => dispatch(deleteQuestion(id))
 
 const questionsSlice = createSlice({
   name: "questions",
