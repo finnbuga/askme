@@ -22,7 +22,7 @@ const MyQuestionsPage: React.FC<RouteComponentProps> = () => {
 
   return (
     <>
-      <QuestionsTable questions={myQuestions!} onDelete={deleteQuestion} isLoading={isLoading} />
+      <QuestionsTable questions={myQuestions!} isLoading={isLoading} onDelete={deleteQuestion} />
       {user && <AddQuestion onAdd={handleAddQuestion} />}
     </>
   )

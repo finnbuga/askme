@@ -25,11 +25,13 @@ const styles = {
   },
 }
 
-const QuestionsTable: React.FC<{
+export interface QuestionsTableProps {
   questions: Question[]
-  onDelete: (id: Question["id"]) => Promise<any>
   isLoading: boolean
-}> = ({ questions, onDelete, isLoading }) => {
+  onDelete: (id: Question["id"]) => Promise<any>
+}
+
+const QuestionsTable: React.FC<QuestionsTableProps> = ({ questions, isLoading, onDelete }) => {
   const [isDeleting, setIsDeleting] = useState<Record<any, boolean>>({})
 
   const handleDelete = async (id: Question["id"]) => {
@@ -49,7 +51,9 @@ const QuestionsTable: React.FC<{
       </TableHead>
 
       <TableBody>
-        {questions ? (
+        {!questions ? (
+          <LoadingRows colSpan={3} rowCount={7} height={48} />
+        ) : (
           questions.map(({ id, text, userId }) => (
             <TableRow key={id}>
               <TableCell>{text}</TableCell>
@@ -61,8 +65,6 @@ const QuestionsTable: React.FC<{
               </TableCell>
             </TableRow>
           ))
-        ) : (
-          <LoadingRows colSpan={3} rowCount={7} height={48} />
         )}
       </TableBody>
     </Table>
