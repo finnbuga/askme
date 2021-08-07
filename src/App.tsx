@@ -17,7 +17,7 @@ const style = {
 
 function App() {
   return (
-    <Container maxWidth="xs">
+    <Container maxWidth="sm">
       <Card>
         <Header />
 
