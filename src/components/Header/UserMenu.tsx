@@ -1,12 +1,11 @@
 import React from "react"
 import { useSelector } from "store"
-import { prop } from "lodash/fp"
 import { Button } from "@material-ui/core"
 
 import { signInWithGoogle, signOut } from "api/authentication"
 
 function UserMenu() {
-  const user = useSelector(prop("user"))
+  const user = useSelector((state) => state.user)
   const isLoggedIn = Boolean(user)
 
   return isLoggedIn ? (

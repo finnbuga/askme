@@ -1,6 +1,5 @@
 import React from "react"
 import { RouteComponentProps } from "@reach/router"
-import { prop } from "lodash/fp"
 
 import Question from "api/interfaces/Question"
 import { useSelector } from "store"
@@ -10,7 +9,7 @@ import QuestionsTable from "components/QuestionsTable"
 import AddQuestion from "components/AddQuestion"
 
 const MyQuestionsPage: React.FC<RouteComponentProps> = () => {
-  const user = useSelector(prop("user"))
+  const user = useSelector((state) => state.user)
   const { questions, isLoading, error } = useQuestions()
   const myQuestions = questions?.filter((question) => question.userId === user?.id)
 
