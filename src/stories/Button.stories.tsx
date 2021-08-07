@@ -4,10 +4,10 @@ import { Story, Meta } from "@storybook/react"
 import { Button, ButtonProps } from "@material-ui/core"
 
 export default {
-  title: "Example/Button",
+  title: "AskMe/Button",
   component: Button,
   argTypes: {
-    backgroundColor: { control: "color" },
+    // color: { control: "color" },
   },
 } as Meta
 
@@ -35,5 +35,6 @@ export const Small = Template.bind({})
 Small.args = {
   ...Default.args,
   variant: "contained",
+  // TODO check how to show this like radio buttons rather than text input
   size: "small",
 }
