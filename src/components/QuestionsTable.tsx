@@ -7,9 +7,9 @@ import {
   TableCell,
   IconButton,
   CircularProgress,
+  Skeleton,
 } from "@material-ui/core"
 import DeleteIcon from "@material-ui/icons/Delete"
-import { Skeleton } from "@material-ui/lab"
 
 import Question from "api/interfaces/Question"
 

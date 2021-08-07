@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from "react"
-import { Box, Button, CircularProgress, TextField, makeStyles } from "@material-ui/core"
+import { Box, Button, CircularProgress, TextField } from "@material-ui/core"
+import { makeStyles } from "@material-ui/styles"
 
 import Question from "api/interfaces/Question"
 
