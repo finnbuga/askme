@@ -2,7 +2,7 @@ import React from "react"
 
 import Question from "api/interfaces/Question"
 import useNavigator from "./useNavigator"
-import BigTextCard from "./BigTextCard"
+import QuestionCard from "./QuestionCard"
 import ControlButtons from "./ControlButtons"
 import useLike from "./useLike"
 
@@ -14,7 +14,7 @@ const QuestionsSlider: React.FC<{ questions: Question[] }> = ({ questions }) => 
 
   return (
     <>
-      <BigTextCard>{questions.length ? currentQuestion.text : "No questions"}</BigTextCard>
+      <QuestionCard>{questions.length ? currentQuestion.text : "No questions"}</QuestionCard>
 
       <ControlButtons goToNext={goToNext} goToPrev={goToPrev} like={like} isLiked={isLiked} />
     </>

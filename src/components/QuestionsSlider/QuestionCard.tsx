@@ -13,7 +13,7 @@ const styles = {
   },
 }
 
-const BigTextCard: React.FC<{ isLoading?: boolean }> = ({ isLoading, children }) => (
+const QuestionCard: React.FC<{ isLoading?: boolean }> = ({ isLoading, children }) => (
   <Card style={styles.bigText}>
     <CardContent>
       <h3>{isLoading ? "Loading..." : children}</h3>
@@ -21,4 +21,4 @@ const BigTextCard: React.FC<{ isLoading?: boolean }> = ({ isLoading, children })
   </Card>
 )
 
-export default BigTextCard
+export default QuestionCard
