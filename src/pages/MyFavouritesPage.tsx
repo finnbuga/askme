@@ -9,6 +9,10 @@ const MyFavouritesPage: React.FC<RouteComponentProps> = () => {
   const user = useSelector((state) => state.user)
   const isMyFavourite = (question: Question) => !!user?.likedQuestions?.includes(question.id)
 
+  if (!user) {
+    return <p>In order to add your favourites please login</p>
+  }
+
   return <QuestionsSlider filter={isMyFavourite} />
 }
 

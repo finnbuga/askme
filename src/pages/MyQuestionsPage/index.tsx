@@ -16,6 +16,10 @@ const MyQuestionsPage: React.FC<RouteComponentProps> = () => {
   const handleAddQuestion = (question: Omit<Question, "id" | "userId">) =>
     dispatchAddQuestion({ userId: user!.id, ...question })
 
+  if (!user) {
+    return <p>In order to add your own questions please login</p>
+  }
+
   if (!isLoading && error) {
     return <div>Error: {error}</div>
   }
@@ -23,7 +27,7 @@ const MyQuestionsPage: React.FC<RouteComponentProps> = () => {
   return (
     <>
       <QuestionsTable
-        questions={questions!}
+        questions={questions}
         isLoading={isLoading}
         onDelete={dispatchDeleteQuestion}
       />
