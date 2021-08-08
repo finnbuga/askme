@@ -2,17 +2,12 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"
 
 import * as api from "api/questions"
 import Question from "api/interfaces/Question"
-import { dispatch } from "store"
 
 const getQuestions = createAsyncThunk("questions/getQuestions", api.getQuestions)
-export const dispatchGetQuestions = () => dispatch(getQuestions())
 
 const addQuestion = createAsyncThunk("questions/addQuestion", api.addQuestion)
-export const dispatchAddQuestion = (question: Omit<Question, "id">) =>
-  dispatch(addQuestion(question))
 
 const deleteQuestion = createAsyncThunk("questions/deleteQuestion", api.deleteQuestion)
-export const dispatchDeleteQuestion = (id: Question["id"]) => dispatch(deleteQuestion(id))
 
 const questionsSlice = createSlice({
   name: "questions",
@@ -38,5 +33,7 @@ const questionsSlice = createSlice({
     })
   },
 })
+
+export const questionsActions = { getQuestions, addQuestion, deleteQuestion }
 
 export default questionsSlice.reducer

@@ -1,8 +1,10 @@
-import { setUser } from "store/userSlice"
+import useUserActions from "store/useUserActions"
 import { onAuthStateChanged } from "api/authentication"
 import { getUser, addUser } from "api/users"
 
 onAuthStateChanged(async (authUser) => {
+  const { setUser } = useUserActions()
+
   if (!authUser) {
     setUser(null)
   } else {

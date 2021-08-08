@@ -3,22 +3,17 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"
 import User from "api/interfaces/User"
 import Question from "api/interfaces/Question"
 import * as api from "api/users"
-import { dispatch, RootState } from "store"
+import { RootState } from "store"
 
 const addLikedQuestion = createAsyncThunk<Promise<any>, Question["id"], { state: RootState }>(
   "questions/addLikedQuestion",
-  async (questionId: string, { getState }) => api.addLikedQuestion(getState().user!.id, questionId)
+  (questionId: string, { getState }) => api.addLikedQuestion(getState().user!.id, questionId)
 )
-const dispatchAddLikedQuestion = (id: Question["id"]) => dispatch(addLikedQuestion(id))
-export { dispatchAddLikedQuestion as addLikedQuestion }
 
 const removeLikedQuestion = createAsyncThunk<Promise<any>, Question["id"], { state: RootState }>(
   "questions/removeLikedQuestion",
-  async (questionId: string, { getState }) =>
-    api.removeLikedQuestion(getState().user!.id, questionId)
+  (questionId: string, { getState }) => api.removeLikedQuestion(getState().user!.id, questionId)
 )
-const dispatchRemoveLikedQuestion = (id: Question["id"]) => dispatch(removeLikedQuestion(id))
-export { dispatchRemoveLikedQuestion as removeLikedQuestion }
 
 const userSlice = createSlice({
   name: "user",
@@ -47,8 +42,6 @@ const userSlice = createSlice({
   },
 })
 
-const { setUser } = userSlice.actions
-const dispatchSetUser = (user: User | null) => dispatch(setUser(user))
-export { dispatchSetUser as setUser }
+export const actions = { ...userSlice.actions, addLikedQuestion, removeLikedQuestion }
 
 export default userSlice.reducer

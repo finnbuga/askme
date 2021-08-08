@@ -2,9 +2,11 @@ import { useEffect, useState } from "react"
 
 import Question from "api/interfaces/Question"
 import { useSelector } from "store"
-import { dispatchGetQuestions } from "store/questionsSlice"
+import { questionsActions } from "store/questionsSlice"
+import useDispatchActions from "store/useDispatchActions"
 
 const useQuestions = (filter?: (question: Question) => boolean) => {
+  const { getQuestions } = useDispatchActions(questionsActions)
   const [state, setState] = useState({
     isLoading: true,
     error: null as string | null,
@@ -16,11 +18,11 @@ const useQuestions = (filter?: (question: Question) => boolean) => {
   }
 
   useEffect(() => {
-    dispatchGetQuestions().then(({ payload }) => {
+    getQuestions().then(({ payload }) => {
       // TODO use the error message in payload.error
       setState({ isLoading: false, error: payload ? null : "Failed fetching questions" })
     })
-  }, [])
+  }, [getQuestions])
 
   return { questions, ...state }
 }

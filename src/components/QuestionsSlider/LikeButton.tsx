@@ -5,8 +5,8 @@ import FavoriteIcon from "@material-ui/icons/Favorite"
 import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder"
 
 import Question from "api/interfaces/Question"
-import { addLikedQuestion, removeLikedQuestion } from "store/userSlice"
-import { useNotifications } from "store/useNotifications"
+import useNotificationsActions from "store/useNotificationsActions"
+import useUserActions from "store/useUserActions"
 
 const style = {
   fontSize: "2.4rem",
@@ -14,7 +14,8 @@ const style = {
 
 const LikeButton: React.FC<{ questionId: Question["id"] }> = ({ questionId: id }) => {
   const user = useSelector((state) => state.user)
-  const { notifyError } = useNotifications()
+  const { addLikedQuestion, removeLikedQuestion } = useUserActions()
+  const { notifyError } = useNotificationsActions()
 
   const isLiked = user?.likedQuestions?.includes(id)
 
