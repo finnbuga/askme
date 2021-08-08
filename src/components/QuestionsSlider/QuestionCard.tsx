@@ -14,9 +14,9 @@ const sx = {
 }
 
 // TODO loading state
-const QuestionCard: React.FC<{ isLoading?: boolean }> = ({ isLoading, children }) => (
+const QuestionCard: React.FC = ({ children }) => (
   <Card sx={sx}>
-    <h3>{isLoading ? "Loading..." : children}</h3>
+    <h3>{children}</h3>
   </Card>
 )
 

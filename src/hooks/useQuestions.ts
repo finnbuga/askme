@@ -1,15 +1,19 @@
 import { useEffect, useState } from "react"
 
+import Question from "api/interfaces/Question"
 import { useSelector } from "store"
 import { dispatchGetQuestions } from "store/questionsSlice"
 
-const useQuestions = () => {
+const useQuestions = (filter?: (question: Question) => boolean) => {
   const [state, setState] = useState({
     isLoading: true,
     error: null as string | null,
   })
 
-  const questions = useSelector((state) => state.questions)
+  let questions = useSelector((state) => state.questions)
+  if (filter) {
+    questions = questions.filter(filter)
+  }
 
   useEffect(() => {
     dispatchGetQuestions().then(({ payload }) => {
@@ -18,8 +22,7 @@ const useQuestions = () => {
     })
   }, [])
 
-  const { isLoading, error } = state
-  return { isLoading, error, questions }
+  return { questions, ...state }
 }
 
 export default useQuestions

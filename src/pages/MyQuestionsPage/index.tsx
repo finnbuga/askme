@@ -10,8 +10,8 @@ import AddQuestion from "pages/MyQuestionsPage/AddQuestion"
 
 const MyQuestionsPage: React.FC<RouteComponentProps> = () => {
   const user = useSelector((state) => state.user)
-  const { questions, isLoading, error } = useQuestions()
-  const myQuestions = questions?.filter((question) => question.userId === user?.id)
+  const isMyQuestion = (question: Question) => question.userId === user?.id
+  const { questions, isLoading, error } = useQuestions(isMyQuestion)
 
   const handleAddQuestion = (question: Omit<Question, "id" | "userId">) =>
     dispatchAddQuestion({ userId: user!.id, ...question })
@@ -23,7 +23,7 @@ const MyQuestionsPage: React.FC<RouteComponentProps> = () => {
   return (
     <>
       <QuestionsTable
-        questions={myQuestions!}
+        questions={questions!}
         isLoading={isLoading}
         onDelete={dispatchDeleteQuestion}
       />

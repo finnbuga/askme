@@ -16,10 +16,10 @@ const styles = {
 
 const ControlButtons: React.FC<{
   goToPrev?: () => void
-  goToNext?: () => void
   isLiked?: boolean
+  goToNext?: () => void
   like?: () => Promise<any>
-}> = ({ goToPrev, goToNext, like, isLiked }) => (
+}> = ({ goToPrev, isLiked, goToNext, like }) => (
   <CardActions style={{ justifyContent: "center" }}>
     <IconButton onClick={goToPrev} disabled={!goToPrev}>
       <SkipPreviousIcon style={styles.bigButton} />
