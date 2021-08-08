@@ -3,17 +3,20 @@ import { Card, CardContent } from "@material-ui/core"
 
 const styles = {
   bigText: {
-    flexGrow: 1,
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
     textAlign: "center" as "center",
-    lineHeight: "3rem",
-    minHeight: 250,
+    lineHeight: 1.5,
+    minHeight: 200,
+    background: "#f3f3f3",
   },
 }
 
 const BigTextCard: React.FC<{ isLoading?: boolean }> = ({ isLoading, children }) => (
   <Card style={styles.bigText}>
     <CardContent>
-      <h1>{isLoading ? "Loading..." : children}</h1>
+      <h3>{isLoading ? "Loading..." : children}</h3>
     </CardContent>
   </Card>
 )
