@@ -29,7 +29,7 @@ const LikeButton: React.FC<{ questionId: Question["id"] }> = ({ questionId: id }
   }
 
   return (
-    <IconButton onClick={handleLike} color={isLiked ? "secondary" : "default"}>
+    <IconButton onClick={handleLike} color={isLiked ? "error" : "default"}>
       {isLiked ? <FavoriteIcon style={style} /> : <FavoriteBorderIcon style={style} />}
     </IconButton>
   )
