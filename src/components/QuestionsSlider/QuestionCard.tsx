@@ -1,23 +1,22 @@
 import React from "react"
-import { Card, CardContent } from "@material-ui/core"
+import { Card, Theme } from "@material-ui/core"
+import { alpha } from "@material-ui/core/styles"
 
-const styles = {
-  bigText: {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    textAlign: "center" as "center",
-    lineHeight: 1.5,
-    minHeight: 200,
-    background: "#f3f3f3",
-  },
+const sx = {
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  textAlign: "center" as "center",
+  lineHeight: 1.5,
+  minHeight: 200,
+  padding: 4,
+  backgroundColor: (theme: Theme) => alpha(theme.palette.primary.main, 0.3),
 }
 
+// TODO loading state
 const QuestionCard: React.FC<{ isLoading?: boolean }> = ({ isLoading, children }) => (
-  <Card style={styles.bigText}>
-    <CardContent>
-      <h3>{isLoading ? "Loading..." : children}</h3>
-    </CardContent>
+  <Card sx={sx}>
+    <h3>{isLoading ? "Loading..." : children}</h3>
   </Card>
 )
 
