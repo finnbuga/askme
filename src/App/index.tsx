@@ -5,12 +5,12 @@ import { CssBaseline, Theme } from "@material-ui/core"
 import teal from "@material-ui/core/colors/teal"
 
 import "./getUser"
+import PageWrapper from "./PageWrapper"
+import Header from "./Header"
+import Notifications from "./Notifications"
 import HomePage from "pages/HomePage"
 import MyQuestionsPage from "pages/MyQuestionsPage"
 import MyFavouritesPage from "pages/MyFavouritesPage"
-import Header from "./Header"
-import PageWrapper from "./Header/PageWrapper"
-import { Notifications } from "./Notifications"
 
 declare module "@material-ui/styles" {
   interface DefaultTheme extends Theme {}

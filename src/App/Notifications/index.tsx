@@ -4,7 +4,7 @@ import * as React from "react"
 import { useSelector } from "store"
 import { useNotifications } from "store/useNotifications"
 
-export const Notifications: React.FC = () => {
+const Notifications: React.FC = () => {
   const notifications = useSelector((state) => state.notifications)
   const { showNext } = useNotifications()
 
@@ -30,3 +30,5 @@ export const Notifications: React.FC = () => {
     </Snackbar>
   )
 }
+
+export default Notifications
