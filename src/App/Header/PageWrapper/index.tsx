@@ -4,7 +4,7 @@ import { Box, Card, Container, Theme } from "@material-ui/core"
 import backgroundImage from "./background.jpg"
 
 const wrapperStyle = {
-  height: "100vh",
+  minHeight: "100vh",
   background: (theme: Theme) => ({
     xs: theme.palette.grey[200],
     sm: `url(${backgroundImage}) 0% 0% / cover`,
