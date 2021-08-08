@@ -4,16 +4,16 @@ import { useSelector } from "store"
 import { dispatchGetQuestions } from "store/questionsSlice"
 
 const useQuestions = () => {
-  const [state, setState] = useState<{ isLoading: boolean; error: string | null }>({
+  const [state, setState] = useState({
     isLoading: true,
-    error: null,
+    error: null as string | null,
   })
 
   const questions = useSelector((state) => state.questions)
 
   useEffect(() => {
     dispatchGetQuestions().then(({ payload }) => {
-      // @todo use the error message in payload.error
+      // TODO use the error message in payload.error
       setState({ isLoading: false, error: payload ? null : "Failed fetching questions" })
     })
   }, [])

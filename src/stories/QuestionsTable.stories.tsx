@@ -1,7 +1,7 @@
 import React from "react"
 import { Story, Meta } from "@storybook/react"
 
-import QuestionsTable, { QuestionsTableProps } from "../components/QuestionsTable"
+import QuestionsTable, { QuestionsTableProps } from "../pages/MyQuestionsPage/QuestionsTable"
 
 export default {
   title: "AskMe/QuestionsTable",

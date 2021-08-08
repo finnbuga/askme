@@ -3,12 +3,11 @@ import { Router } from "@reach/router"
 import { createTheme, ThemeProvider } from "@material-ui/core/styles"
 import { Card, Container, Theme } from "@material-ui/core"
 
-import "components/getUser"
-import Header from "components/Header"
-import AllQuestionsPage from "components/AllQuestionsPage"
-import MyQuestionsPage from "components/MyQuestionsPage"
-import MyFavouritesPage from "components/MyFavouritesPage"
-import HowToPlayPage from "components/HowToPlayPage"
+import "./getUser"
+import Header from "App/Header"
+import HomePage from "pages/HomePage"
+import MyQuestionsPage from "pages/MyQuestionsPage"
+import MyFavouritesPage from "pages/MyFavouritesPage"
 
 declare module "@material-ui/styles" {
   interface DefaultTheme extends Theme {}
@@ -30,10 +29,9 @@ function App() {
           <Header />
 
           <Router component="main" style={style.triplePadding}>
-            <AllQuestionsPage path="/" />
             <MyQuestionsPage path="my-questions" />
             <MyFavouritesPage path="my-favourites" />
-            <HowToPlayPage path="how-to-play" />
+            <HomePage path="*" />
           </Router>
         </Card>
       </Container>

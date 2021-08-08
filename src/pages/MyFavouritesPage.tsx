@@ -2,7 +2,7 @@ import React from "react"
 import { RouteComponentProps } from "@reach/router"
 
 import { useSelector } from "store"
-import useQuestions from "./useQuestions"
+import useQuestions from "../hooks/useQuestions"
 import QuestionsSlider from "components/QuestionsSlider"
 
 const MyFavouritesPage: React.FC<RouteComponentProps> = () => {

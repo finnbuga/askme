@@ -4,9 +4,8 @@ import { IconButton, Menu, MenuItem, ListItemIcon, ListItemText } from "@materia
 import MenuIcon from "@material-ui/icons/Menu"
 import FavoriteIcon from "@material-ui/icons/Favorite"
 import FolderIcon from "@material-ui/icons/Folder"
-import HelpIcon from "@material-ui/icons/Help"
 
-import useToggle from "./useToggle"
+import useToggle from "hooks/useToggle"
 
 function MainMenu() {
   const menuButtonRef = useRef(null)
@@ -19,12 +18,6 @@ function MainMenu() {
       </IconButton>
 
       <Menu open={isOpen} onClose={closeMenu} anchorEl={menuButtonRef.current} keepMounted>
-        <MenuItem onClick={() => navigate("/how-to-play").then(closeMenu)}>
-          <ListItemIcon>
-            <HelpIcon />
-          </ListItemIcon>
-          <ListItemText>How to Play</ListItemText>
-        </MenuItem>
         <MenuItem onClick={() => navigate("/my-questions").then(closeMenu)}>
           <ListItemIcon>
             <FolderIcon />

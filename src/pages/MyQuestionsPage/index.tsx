@@ -4,9 +4,9 @@ import { RouteComponentProps } from "@reach/router"
 import Question from "api/interfaces/Question"
 import { useSelector } from "store"
 import { dispatchAddQuestion, dispatchDeleteQuestion } from "store/questionsSlice"
-import useQuestions from "./useQuestions"
-import QuestionsTable from "components/QuestionsTable"
-import AddQuestion from "components/AddQuestion"
+import useQuestions from "../../hooks/useQuestions"
+import QuestionsTable from "pages/MyQuestionsPage/QuestionsTable"
+import AddQuestion from "pages/MyQuestionsPage/AddQuestion"
 
 const MyQuestionsPage: React.FC<RouteComponentProps> = () => {
   const user = useSelector((state) => state.user)
