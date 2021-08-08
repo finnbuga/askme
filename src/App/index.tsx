@@ -10,6 +10,7 @@ import MyQuestionsPage from "pages/MyQuestionsPage"
 import MyFavouritesPage from "pages/MyFavouritesPage"
 import Header from "./Header"
 import PageWrapper from "./Header/PageWrapper"
+import { Notifications } from "./Notifications"
 
 declare module "@material-ui/styles" {
   interface DefaultTheme extends Theme {}
@@ -29,7 +30,10 @@ function App() {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <PageWrapper>
+        <Notifications />
+
         <Header />
+
         <Router component="main" style={{ padding: 24 }}>
           <MyQuestionsPage path="my-questions" />
           <MyFavouritesPage path="my-favourites" />

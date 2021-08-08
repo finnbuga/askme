@@ -1,8 +1,7 @@
-import React from "react"
+import React, { useState } from "react"
 import { IconButton } from "@material-ui/core"
 import SkipNextIcon from "@material-ui/icons/SkipNext"
 import SkipPreviousIcon from "@material-ui/icons/SkipPrevious"
-import { useState } from "react"
 
 const style = {
   fontSize: "3rem",

@@ -1,13 +1,15 @@
 import { configureStore } from "@reduxjs/toolkit"
 import { createSelectorHook } from "react-redux"
 
-import userReducer from "./userSlice"
-import questionsReducer from "./questionsSlice"
+import user from "./userSlice"
+import questions from "./questionsSlice"
+import notifications from "./notificationsSlice"
 
 const store = configureStore({
   reducer: {
-    user: userReducer,
-    questions: questionsReducer,
+    user,
+    questions,
+    notifications,
   },
 })
 

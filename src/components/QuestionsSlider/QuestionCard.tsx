@@ -13,7 +13,6 @@ const sx = {
   backgroundColor: (theme: Theme) => alpha(theme.palette.primary.main, 0.3),
 }
 
-// TODO loading state
 const QuestionCard: React.FC = ({ children }) => (
   <Card sx={sx}>
     <h3>{children}</h3>
