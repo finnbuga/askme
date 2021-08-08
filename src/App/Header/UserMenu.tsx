@@ -1,5 +1,6 @@
 import React from "react"
 import { useSelector } from "store"
+import { navigate } from "@reach/router"
 import { Button } from "@material-ui/core"
 
 import { signInWithGoogle, signOut } from "api/authentication"
@@ -11,7 +12,7 @@ function UserMenu() {
   return isLoggedIn ? (
     <>
       {user!.name} -
-      <Button color="inherit" onClick={signOut}>
+      <Button color="inherit" onClick={() => navigate("/").then(signOut)}>
         Log out
       </Button>
     </>
