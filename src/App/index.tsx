@@ -1,10 +1,10 @@
 import React from "react"
 import { Router } from "@reach/router"
-import { createTheme, ThemeProvider } from "@material-ui/core/styles"
+import { ThemeProvider } from "@material-ui/core/styles"
 import { CssBaseline, Theme } from "@material-ui/core"
-import teal from "@material-ui/core/colors/teal"
 
 import "./getUser"
+import { theme } from "./theme"
 import PageWrapper from "./PageWrapper"
 import Header from "./Header"
 import Notifications from "./Notifications"
@@ -15,15 +15,6 @@ import MyFavouritesPage from "pages/MyFavouritesPage"
 declare module "@material-ui/styles" {
   interface DefaultTheme extends Theme {}
 }
-
-const theme = createTheme({
-  palette: {
-    primary: {
-      main: teal[500],
-    },
-  },
-  spacing: 8,
-})
 
 function App() {
   return (
