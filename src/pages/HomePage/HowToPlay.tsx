@@ -17,6 +17,7 @@ const HowToPlay: React.FC<RouteComponentProps> = () => {
             <CloseIcon fontSize="inherit" />
           </IconButton>
         }
+        sx={{ mb: 3 }}
       >
         <p>Spark insightful conversations and get you know yourself and your friends better.</p>
         <p>
