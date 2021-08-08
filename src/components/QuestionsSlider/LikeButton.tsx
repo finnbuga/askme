@@ -6,19 +6,30 @@ import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder"
 
 import Question from "api/interfaces/Question"
 import { addLikedQuestion, removeLikedQuestion } from "store/userSlice"
+import { useNotifications } from "store/useNotifications"
 
 const style = {
   fontSize: "2.4rem",
 }
 
 const LikeButton: React.FC<{ questionId: Question["id"] }> = ({ questionId: id }) => {
-  const likedQuestions = useSelector((state) => state.user?.likedQuestions)
+  const user = useSelector((state) => state.user)
+  const { notifyError } = useNotifications()
 
-  const isLiked = likedQuestions?.includes(id)
-  const like = () => (isLiked ? removeLikedQuestion(id) : addLikedQuestion(id))
+  const isLiked = user?.likedQuestions?.includes(id)
+
+  const handleLike = () => {
+    if (!user) {
+      notifyError("You can't like if you're not logged in")
+    } else if (isLiked) {
+      removeLikedQuestion(id)
+    } else {
+      addLikedQuestion(id)
+    }
+  }
 
   return (
-    <IconButton disabled={!like} onClick={like} color={isLiked ? "secondary" : "default"}>
+    <IconButton onClick={handleLike} color={isLiked ? "secondary" : "default"}>
       {isLiked ? <FavoriteIcon style={style} /> : <FavoriteBorderIcon style={style} />}
     </IconButton>
   )
