@@ -1,31 +1,16 @@
-import React, { useState, useRef, useEffect } from "react"
-import { Box, Button, CircularProgress, TextField } from "@material-ui/core"
-import { makeStyles } from "@material-ui/styles"
+import React, { useState, useRef } from "react"
+import { Button, CircularProgress, Stack, TextField } from "@material-ui/core"
 
 import { useSelector } from "store"
 import { questionsActions } from "store/questionsSlice"
 import useDispatchActions from "store/useDispatchActions"
 
-const useStyles = makeStyles((theme) => ({
-  container: {
-    marginTop: theme.spacing(3),
-    display: "flex",
-
-    "& .MuiCircularProgress-root": {
-      position: "absolute",
-    },
-  },
-}))
-
 export const AddQuestion: React.FC = () => {
-  const textRef = useRef<HTMLInputElement>(null)
   const user = useSelector((state) => state.user)
-
   const { addQuestion } = useDispatchActions(questionsActions)
 
+  const textRef = useRef<HTMLInputElement>(null)
   const [isLoading, setIsLoading] = useState(false)
-
-  const classes = useStyles()
 
   const handleSubmit = async (e: React.FormEvent<HTMLElement>) => {
     e.preventDefault()
@@ -37,21 +22,15 @@ export const AddQuestion: React.FC = () => {
     }
   }
 
-  useEffect(() => {
-    textRef.current?.focus()
-  }, [])
-
   return (
-    <form className={classes.container} onSubmit={handleSubmit}>
-      <Box mr={1}>
-        <TextField inputRef={textRef} variant="outlined" size="small" />
-      </Box>
+    <Stack component="form" onSubmit={handleSubmit} spacing={1} mt={3}>
+      <TextField inputRef={textRef} autoFocus variant="outlined" size="small" fullWidth />
 
-      <Button type="submit" color="primary" variant="contained" disabled={isLoading}>
+      <Button type="submit" disabled={isLoading} color="primary" variant="contained">
         Add question
-        {isLoading && <CircularProgress size={24} />}
+        {isLoading && <CircularProgress size={24} sx={{ position: "absolute" }} />}
       </Button>
-    </form>
+    </Stack>
   )
 }
 
