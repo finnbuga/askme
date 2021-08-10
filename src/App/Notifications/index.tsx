@@ -3,11 +3,12 @@ import useToggle from "hooks/useToggle"
 import React, { useEffect } from "react"
 
 import { useSelector } from "store"
-import useNotificationsActions from "store/useNotificationsActions"
+import { notificationsActions } from "store/notificationsSlice"
+import useDispatchActions from "store/useDispatchActions"
 
 const Notifications: React.FC = () => {
   const notifications = useSelector((state) => state.notifications)
-  const { showNext } = useNotificationsActions()
+  const { showNext } = useDispatchActions(notificationsActions)
   const [isOpen, open, close] = useToggle(true)
 
   useEffect(() => {

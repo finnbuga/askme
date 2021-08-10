@@ -42,6 +42,6 @@ const userSlice = createSlice({
   },
 })
 
-export const actions = { ...userSlice.actions, addLikedQuestion, removeLikedQuestion }
+export const userActions = { ...userSlice.actions, addLikedQuestion, removeLikedQuestion }
 
 export default userSlice.reducer

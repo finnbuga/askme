@@ -18,6 +18,6 @@ export const notificationsSlice = createSlice({
   },
 })
 
-export const { actions } = notificationsSlice
+export const notificationsActions = notificationsSlice.actions
 
 export default notificationsSlice.reducer
