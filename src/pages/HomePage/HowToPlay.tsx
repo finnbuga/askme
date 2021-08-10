@@ -1,10 +1,9 @@
 import React from "react"
-import { RouteComponentProps } from "@reach/router"
 import { Alert, Collapse, IconButton } from "@material-ui/core"
 import CloseIcon from "@material-ui/icons/Close"
 import useToggle from "../../hooks/useToggle"
 
-const HowToPlay: React.FC<RouteComponentProps> = () => {
+const HowToPlay: React.FC = () => {
   const [isOpen, , close] = useToggle(true)
 
   return (
