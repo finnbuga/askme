@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit"
-import { createSelectorHook } from "react-redux"
+import { createSelectorHook, useDispatch as useReduxDispatch } from "react-redux"
 
 import user from "./userSlice"
 import questions from "./questionsSlice"
@@ -13,10 +13,10 @@ const store = configureStore({
   },
 })
 
+type Dispatch = typeof store.dispatch
+export const useDispatch = () => useReduxDispatch<Dispatch>()
+
 export type RootState = ReturnType<typeof store.getState>
-
 export const useSelector = createSelectorHook<RootState>()
-
-export const { dispatch } = store
 
 export default store
