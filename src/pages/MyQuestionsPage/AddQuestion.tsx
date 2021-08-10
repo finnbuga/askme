@@ -2,7 +2,9 @@ import React, { useState, useRef, useEffect } from "react"
 import { Box, Button, CircularProgress, TextField } from "@material-ui/core"
 import { makeStyles } from "@material-ui/styles"
 
-import Question from "api/interfaces/Question"
+import { useSelector } from "store"
+import { questionsActions } from "store/questionsSlice"
+import useDispatchActions from "store/useDispatchActions"
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -15,10 +17,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-export const AddQuestion: React.FC<{
-  onAdd: (question: Omit<Question, "id" | "userId">) => Promise<any>
-}> = ({ onAdd }) => {
+export const AddQuestion: React.FC = () => {
   const textRef = useRef<HTMLInputElement>(null)
+  const user = useSelector((state) => state.user)
+
+  const { addQuestion } = useDispatchActions(questionsActions)
 
   const [isLoading, setIsLoading] = useState(false)
 
@@ -28,7 +31,7 @@ export const AddQuestion: React.FC<{
     e.preventDefault()
     if (textRef.current?.value) {
       setIsLoading(true)
-      await onAdd({ text: textRef.current.value })
+      await addQuestion({ userId: user!.id, text: textRef.current.value })
       setIsLoading(false)
       textRef.current.value = ""
     }

@@ -12,6 +12,8 @@ import {
 import DeleteIcon from "@material-ui/icons/Delete"
 
 import Question from "api/interfaces/Question"
+import useDispatchActions from "store/useDispatchActions"
+import { questionsActions } from "store/questionsSlice"
 
 const styles = {
   fixedTable: {
@@ -28,15 +30,15 @@ const styles = {
 export interface QuestionsTableProps {
   questions: Question[]
   isLoading: boolean
-  onDelete: (id: Question["id"]) => Promise<any>
 }
 
-const QuestionsTable: React.FC<QuestionsTableProps> = ({ questions, isLoading, onDelete }) => {
+const QuestionsTable: React.FC<QuestionsTableProps> = ({ questions, isLoading }) => {
   const [isDeleting, setIsDeleting] = useState<Record<any, boolean>>({})
+  const { deleteQuestion } = useDispatchActions(questionsActions)
 
   const handleDelete = async (id: Question["id"]) => {
     setIsDeleting((state) => ({ ...state, [id]: true }))
-    await onDelete(id)
+    await deleteQuestion(id)
     setIsDeleting((state) => ({ ...state, [id]: false }))
   }
 
