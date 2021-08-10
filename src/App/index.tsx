@@ -1,7 +1,7 @@
 import React from "react"
 import { Router } from "@reach/router"
 import { ThemeProvider } from "@material-ui/core/styles"
-import { CssBaseline, Theme } from "@material-ui/core"
+import { CssBaseline } from "@material-ui/core"
 
 import HomePage from "pages/HomePage"
 import MyQuestionsPage from "pages/MyQuestionsPage"
@@ -11,10 +11,6 @@ import { theme } from "./theme"
 import PageWrapper from "./PageWrapper"
 import Header from "./Header"
 import Notifications from "./Notifications"
-
-declare module "@material-ui/styles" {
-  interface DefaultTheme extends Theme {}
-}
 
 const App: React.FC = () => {
   useAuthentication()
