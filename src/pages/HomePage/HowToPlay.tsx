@@ -1,23 +1,14 @@
 import React from "react"
-import { Alert, Collapse, IconButton } from "@material-ui/core"
-import CloseIcon from "@material-ui/icons/Close"
-import useToggle from "../../hooks/useToggle"
+import { Alert, Collapse } from "@material-ui/core"
+
+import useToggle from "hooks/useToggle"
 
 const HowToPlay: React.FC = () => {
   const [isOpen, , close] = useToggle(true)
 
   return (
     <Collapse in={isOpen}>
-      <Alert
-        severity="info"
-        icon={false}
-        action={
-          <IconButton size="small" onClick={close}>
-            <CloseIcon fontSize="inherit" />
-          </IconButton>
-        }
-        sx={{ mb: 3 }}
-      >
+      <Alert severity="info" icon={false} onClose={close} sx={{ mb: 3 }}>
         <p>Spark insightful conversations and get you know yourself and your friends better.</p>
         <p>
           Pick a random question and speak uninterrupted for 3 minutes. Only then can others share
