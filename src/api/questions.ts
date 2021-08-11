@@ -1,7 +1,7 @@
 import "firebase/firestore"
 
-import Question from "./interfaces/Question"
 import firebase from "./firebase"
+import Question from "./interfaces/Question"
 
 const questionsRef = firebase.firestore().collection("questions")
 

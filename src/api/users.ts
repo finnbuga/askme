@@ -1,7 +1,7 @@
 import "firebase/firestore"
 
-import User from "./interfaces/User"
 import firebase from "./firebase"
+import User from "./interfaces/User"
 
 const userConverter = (id: string) => ({
   toFirestore: (user: User): firebase.firestore.DocumentData => user,
