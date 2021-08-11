@@ -1,7 +1,6 @@
 import React, { useState } from "react"
 import {
   Table,
-  TableHead,
   TableBody,
   TableRow,
   TableCell,
@@ -14,18 +13,6 @@ import DeleteIcon from "@material-ui/icons/Delete"
 import Question from "api/interfaces/Question"
 import useDispatchActions from "store/useDispatchActions"
 import { questionsActions } from "store/questionsSlice"
-
-const styles = {
-  fixedTable: {
-    tableLayout: "fixed" as "fixed",
-  },
-  narrowCol: {
-    width: 50,
-    overflow: "hidden" as "hidden",
-    whiteSpace: "nowrap" as "nowrap",
-    textOverflow: "ellipsis" as "ellipsis",
-  },
-}
 
 export interface QuestionsTableProps {
   questions: Question[]
@@ -43,24 +30,16 @@ const QuestionsTable: React.FC<QuestionsTableProps> = ({ questions, isLoading })
   }
 
   return (
-    <Table style={styles.fixedTable}>
-      <TableHead>
-        <TableRow>
-          <TableCell>Questions</TableCell>
-
-          <TableCell style={styles.narrowCol} />
-        </TableRow>
-      </TableHead>
-
+    <Table>
       <TableBody>
         {isLoading ? (
           <LoadingRows colSpan={3} rowCount={7} height={48} />
         ) : (
-          questions.map(({ id, text, userId }) => (
+          questions.map(({ id, text }) => (
             <TableRow key={id}>
               <TableCell>{text}</TableCell>
 
-              <TableCell style={styles.narrowCol}>
+              <TableCell width={50}>
                 <IconButton onClick={() => handleDelete(id)}>
                   {isDeleting[id] ? <CircularProgress size={24} /> : <DeleteIcon />}
                 </IconButton>

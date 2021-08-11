@@ -10,14 +10,17 @@ const MyFavouritesPage: React.FC<RouteComponentProps> = () => {
   const { user, isAuthenticating } = useSelector((state) => state.auth)
   const isMyFavourite = (question: Question) => !!user?.likedQuestions?.includes(question.id)
 
-  if (isAuthenticating) {
-    return null
-  }
-  if (!user) {
-    return <Alert severity="info">In order to add your favourites please login</Alert>
-  }
+  return (
+    <>
+      <h2>My Favourites</h2>
 
-  return <QuestionsSlider filter={isMyFavourite} />
+      {isAuthenticating ? null : !user ? (
+        <Alert severity="info">In order to add your favourites please login</Alert>
+      ) : (
+        <QuestionsSlider filter={isMyFavourite} />
+      )}
+    </>
+  )
 }
 
 export default MyFavouritesPage

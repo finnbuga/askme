@@ -13,20 +13,20 @@ const MyQuestionsPage: React.FC<RouteComponentProps> = () => {
   const isMyQuestion = (question: Question) => question.userId === user?.id
   const { questions, isLoading, error } = useQuestions(isMyQuestion)
 
-  if (isAuthenticating) {
-    return null
-  }
-  if (!user) {
-    return <Alert severity="info">In order to add your own questions please login</Alert>
-  }
-  if (!isLoading && error) {
-    return <Alert severity="error">{error}</Alert>
-  }
-
   return (
     <>
-      <QuestionsTable questions={questions} isLoading={isLoading} />
-      {user && <AddQuestion />}
+      <h2>My Questions</h2>
+
+      {isAuthenticating ? null : !user ? (
+        <Alert severity="info">In order to add your own questions please login</Alert>
+      ) : !isLoading && error ? (
+        <Alert severity="error">{error}</Alert>
+      ) : (
+        <>
+          <QuestionsTable questions={questions} isLoading={isLoading} />
+          {user && <AddQuestion />}
+        </>
+      )}
     </>
   )
 }
