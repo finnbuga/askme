@@ -14,7 +14,7 @@ const userConverter = (id: string) => ({
   },
 })
 
-export const usersRef = firebase.firestore().collection("users")
+const usersRef = firebase.firestore().collection("users")
 
 export const addUser = (user: User) => usersRef.doc(user.id).set(user)
 

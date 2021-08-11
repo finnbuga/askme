@@ -1,7 +1,7 @@
 import { ActionCreatorsMapObject, bindActionCreators } from "@reduxjs/toolkit"
 import { useDispatch } from "store"
 
-export function useDispatchActions<A, M extends ActionCreatorsMapObject<A>>(actionCreators: M): M {
+function useDispatchActions<A, M extends ActionCreatorsMapObject<A>>(actionCreators: M): M {
   const dispatch = useDispatch()
 
   return bindActionCreators(actionCreators, dispatch)

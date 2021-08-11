@@ -1,7 +1,7 @@
 import { AlertColor } from "@material-ui/core"
 import { createSlice, PayloadAction } from "@reduxjs/toolkit"
 
-export const notificationsSlice = createSlice({
+const notificationsSlice = createSlice({
   name: "comparison",
   initialState: [] as Array<{ message: string; severity: AlertColor }>,
   reducers: {
