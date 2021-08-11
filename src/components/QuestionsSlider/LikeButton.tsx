@@ -14,7 +14,7 @@ const style = {
 }
 
 const LikeButton: React.FC<{ questionId: Question["id"] }> = ({ questionId: id }) => {
-  const user = useSelector((state) => state.user)
+  const { user } = useSelector((state) => state.user)
   const { addLikedQuestion, removeLikedQuestion } = useDispatchActions(userActions)
   const { notifyError } = useDispatchActions(notificationsActions)
 

@@ -6,10 +6,10 @@ import { Button } from "@material-ui/core"
 import { signInWithGoogle, signOut } from "api/authentication"
 
 function UserMenu() {
-  const user = useSelector((state) => state.user)
+  const { user, isLoading } = useSelector((state) => state.user)
   const isLoggedIn = Boolean(user)
 
-  return isLoggedIn ? (
+  return isLoading ? null : isLoggedIn ? (
     <>
       {user!.name} -
       <Button color="inherit" onClick={() => navigate("/").then(signOut)}>
