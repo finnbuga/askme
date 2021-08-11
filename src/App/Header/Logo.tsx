@@ -1,7 +1,7 @@
 import React from "react"
 import { Link } from "@reach/router"
 import { Typography } from "@material-ui/core"
-import logo from "./logo.png"
+// import logo from "./logo.png"
 
 const style = {
   expand: {

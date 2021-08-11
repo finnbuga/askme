@@ -17,7 +17,7 @@ const removeLikedQuestion = createAsyncThunk<Promise<any>, Question["id"], { sta
 )
 
 const authSlice = createSlice({
-  name: "user",
+  name: "auth",
 
   initialState: {
     isAuthenticating: true,
