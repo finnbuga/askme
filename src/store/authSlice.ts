@@ -7,26 +7,26 @@ import { RootState } from "store"
 
 const addLikedQuestion = createAsyncThunk<Promise<any>, Question["id"], { state: RootState }>(
   "questions/addLikedQuestion",
-  (questionId: string, { getState }) => api.addLikedQuestion(getState().user.user!.id, questionId)
+  (questionId: string, { getState }) => api.addLikedQuestion(getState().auth.user!.id, questionId)
 )
 
 const removeLikedQuestion = createAsyncThunk<Promise<any>, Question["id"], { state: RootState }>(
   "questions/removeLikedQuestion",
   (questionId: string, { getState }) =>
-    api.removeLikedQuestion(getState().user.user!.id, questionId)
+    api.removeLikedQuestion(getState().auth.user!.id, questionId)
 )
 
-const userSlice = createSlice({
+const authSlice = createSlice({
   name: "user",
 
   initialState: {
-    isLoading: true,
+    isAuthenticating: true,
     user: null as User | null,
   },
 
   reducers: {
     setUser: (_, action) => ({
-      isLoading: false,
+      isAuthenticating: false,
       user: action.payload,
     }),
   },
@@ -49,6 +49,6 @@ const userSlice = createSlice({
   },
 })
 
-export const userActions = { ...userSlice.actions, addLikedQuestion, removeLikedQuestion }
+export const userActions = { ...authSlice.actions, addLikedQuestion, removeLikedQuestion }
 
-export default userSlice.reducer
+export default authSlice.reducer

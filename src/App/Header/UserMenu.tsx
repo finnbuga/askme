@@ -3,13 +3,13 @@ import { useSelector } from "store"
 import { navigate } from "@reach/router"
 import { Button } from "@material-ui/core"
 
-import { signInWithGoogle, signOut } from "api/authentication"
+import { signInWithGoogle, signOut } from "api/auth"
 
 function UserMenu() {
-  const { user, isLoading } = useSelector((state) => state.user)
+  const { user, isAuthenticating } = useSelector((state) => state.auth)
   const isLoggedIn = Boolean(user)
 
-  return isLoading ? null : isLoggedIn ? (
+  return isAuthenticating ? null : isLoggedIn ? (
     <>
       {user!.name} -
       <Button color="inherit" onClick={() => navigate("/").then(signOut)}>

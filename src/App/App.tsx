@@ -6,14 +6,14 @@ import { CssBaseline } from "@material-ui/core"
 import HomePage from "pages/HomePage"
 import MyQuestionsPage from "pages/MyQuestionsPage"
 import MyFavouritesPage from "pages/MyFavouritesPage"
-import useAuthentication from "./useAuthentication"
+import useAuth from "./useAuth"
 import { theme } from "./theme"
 import PageWrapper from "./PageWrapper"
 import Header from "./Header"
 import Notifications from "./Notifications"
 
 const App: React.FC = () => {
-  useAuthentication()
+  useAuth()
 
   return (
     <ThemeProvider theme={theme}>

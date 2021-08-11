@@ -9,11 +9,11 @@ import QuestionsTable from "pages/MyQuestionsPage/QuestionsTable"
 import AddQuestion from "pages/MyQuestionsPage/AddQuestion"
 
 const MyQuestionsPage: React.FC<RouteComponentProps> = () => {
-  const { user, isLoading: isUserLoading } = useSelector((state) => state.user)
+  const { user, isAuthenticating } = useSelector((state) => state.auth)
   const isMyQuestion = (question: Question) => question.userId === user?.id
   const { questions, isLoading, error } = useQuestions(isMyQuestion)
 
-  if (isUserLoading) {
+  if (isAuthenticating) {
     return null
   }
   if (!user) {

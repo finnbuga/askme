@@ -1,13 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit"
 import { createSelectorHook, useDispatch as useReduxDispatch } from "react-redux"
 
-import user from "./userSlice"
+import auth from "./authSlice"
 import questions from "./questionsSlice"
 import notifications from "./notificationsSlice"
 
 const store = configureStore({
   reducer: {
-    user,
+    auth,
     questions,
     notifications,
   },

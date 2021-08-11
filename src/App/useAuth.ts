@@ -1,9 +1,9 @@
-import { onAuthStateChanged } from "api/authentication"
+import { onAuthStateChanged } from "api/auth"
 import { getUser, addUser } from "api/users"
 import useDispatchActions from "store/useDispatchActions"
-import { userActions } from "store/userSlice"
+import { userActions } from "store/authSlice"
 
-const useAuthentication = () => {
+const useAuth = () => {
   const { setUser } = useDispatchActions(userActions)
 
   onAuthStateChanged(async (authUser) => {
@@ -23,4 +23,4 @@ const useAuthentication = () => {
   })
 }
 
-export default useAuthentication
+export default useAuth
