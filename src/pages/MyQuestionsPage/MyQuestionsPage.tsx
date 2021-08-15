@@ -1,11 +1,11 @@
 import React from "react"
 import { RouteComponentProps } from "@reach/router"
-import { Alert } from "@material-ui/core"
+import { Alert, List, ListItem } from "@material-ui/core"
 
 import Question from "api/interfaces/Question"
 import { useSelector } from "store"
 import useQuestions from "hooks/useQuestions"
-import QuestionsTable from "pages/MyQuestionsPage/QuestionsTable"
+import DeleteButton from "pages/MyQuestionsPage/DeleteButton"
 import AddQuestion from "pages/MyQuestionsPage/AddQuestion"
 
 const MyQuestionsPage: React.FC<RouteComponentProps> = () => {
@@ -19,11 +19,18 @@ const MyQuestionsPage: React.FC<RouteComponentProps> = () => {
 
       {isAuthenticating || isLoading ? null : !user ? (
         <Alert severity="info">In order to add your own questions please login</Alert>
-      ) : !isLoading && error ? (
+      ) : error ? (
         <Alert severity="error">{error}</Alert>
       ) : (
         <>
-          <QuestionsTable questions={questions} />
+          <List>
+            {questions.map(({ id, text }) => (
+              <ListItem key={id} divider sx={{ py: 3 }} secondaryAction={<DeleteButton id={id} />}>
+                {text}
+              </ListItem>
+            ))}
+          </List>
+
           {user && <AddQuestion />}
         </>
       )}
