@@ -17,9 +17,3 @@ WithQuestions.args = {
     { id: "2", text: "Second question?" },
   ],
 }
-
-export const Loading = Template.bind({})
-Loading.args = {
-  questions: [],
-  isLoading: true,
-}

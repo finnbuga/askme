@@ -17,13 +17,13 @@ const MyQuestionsPage: React.FC<RouteComponentProps> = () => {
     <>
       <h2>My Questions</h2>
 
-      {isAuthenticating ? null : !user ? (
+      {isAuthenticating || isLoading ? null : !user ? (
         <Alert severity="info">In order to add your own questions please login</Alert>
       ) : !isLoading && error ? (
         <Alert severity="error">{error}</Alert>
       ) : (
         <>
-          <QuestionsTable questions={questions} isLoading={isLoading} />
+          <QuestionsTable questions={questions} />
           {user && <AddQuestion />}
         </>
       )}
