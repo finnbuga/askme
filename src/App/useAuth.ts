@@ -1,7 +1,7 @@
 import { onAuthStateChanged } from "api/auth"
 import { getUser, addUser } from "api/users"
 import useDispatchActions from "store/useDispatchActions"
-import { userActions } from "store/usersSlice"
+import { userActions } from "store/userSlice"
 
 const useAuth = () => {
   const { setUser } = useDispatchActions(userActions)
@@ -10,12 +10,12 @@ const useAuth = () => {
     if (!authUser) {
       setUser(null)
     } else {
-      const existingUser = await getUser(authUser!.uid)
-
+      const existingUser = await getUser()
       if (existingUser) {
         setUser(existingUser)
       } else {
-        const newUser = { id: authUser!.uid, email: authUser!.email, name: authUser!.displayName }
+        const { uid: id, email, displayName: name } = authUser
+        const newUser = { id, email, name, likedQuestions: [] }
         await addUser(newUser)
         setUser(newUser)
       }

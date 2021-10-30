@@ -7,7 +7,7 @@ import QuestionsSlider from "components/QuestionsSlider"
 import Question from "api/interfaces/Question"
 
 const MyFavouritesPage: React.FC<RouteComponentProps> = () => {
-  const { user, isAuthenticating } = useSelector((state) => state.auth)
+  const { user, isAuthenticating } = useSelector((state) => state.user)
   const isMyFavourite = (question: Question) => !!user?.likedQuestions?.includes(question.id)
 
   return (

@@ -1,11 +1,5 @@
-import {
-  getAuth,
-  signInWithPopup,
-  GoogleAuthProvider,
-  signOut as firebaseSignOut,
-} from "firebase/auth"
-
-export const auth = getAuth()
+import { signInWithPopup, GoogleAuthProvider, signOut as firebaseSignOut } from "firebase/auth"
+import { auth } from "./firebase"
 
 export const signInWithGoogle = () => signInWithPopup(auth, new GoogleAuthProvider())
 

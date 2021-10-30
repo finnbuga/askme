@@ -5,13 +5,13 @@ import {
   TypedUseSelectorHook,
 } from "react-redux"
 
-import auth from "./usersSlice"
+import user from "./userSlice"
 import questions from "./questionsSlice"
 import notifications from "./notificationsSlice"
 
 const store = configureStore({
   reducer: {
-    auth,
+    user,
     questions,
     notifications,
   },

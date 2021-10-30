@@ -6,7 +6,7 @@ import { questionsActions } from "store/questionsSlice"
 import useDispatchActions from "store/useDispatchActions"
 
 const AddQuestion: React.FC = () => {
-  const { user } = useSelector((state) => state.auth)
+  const user = useSelector((state) => state.user.user)
   const { addQuestion } = useDispatchActions(questionsActions)
 
   const textRef = useRef<HTMLInputElement>(null)

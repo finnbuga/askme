@@ -7,15 +7,16 @@ import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder"
 import Question from "api/interfaces/Question"
 import useDispatchActions from "store/useDispatchActions"
 import { notificationsActions } from "store/notificationsSlice"
-import { userActions } from "store/usersSlice"
+import { userActions } from "store/userSlice"
 
 const style = {
   fontSize: "2.4rem",
 }
 
 const LikeButton: React.FC<{ questionId: Question["id"] }> = ({ questionId: id }) => {
-  const { user } = useSelector((state) => state.auth)
-  const { addLikedQuestion, removeLikedQuestion } = useDispatchActions(userActions)
+  const user = useSelector((state) => state.user.user)
+  const { likeQuestion: addLikedQuestion, unlikeQuestion: removeLikedQuestion } =
+    useDispatchActions(userActions)
   const { notifyError } = useDispatchActions(notificationsActions)
 
   const isLiked = user?.likedQuestions?.includes(id)

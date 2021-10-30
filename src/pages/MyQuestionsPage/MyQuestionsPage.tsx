@@ -9,7 +9,7 @@ import DeleteButton from "pages/MyQuestionsPage/DeleteButton"
 import AddQuestion from "pages/MyQuestionsPage/AddQuestion"
 
 const MyQuestionsPage: React.FC<RouteComponentProps> = () => {
-  const { user, isAuthenticating } = useSelector((state) => state.auth)
+  const { user, isAuthenticating } = useSelector((state) => state.user)
   const isMyQuestion = (question: Question) => question.userId === user?.id
   const { questions, isLoading, error } = useQuestions(isMyQuestion)
 

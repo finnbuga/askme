@@ -9,7 +9,7 @@ import { signInWithGoogle, signOut } from "api/auth"
 import useToggle from "hooks/useToggle"
 
 function UserMenu() {
-  const { user, isAuthenticating } = useSelector((state) => state.auth)
+  const { user, isAuthenticating } = useSelector((state) => state.user)
   const menuButtonRef = useRef(null)
   const [isOpen, openMenu, closeMenu] = useToggle(false)
 

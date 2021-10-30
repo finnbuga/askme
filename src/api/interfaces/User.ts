@@ -4,7 +4,7 @@ interface User {
   id: string
   email: string | null
   name: string | null
-  likedQuestions?: Question["id"][]
+  likedQuestions: Question["id"][]
 }
 
 export default User
