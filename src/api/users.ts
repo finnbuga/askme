@@ -1,36 +1,26 @@
-import "firebase/firestore"
+import { collection, addDoc, getDoc, doc, updateDoc } from "firebase/firestore"
+import { arrayUnion, arrayRemove } from "firebase/firestore"
 
-import firebase from "./firebase"
+import { db } from "./firebase"
 import User from "./interfaces/User"
 
-const userConverter = (id: string) => ({
-  toFirestore: (user: User): firebase.firestore.DocumentData => user,
-  fromFirestore: (
-    snapshot: firebase.firestore.QueryDocumentSnapshot,
-    options: firebase.firestore.SnapshotOptions
-  ): User => {
-    const data = snapshot.data(options)
-    return { id, email: data.email, name: data.name, likedQuestions: data.likedQuestions }
-  },
-})
+const usersRef = collection(db, "users")
 
-const usersRef = firebase.firestore().collection("users")
+export const addUser = (user: User) => addDoc(usersRef, user)
 
-export const addUser = (user: User) => usersRef.doc(user.id).set(user)
-
-export const getUser = (id: User["id"]) =>
-  usersRef
-    .doc(id)
-    .withConverter(userConverter(id))
-    .get()
-    .then((doc) => doc.data())
+export const getUser = (id: User["id"]) => {
+  const userRef = doc(db, "users", id).withConverter({
+    toFirestore: (user: User) => user,
+    fromFirestore: (snapshot, options): User => {
+      const user = snapshot.data(options) as Omit<User, "id">
+      return { id, ...user }
+    },
+  })
+  return getDoc(userRef).then((doc) => doc.data())
+}
 
 export const addLikedQuestion = (userId: string, questionId: string) =>
-  usersRef
-    .doc(userId)
-    .update({ likedQuestions: firebase.firestore.FieldValue.arrayUnion(questionId) })
+  updateDoc(doc(db, "users", userId), { likedQuestions: arrayUnion(questionId) })
 
 export const removeLikedQuestion = (userId: string, questionId: string) =>
-  usersRef
-    .doc(userId)
-    .update({ likedQuestions: firebase.firestore.FieldValue.arrayRemove(questionId) })
+  updateDoc(doc(db, "users", userId), { likedQuestions: arrayRemove(questionId) })

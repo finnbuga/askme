@@ -1,6 +1,7 @@
-import firebase from "firebase/app"
+import { initializeApp } from "firebase/app"
+import { getFirestore } from "firebase/firestore"
 
-const firebaseConfig = {
+initializeApp({
   apiKey: "AIzaSyA8G157LylZEv3elf0pd15J8Htl2wCBz3c",
   authDomain: "askme-questions.firebaseapp.com",
   databaseURL: "https://askme-questions.firebaseio.com",
@@ -9,8 +10,6 @@ const firebaseConfig = {
   messagingSenderId: "639620704508",
   appId: "1:639620704508:web:9a56cc1e00012d6089cf79",
   measurementId: "G-GMNDNKXF59",
-}
+})
 
-firebase.initializeApp(firebaseConfig)
-
-export default firebase
+export const db = getFirestore()

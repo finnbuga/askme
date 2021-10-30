@@ -1,5 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit"
-import { createSelectorHook, useDispatch as useReduxDispatch } from "react-redux"
+import {
+  useSelector as useReduxSelector,
+  useDispatch as useReduxDispatch,
+  TypedUseSelectorHook,
+} from "react-redux"
 
 import auth from "./authSlice"
 import questions from "./questionsSlice"
@@ -17,6 +21,6 @@ type Dispatch = typeof store.dispatch
 export const useDispatch = () => useReduxDispatch<Dispatch>()
 
 export type RootState = ReturnType<typeof store.getState>
-export const useSelector = createSelectorHook<RootState>()
+export const useSelector: TypedUseSelectorHook<RootState> = useReduxSelector
 
 export default store
