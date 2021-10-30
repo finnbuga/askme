@@ -1,7 +1,7 @@
 import { onAuthStateChanged } from "api/auth"
 import { getUser, addUser } from "api/users"
 import useDispatchActions from "store/useDispatchActions"
-import { userActions } from "store/authSlice"
+import { userActions } from "store/usersSlice"
 
 const useAuth = () => {
   const { setUser } = useDispatchActions(userActions)

@@ -7,7 +7,7 @@ import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder"
 import Question from "api/interfaces/Question"
 import useDispatchActions from "store/useDispatchActions"
 import { notificationsActions } from "store/notificationsSlice"
-import { userActions } from "store/authSlice"
+import { userActions } from "store/usersSlice"
 
 const style = {
   fontSize: "2.4rem",

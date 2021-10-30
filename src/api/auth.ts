@@ -5,9 +5,9 @@ import {
   signOut as firebaseSignOut,
 } from "firebase/auth"
 
-const auth = getAuth()
-const provider = new GoogleAuthProvider()
-export const signInWithGoogle = () => signInWithPopup(auth, provider)
+export const auth = getAuth()
+
+export const signInWithGoogle = () => signInWithPopup(auth, new GoogleAuthProvider())
 
 export const signOut = () => firebaseSignOut(auth)
 

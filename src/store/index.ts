@@ -5,7 +5,7 @@ import {
   TypedUseSelectorHook,
 } from "react-redux"
 
-import auth from "./authSlice"
+import auth from "./usersSlice"
 import questions from "./questionsSlice"
 import notifications from "./notificationsSlice"
 
