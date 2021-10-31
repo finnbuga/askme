@@ -1,12 +1,14 @@
 import React from "react"
 import { Alert, Box } from "@material-ui/core"
+import { useAsync } from "react-use"
 
-import useQuestions from "hooks/useQuestions"
 import useNavigator from "./useNavigator"
 import QuestionCard from "./QuestionCard"
 import LikeButton from "./LikeButton"
 
 import type { Question } from "api/questions"
+import { useDispatch, useSelector } from "store"
+import { getQuestions } from "store/questionsSlice"
 
 const buttonsWrapper = {
   margin: 2,
@@ -15,8 +17,13 @@ const buttonsWrapper = {
 }
 
 const QuestionsSlider: React.FC<{ filter?: (question: Question) => boolean }> = ({ filter }) => {
-  const { questions, isLoading, error } = useQuestions(filter)
+  const dispatch = useDispatch()
+  const allQuestions = useSelector((state) => state.questions)
+
+  const { loading, error } = useAsync(() => dispatch(getQuestions()))
+  const questions = filter ? allQuestions.filter(filter) : allQuestions
   const { current, NextButton, PrevButton } = useNavigator(questions.length)
+
   const currentQuestion = questions[current]
 
   if (error) {
@@ -26,7 +33,7 @@ const QuestionsSlider: React.FC<{ filter?: (question: Question) => boolean }> = 
   return (
     <>
       <QuestionCard>
-        {isLoading ? "Loading..." : questions.length === 0 ? "No questions" : currentQuestion.text}
+        {loading ? "Loading..." : questions.length === 0 ? "No questions" : currentQuestion.text}
       </QuestionCard>
 
       {questions.length > 0 && (

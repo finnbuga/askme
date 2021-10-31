@@ -2,12 +2,12 @@ import { Alert, Snackbar } from "@material-ui/core"
 import useToggle from "hooks/useToggle"
 import React, { useEffect } from "react"
 
-import { useSelector, useActions } from "store"
-import { notificationsActions } from "store/notificationsSlice"
+import { useSelector, useDispatch } from "store"
+import { showNext } from "store/notificationsSlice"
 
 const Notifications: React.FC = () => {
   const notifications = useSelector((state) => state.notifications)
-  const { showNext } = useActions(notificationsActions)
+  const dispatch = useDispatch()
   const [isOpen, open, close] = useToggle(true)
 
   useEffect(() => {
@@ -22,7 +22,7 @@ const Notifications: React.FC = () => {
 
   const handleClose = () => {
     close()
-    showNext()
+    dispatch(showNext())
   }
 
   return (

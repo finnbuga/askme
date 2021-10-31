@@ -3,9 +3,9 @@ import * as api from "api/users"
 
 import type { User } from "api/users"
 
-const likeQuestion = createAsyncThunk("user/likeQuestion", api.addLikedQuestion)
+export const likeQuestion = createAsyncThunk("user/likeQuestion", api.addLikedQuestion)
 
-const unlikeQuestion = createAsyncThunk("user/unlikeQuestion", api.removeLikedQuestion)
+export const unlikeQuestion = createAsyncThunk("user/unlikeQuestion", api.removeLikedQuestion)
 
 const userSlice = createSlice({
   name: "user",
@@ -34,6 +34,6 @@ const userSlice = createSlice({
   },
 })
 
-export const userActions = { ...userSlice.actions, likeQuestion, unlikeQuestion }
+export const { setUser } = userSlice.actions
 
 export default userSlice.reducer

@@ -3,11 +3,11 @@ import * as api from "api/questions"
 
 import { Question } from "api/questions"
 
-const getQuestions = createAsyncThunk("questions/getQuestions", api.getQuestions)
+export const getQuestions = createAsyncThunk("questions/getQuestions", api.getQuestions)
 
-const addQuestion = createAsyncThunk("questions/addQuestion", api.addQuestion)
+export const addQuestion = createAsyncThunk("questions/addQuestion", api.addQuestion)
 
-const deleteQuestion = createAsyncThunk("questions/deleteQuestion", api.deleteQuestion)
+export const deleteQuestion = createAsyncThunk("questions/deleteQuestion", api.deleteQuestion)
 
 const questionsSlice = createSlice({
   name: "questions",
@@ -29,7 +29,5 @@ const questionsSlice = createSlice({
       })
   },
 })
-
-export const questionsActions = { getQuestions, addQuestion, deleteQuestion }
 
 export default questionsSlice.reducer
