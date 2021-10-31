@@ -3,11 +3,11 @@ import { IconButton, CircularProgress } from "@material-ui/core"
 import DeleteIcon from "@material-ui/icons/Delete"
 
 import Question from "api/interfaces/Question"
-import useDispatchActions from "store/useDispatchActions"
+import { useActions } from "store"
 import { questionsActions } from "store/questionsSlice"
 
 const DeleteButton: React.FC<{ id: Question["id"] }> = ({ id }) => {
-  const { deleteQuestion } = useDispatchActions(questionsActions)
+  const { deleteQuestion } = useActions(questionsActions)
   const [isDeleting, setIsDeleting] = useState<Record<any, boolean>>({})
 
   const handleDelete = async (id: Question["id"]) => {

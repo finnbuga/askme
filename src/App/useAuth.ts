@@ -1,10 +1,10 @@
 import { onAuthStateChanged } from "api/auth"
 import { getUser, addUser } from "api/users"
-import useDispatchActions from "store/useDispatchActions"
+import { useActions } from "store"
 import { userActions } from "store/userSlice"
 
 const useAuth = () => {
-  const { setUser } = useDispatchActions(userActions)
+  const { setUser } = useActions(userActions)
 
   onAuthStateChanged(async (authUser) => {
     if (!authUser) {

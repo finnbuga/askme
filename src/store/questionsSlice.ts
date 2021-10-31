@@ -1,5 +1,4 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"
-
 import * as api from "api/questions"
 import Question from "api/interfaces/Question"
 
@@ -11,26 +10,22 @@ const deleteQuestion = createAsyncThunk("questions/deleteQuestion", api.deleteQu
 
 const questionsSlice = createSlice({
   name: "questions",
-
   initialState: [] as Question[],
-
   reducers: {},
-
   extraReducers: (builder) => {
-    builder.addCase(getQuestions.fulfilled, (_, action) => {
-      const fetchedQuestions = action.payload
-      return fetchedQuestions
-    })
-
-    builder.addCase(addQuestion.fulfilled, (state, action) => {
-      const newlyAddedQuestion = action.payload
-      return [...state, newlyAddedQuestion]
-    })
-
-    builder.addCase(deleteQuestion.fulfilled, (state, action) => {
-      const deletedQuestionId = action.meta.arg
-      return state.filter((question) => question.id !== deletedQuestionId)
-    })
+    builder
+      .addCase(getQuestions.fulfilled, (state, action) => {
+        const fetchedQuestions = action.payload
+        return fetchedQuestions
+      })
+      .addCase(addQuestion.fulfilled, (state, action) => {
+        const addedQuestion = action.payload
+        state.push(addedQuestion)
+      })
+      .addCase(deleteQuestion.fulfilled, (state, action) => {
+        const deletedQuestionId = action.meta.arg
+        return state.filter((question) => question.id !== deletedQuestionId)
+      })
   },
 })
 

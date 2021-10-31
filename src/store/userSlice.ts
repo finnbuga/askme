@@ -1,7 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"
-
-import User from "api/interfaces/User"
 import * as api from "api/users"
+import User from "api/interfaces/User"
 
 const likeQuestion = createAsyncThunk("user/likeQuestion", api.addLikedQuestion)
 
@@ -9,28 +8,28 @@ const unlikeQuestion = createAsyncThunk("user/unlikeQuestion", api.removeLikedQu
 
 const userSlice = createSlice({
   name: "user",
-
   initialState: {
-    isAuthenticating: true,
     user: null as User | null,
+    isAuthenticating: true,
   },
-
   reducers: {
-    setUser: (_, action) => ({ isAuthenticating: false, user: action.payload }),
+    setUser: (state, action) => {
+      state.user = action.payload
+      state.isAuthenticating = false
+    },
   },
-
   extraReducers: (builder) => {
-    builder.addCase(likeQuestion.fulfilled, (state, action) => {
-      const questionId = action.meta.arg
-      state.user!.likedQuestions.push(questionId)
-    })
-
-    builder.addCase(unlikeQuestion.fulfilled, (state, action) => {
-      const unlikedQuestion = action.meta.arg
-      state.user!.likedQuestions = state.user!.likedQuestions.filter(
-        (question) => question !== unlikedQuestion
-      )
-    })
+    builder
+      .addCase(likeQuestion.fulfilled, (state, action) => {
+        const questionId = action.meta.arg
+        state.user!.likedQuestions.push(questionId)
+      })
+      .addCase(unlikeQuestion.fulfilled, (state, action) => {
+        const unlikedQuestion = action.meta.arg
+        state.user!.likedQuestions = state.user!.likedQuestions.filter(
+          (question) => question !== unlikedQuestion
+        )
+      })
   },
 })
 

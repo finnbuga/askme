@@ -1,22 +1,23 @@
 import React, { useState, useRef } from "react"
 import { Button, CircularProgress, Stack, TextField } from "@material-ui/core"
 
-import { useSelector } from "store"
+import { useSelector, useActions } from "store"
 import { questionsActions } from "store/questionsSlice"
-import useDispatchActions from "store/useDispatchActions"
 
 const AddQuestion: React.FC = () => {
   const user = useSelector((state) => state.user.user)
-  const { addQuestion } = useDispatchActions(questionsActions)
+  const { addQuestion } = useActions(questionsActions)
 
   const textRef = useRef<HTMLInputElement>(null)
   const [isLoading, setIsLoading] = useState(false)
 
-  const handleSubmit = async (e: React.FormEvent<HTMLElement>) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    if (textRef.current?.value) {
+    const text = textRef.current?.value
+    if (text) {
       setIsLoading(true)
-      await addQuestion({ userId: user!.id, text: textRef.current.value })
+      // @TODO use useAsync
+      await addQuestion({ text, userId: user!.id })
       setIsLoading(false)
       textRef.current.value = ""
     }

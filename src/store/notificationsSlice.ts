@@ -6,13 +6,14 @@ const notificationsSlice = createSlice({
   initialState: [] as Array<{ message: string; severity: AlertColor }>,
   reducers: {
     notifySuccess(state, action: PayloadAction<string>) {
-      state.push({ message: action.payload, severity: "success" })
+      const message = action.payload
+      state.push({ message, severity: "success" })
     },
     notifyError(state, action: PayloadAction<string>) {
-      state.push({ message: action.payload, severity: "error" })
+      const message = action.payload
+      state.push({ message, severity: "error" })
     },
     showNext(state) {
-      console.log("next")
       state.shift()
     },
   },

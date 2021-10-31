@@ -1,4 +1,4 @@
-import { configureStore } from "@reduxjs/toolkit"
+import { configureStore, ActionCreatorsMapObject, bindActionCreators } from "@reduxjs/toolkit"
 import {
   useSelector as useReduxSelector,
   useDispatch as useReduxDispatch,
@@ -17,10 +17,15 @@ const store = configureStore({
   },
 })
 
-type Dispatch = typeof store.dispatch
-export const useDispatch = () => useReduxDispatch<Dispatch>()
-
 export type RootState = ReturnType<typeof store.getState>
+
 export const useSelector: TypedUseSelectorHook<RootState> = useReduxSelector
+
+export const useDispatch = () => useReduxDispatch<typeof store.dispatch>()
+
+export const useActions = <A, M extends ActionCreatorsMapObject<A>>(actionCreators: M): M => {
+  const dispatch = useDispatch()
+  return bindActionCreators(actionCreators, dispatch)
+}
 
 export default store
