@@ -4,12 +4,13 @@ import { IconButton } from "@material-ui/core"
 import FavoriteIcon from "@material-ui/icons/Favorite"
 import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder"
 
-import Question from "api/interfaces/Question"
 import { useActions } from "store"
 import { notificationsActions } from "store/notificationsSlice"
 import { userActions } from "store/userSlice"
 
-const style = {
+import type { Question } from "api/questions"
+
+const large = {
   fontSize: "2.4rem",
 }
 
@@ -33,7 +34,7 @@ const LikeButton: React.FC<{ questionId: Question["id"] }> = ({ questionId: id }
 
   return (
     <IconButton onClick={handleLike} color={isLiked ? "error" : "default"}>
-      {isLiked ? <FavoriteIcon style={style} /> : <FavoriteBorderIcon style={style} />}
+      {isLiked ? <FavoriteIcon style={large} /> : <FavoriteBorderIcon style={large} />}
     </IconButton>
   )
 }

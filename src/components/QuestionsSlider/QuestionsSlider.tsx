@@ -1,11 +1,12 @@
 import React from "react"
 import { Alert, Box } from "@material-ui/core"
 
-import Question from "api/interfaces/Question"
 import useQuestions from "hooks/useQuestions"
 import useNavigator from "./useNavigator"
 import QuestionCard from "./QuestionCard"
 import LikeButton from "./LikeButton"
+
+import type { Question } from "api/questions"
 
 const buttonsWrapper = {
   margin: 2,

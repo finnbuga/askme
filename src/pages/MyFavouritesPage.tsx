@@ -4,7 +4,8 @@ import { Alert } from "@material-ui/core"
 
 import { useSelector } from "store"
 import QuestionsSlider from "components/QuestionsSlider"
-import Question from "api/interfaces/Question"
+
+import type { Question } from "api/questions"
 
 const MyFavouritesPage: React.FC<RouteComponentProps> = () => {
   const { user, isAuthenticating } = useSelector((state) => state.user)

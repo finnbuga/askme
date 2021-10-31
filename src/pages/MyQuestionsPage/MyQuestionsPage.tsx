@@ -2,11 +2,12 @@ import React from "react"
 import { RouteComponentProps } from "@reach/router"
 import { Alert, List, ListItem } from "@material-ui/core"
 
-import Question from "api/interfaces/Question"
 import { useSelector } from "store"
 import useQuestions from "hooks/useQuestions"
 import DeleteButton from "pages/MyQuestionsPage/DeleteButton"
 import AddQuestion from "pages/MyQuestionsPage/AddQuestion"
+
+import { Question } from "api/questions"
 
 const MyQuestionsPage: React.FC<RouteComponentProps> = () => {
   const { user, isAuthenticating } = useSelector((state) => state.user)

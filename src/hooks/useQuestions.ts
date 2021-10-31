@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react"
 
-import Question from "api/interfaces/Question"
 import { useDispatch, useSelector } from "store"
 import { questionsActions } from "store/questionsSlice"
+
+import type { Question } from "api/questions"
 
 const useQuestions = (filter?: (question: Question) => boolean) => {
   let questions = useSelector((state) => state.questions)

@@ -1,6 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"
 import * as api from "api/questions"
-import Question from "api/interfaces/Question"
+
+import { Question } from "api/questions"
 
 const getQuestions = createAsyncThunk("questions/getQuestions", api.getQuestions)
 

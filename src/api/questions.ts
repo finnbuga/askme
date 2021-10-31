@@ -1,12 +1,22 @@
 import { collection, addDoc, getDocs, deleteDoc, doc } from "firebase/firestore"
 
 import { db } from "./firebase"
-import Question from "./interfaces/Question"
+import { getCurrentUserId } from "./auth"
+
+import type { User } from "./users"
+
+export interface Question {
+  id: string
+  text: string
+  userId?: User["id"]
+}
 
 const questionsRef = collection(db, "questions")
 
-export const addQuestion = (question: Omit<Question, "id">) =>
-  addDoc(questionsRef, question).then((docRef) => ({ id: docRef.id, ...question }))
+export const addQuestion = ({ text }: { text: string }) => {
+  const question = { text, userId: getCurrentUserId() }
+  return addDoc(questionsRef, question).then((docRef) => ({ id: docRef.id, ...question }))
+}
 
 export const getQuestions = () =>
   getDocs(questionsRef).then(({ docs }) =>

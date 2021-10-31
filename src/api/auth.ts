@@ -6,3 +6,5 @@ export const signInWithGoogle = () => signInWithPopup(auth, new GoogleAuthProvid
 export const signOut = () => firebaseSignOut(auth)
 
 export const onAuthStateChanged = auth.onAuthStateChanged.bind(auth)
+
+export const getCurrentUserId = () => auth.currentUser?.uid
