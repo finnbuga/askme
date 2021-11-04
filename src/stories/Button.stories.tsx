@@ -4,37 +4,29 @@ import { Story, Meta } from "@storybook/react"
 import { Button, ButtonProps } from "@material-ui/core"
 
 export default {
-  title: "AskMe/Button",
+  title: "Button",
   component: Button,
-  argTypes: {
-    // color: { control: "color" },
-  },
 } as Meta
 
-const Template: Story<ButtonProps> = (args) => <Button {...args} />
-
-export const Default = Template.bind({})
-Default.args = {
-  children: "Button",
+export const ButtonTypes: Story<ButtonProps> = ({ color, onClick }) => (
+  <div style={{ display: "flex", flexDirection: "column", gap: 24, maxWidth: 200, margin: "auto" }}>
+    <Button color="secondary" onClick={onClick}>
+      Secondary
+    </Button>
+    <Button color={color} onClick={onClick}>
+      Primary
+    </Button>
+    <Button color={color} variant="outlined" onClick={onClick}>
+      Outlined
+    </Button>
+    <Button color={color} variant="contained" onClick={onClick}>
+      Contained
+    </Button>
+    <Button color={color} variant="contained" size="small" onClick={onClick}>
+      Small
+    </Button>
+  </div>
+)
+ButtonTypes.args = {
   color: "primary",
-}
-
-export const Contained = Template.bind({})
-Contained.args = {
-  ...Default.args,
-  variant: "contained",
-}
-
-export const Outlined = Template.bind({})
-Outlined.args = {
-  ...Default.args,
-  variant: "outlined",
-}
-
-export const Small = Template.bind({})
-Small.args = {
-  ...Default.args,
-  variant: "contained",
-  // TODO check how to show this like radio buttons rather than text input
-  size: "small",
 }
