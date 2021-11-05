@@ -9,7 +9,7 @@ import { likeQuestion, unlikeQuestion } from "store/userSlice"
 
 import type { Question } from "api/questions"
 
-const large = {
+const largeFont = {
   fontSize: "2.4rem",
 }
 
@@ -31,7 +31,7 @@ const LikeButton: React.FC<{ questionId: Question["id"] }> = ({ questionId: id }
 
   return (
     <IconButton onClick={handleLike} color={isLiked ? "error" : "default"}>
-      {isLiked ? <FavoriteIcon style={large} /> : <FavoriteBorderIcon style={large} />}
+      {isLiked ? <FavoriteIcon style={largeFont} /> : <FavoriteBorderIcon style={largeFont} />}
     </IconButton>
   )
 }

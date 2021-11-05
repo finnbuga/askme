@@ -1,5 +1,5 @@
 import React from "react"
-import { Box, Card, Container, Theme } from "@material-ui/core"
+import { Box, Container, Theme } from "@material-ui/core"
 
 import backgroundImage from "./background.jpg"
 
@@ -9,11 +9,11 @@ const wrapperStyle = {
     xs: theme.palette.grey[200],
     sm: `url(${backgroundImage}) 0% 0% / cover`,
   }),
-}
+} as const
 
 const PageWrapper: React.FC = ({ children }) => (
   <Box sx={wrapperStyle}>
-    <Container component={Card} maxWidth="sm" disableGutters>
+    <Container maxWidth="sm" disableGutters>
       {children}
     </Container>
   </Box>
