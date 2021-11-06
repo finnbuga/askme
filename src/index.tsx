@@ -2,7 +2,6 @@ import React from "react"
 import ReactDOM from "react-dom"
 import { Provider } from "react-redux"
 
-import "./index.css" // TODO replace with Mui
 import store from "store"
 import App from "App"
 import reportWebVitals from "./reportWebVitals"

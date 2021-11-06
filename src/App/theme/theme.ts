@@ -1,6 +1,8 @@
 import { createTheme, Theme } from "@material-ui/core/styles"
 import {} from "@material-ui/styles"
 
+import "./theme.css"
+
 declare module "@material-ui/styles" {
   interface DefaultTheme extends Theme {}
 }
@@ -8,6 +10,9 @@ declare module "@material-ui/styles" {
 const palette = {
   primary: {
     main: "#137EC2",
+  },
+  text: {
+    primary: "#525252",
   },
 }
 
@@ -23,6 +28,7 @@ const typography = {
     fontSize: "1.25rem",
     lineHeight: 1.65,
   },
+  fontFamily: "Lato, sans-serif",
 }
 
 export const theme = createTheme({

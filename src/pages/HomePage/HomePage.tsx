@@ -14,7 +14,7 @@ const HomePage: React.FC<RouteComponentProps> = () => (
       thoughts or ask clarifying questions. Now it's your friend's turn.
     </Box>
 
-    <Box mt={3} mb={3}>
+    <Box mt={5} mb={3}>
       <img src={lady} width={280} height={167} alt="chatty lady" />
     </Box>
 

@@ -1,0 +1,6 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
+
+@font-face {
+  font-family: "Lato";
+  src: local("Lato"), url(./fonts/Lato-Semibold.woff) format("woff");
+}
