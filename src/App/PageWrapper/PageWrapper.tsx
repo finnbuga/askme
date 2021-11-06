@@ -1,13 +1,13 @@
 import React from "react"
 import { Box, Container, Theme } from "@material-ui/core"
 
-import backgroundImage from "./background.jpg"
+import backgroundImage from "./bottom-background.png"
 
 const wrapperStyle = {
   minHeight: "100vh",
   background: (theme: Theme) => ({
     xs: theme.palette.grey[200],
-    sm: `url(${backgroundImage}) 0% 0% / cover`,
+    sm: `url(${backgroundImage}) no-repeat bottom`,
   }),
 } as const
 
