@@ -1,5 +1,6 @@
 import React from "react"
 import { Router } from "@reach/router"
+import { Box } from "@material-ui/system"
 import { ThemeProvider } from "@material-ui/core/styles"
 import { CssBaseline } from "@material-ui/core"
 
@@ -22,14 +23,21 @@ const App: React.FC = () => {
         <Notifications />
         <Header />
 
-        <Router component="main" style={{ padding: 24 }}>
-          <MyQuestionsPage path="my-questions" />
-          <MyFavouritesPage path="my-favourites" />
-          <HomePage path="*" />
-        </Router>
+        <Box component="main" sx={wrapper}>
+          <Router>
+            <MyQuestionsPage path="my-questions" />
+            <MyFavouritesPage path="my-favourites" />
+            <HomePage path="*" />
+          </Router>
+        </Box>
       </PageWrapper>
     </ThemeProvider>
   )
 }
+
+const wrapper = {
+  padding: 3,
+  paddingTop: 0,
+} as const
 
 export default App

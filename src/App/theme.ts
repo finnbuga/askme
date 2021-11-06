@@ -16,6 +16,7 @@ const typography = {
     color: palette.primary.main,
     fontSize: "1.36rem",
     lineHeight: 1.36,
+    marginTop: 0,
   },
   h2: {
     color: palette.primary.main,
