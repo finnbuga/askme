@@ -1,5 +1,5 @@
 import React from "react"
-import { IconButton, SvgIcon } from "@material-ui/core"
+import { IconButton, SvgIcon } from "@mui/material"
 
 import { useDispatch, useSelector } from "store"
 import { notifyError } from "store/notificationsSlice"

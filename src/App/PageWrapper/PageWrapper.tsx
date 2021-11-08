@@ -1,5 +1,5 @@
 import React from "react"
-import { Box, Container, Theme } from "@material-ui/core"
+import { Box, Container, Theme } from "@mui/material"
 
 import backgroundImage from "./bottom-background.png"
 

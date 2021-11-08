@@ -1,9 +1,9 @@
 import React, { useRef } from "react"
 import { useSelector } from "store"
 import { navigate } from "@reach/router"
-import { Button, IconButton, Menu, MenuItem, ListItemIcon, ListItemText } from "@material-ui/core"
-import AccountCircle from "@material-ui/icons/AccountCircle"
-import ExitToAppIcon from "@material-ui/icons/ExitToApp"
+import { Button, IconButton, Menu, MenuItem, ListItemIcon, ListItemText } from "@mui/material"
+import AccountCircle from "@mui/icons-material/AccountCircle"
+import ExitToAppIcon from "@mui/icons-material/ExitToApp"
 
 import { signInWithGoogle, signOut } from "api/auth"
 import useToggle from "hooks/useToggle"

@@ -1,7 +1,7 @@
 import React from "react"
 import { Story, Meta } from "@storybook/react"
 
-import { Button, ButtonProps } from "@material-ui/core"
+import { Button, ButtonProps } from "@mui/material"
 
 export default {
   title: "Button",

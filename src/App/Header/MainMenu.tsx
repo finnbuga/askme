@@ -1,9 +1,9 @@
 import React, { useRef } from "react"
 import { navigate } from "@reach/router"
-import { IconButton, Menu, MenuItem, ListItemIcon, ListItemText } from "@material-ui/core"
-import MenuIcon from "@material-ui/icons/Menu"
-import FavoriteIcon from "@material-ui/icons/FavoriteBorder"
-import FolderIcon from "@material-ui/icons/FolderOpen"
+import { IconButton, Menu, MenuItem, ListItemIcon, ListItemText } from "@mui/material"
+import MenuIcon from "@mui/icons-material/Menu"
+import FavoriteIcon from "@mui/icons-material/FavoriteBorder"
+import FolderIcon from "@mui/icons-material/FolderOpen"
 
 import useToggle from "hooks/useToggle"
 

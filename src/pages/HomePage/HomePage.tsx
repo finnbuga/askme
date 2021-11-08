@@ -1,5 +1,5 @@
 import React from "react"
-import { Box } from "@material-ui/system"
+import { Box } from "@mui/material"
 import { RouteComponentProps } from "@reach/router"
 
 import QuestionsSlider from "components/QuestionsSlider"

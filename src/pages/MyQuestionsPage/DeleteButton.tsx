@@ -1,6 +1,6 @@
 import React from "react"
-import { IconButton, CircularProgress } from "@material-ui/core"
-import DeleteIcon from "@material-ui/icons/Delete"
+import { IconButton, CircularProgress } from "@mui/material"
+import DeleteIcon from "@mui/icons-material/Delete"
 import { useAsyncFn } from "react-use"
 
 import { Question } from "api/questions"

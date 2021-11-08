@@ -1,4 +1,4 @@
-import { AlertColor } from "@material-ui/core"
+import { AlertColor } from "@mui/material"
 import { createSlice, PayloadAction } from "@reduxjs/toolkit"
 
 const notificationsSlice = createSlice({

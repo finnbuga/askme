@@ -1,6 +1,6 @@
 import React from "react"
 import { RouteComponentProps } from "@reach/router"
-import { Alert } from "@material-ui/core"
+import { Alert } from "@mui/material"
 
 import { useSelector } from "store"
 import QuestionsSlider from "components/QuestionsSlider"

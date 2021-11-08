@@ -1,6 +1,6 @@
 import * as React from "react"
-import { Paper, BottomNavigation, BottomNavigationAction } from "@material-ui/core"
-import { Favorite, Person } from "@material-ui/icons"
+import { Paper, BottomNavigation, BottomNavigationAction } from "@mui/material"
+import { Favorite, Person } from "@mui/icons-material"
 import { useState } from "react"
 
 const Navigation: React.FC = () => {

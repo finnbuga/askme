@@ -1,8 +1,7 @@
 import React from "react"
 import { Router } from "@reach/router"
-import { Box } from "@material-ui/system"
-import { ThemeProvider } from "@material-ui/core/styles"
-import { CssBaseline } from "@material-ui/core"
+import { ThemeProvider } from "@mui/material/styles"
+import { Box, CssBaseline } from "@mui/material"
 
 import HomePage from "pages/HomePage"
 import MyQuestionsPage from "pages/MyQuestionsPage"

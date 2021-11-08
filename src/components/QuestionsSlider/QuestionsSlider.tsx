@@ -1,5 +1,5 @@
 import React from "react"
-import { Box, Alert, IconButton, SvgIcon } from "@material-ui/core"
+import { Box, Alert, IconButton, SvgIcon } from "@mui/material"
 import { useAsync } from "react-use"
 
 import { useDispatch, useSelector } from "store"

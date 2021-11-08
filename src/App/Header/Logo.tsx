@@ -1,6 +1,6 @@
 import React from "react"
 import { Link } from "@reach/router"
-import { Typography } from "@material-ui/core"
+import { Typography } from "@mui/material"
 
 const style = {
   expand: {

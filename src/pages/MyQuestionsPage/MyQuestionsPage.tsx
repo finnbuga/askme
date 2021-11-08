@@ -1,6 +1,6 @@
 import React from "react"
 import { RouteComponentProps } from "@reach/router"
-import { Alert, List, ListItem } from "@material-ui/core"
+import { Alert, List, ListItem } from "@mui/material"
 import { useAsync } from "react-use"
 
 import { useSelector, useDispatch } from "store"
