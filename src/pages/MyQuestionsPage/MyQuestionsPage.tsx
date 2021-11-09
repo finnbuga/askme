@@ -19,7 +19,7 @@ const MyQuestionsPage: React.FC<RouteComponentProps> = () => {
 
   return (
     <>
-      <h2>My Questions</h2>
+      <h1>My Questions</h1>
 
       {isAuthenticating || loading ? null : !user ? (
         <Alert severity="info">In order to add your own questions please login</Alert>
@@ -30,7 +30,7 @@ const MyQuestionsPage: React.FC<RouteComponentProps> = () => {
           <List>
             {myQuestions.map(({ id, text }) => (
               <Fade in key={id} timeout={300}>
-                <ListItem secondaryAction={<DeleteButton id={id} />} divider sx={{ py: 3 }}>
+                <ListItem secondaryAction={<DeleteButton id={id} />} divider sx={{ py: 3, px: 0 }}>
                   {text}
                 </ListItem>
               </Fade>

@@ -21,6 +21,7 @@ const typography = {
     fontSize: "1.36rem",
     lineHeight: 1.36,
     marginTop: 0,
+    textAlign: "center",
   },
   h2: {
     color: palette.primary.main,
@@ -28,7 +29,7 @@ const typography = {
     lineHeight: 1.65,
   },
   fontFamily: "Lato, sans-serif",
-}
+} as const
 
 export const theme = createTheme({
   components: {
