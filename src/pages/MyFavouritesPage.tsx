@@ -1,6 +1,6 @@
 import React from "react"
 import { RouteComponentProps } from "@reach/router"
-import { Alert } from "@mui/material"
+import { Box, Alert } from "@mui/material"
 
 import { useSelector } from "store"
 import QuestionsSlider from "components/QuestionsSlider"
@@ -13,13 +13,15 @@ const MyFavouritesPage: React.FC<RouteComponentProps> = () => {
 
   return (
     <>
-      <h2>My Favourites</h2>
+      <h1>My Favourites</h1>
 
-      {isAuthenticating ? null : !user ? (
-        <Alert severity="info">In order to add your favourites please login</Alert>
-      ) : (
-        <QuestionsSlider filter={isMyFavourite} />
-      )}
+      <Box sx={{ mt: 10 }}>
+        {isAuthenticating ? null : !user ? (
+          <Alert severity="info">In order to add your favourites please login</Alert>
+        ) : (
+          <QuestionsSlider filter={isMyFavourite} />
+        )}
+      </Box>
     </>
   )
 }
