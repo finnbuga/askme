@@ -1,6 +1,6 @@
 import React from "react"
 import { RouteComponentProps } from "@reach/router"
-import { Alert, List, ListItem } from "@mui/material"
+import { Alert, List, ListItem, Fade } from "@mui/material"
 import { useAsync } from "react-use"
 
 import { useSelector, useDispatch } from "store"
@@ -29,9 +29,11 @@ const MyQuestionsPage: React.FC<RouteComponentProps> = () => {
         <>
           <List>
             {myQuestions.map(({ id, text }) => (
-              <ListItem key={id} secondaryAction={<DeleteButton id={id} />} divider sx={{ py: 3 }}>
-                {text}
-              </ListItem>
+              <Fade in key={id} timeout={300}>
+                <ListItem secondaryAction={<DeleteButton id={id} />} divider sx={{ py: 3 }}>
+                  {text}
+                </ListItem>
+              </Fade>
             ))}
           </List>
 
