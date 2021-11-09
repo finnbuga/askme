@@ -2,9 +2,9 @@ import React, { useRef } from "react"
 import { navigate } from "@reach/router"
 import { IconButton, Menu, MenuItem, ListItemIcon, ListItemText } from "@mui/material"
 import MenuIcon from "@mui/icons-material/Menu"
-import FavoriteIcon from "@mui/icons-material/FavoriteBorder"
-import FolderIcon from "@mui/icons-material/FolderOpen"
-
+import HomeIcon from "@mui/icons-material/Home"
+import LightbulbIcon from "@mui/icons-material/Lightbulb"
+import FavoriteIcon from "@mui/icons-material/Favorite"
 import useToggle from "hooks/useToggle"
 
 function MainMenu() {
@@ -18,12 +18,20 @@ function MainMenu() {
       </IconButton>
 
       <Menu open={isOpen} onClose={closeMenu} anchorEl={menuButtonRef.current} keepMounted>
+        <MenuItem onClick={() => navigate("/").then(closeMenu)}>
+          <ListItemIcon>
+            <HomeIcon />
+          </ListItemIcon>
+          <ListItemText>Home</ListItemText>
+        </MenuItem>
+
         <MenuItem onClick={() => navigate("/my-questions").then(closeMenu)}>
           <ListItemIcon>
-            <FolderIcon />
+            <LightbulbIcon />
           </ListItemIcon>
           <ListItemText>My Questions</ListItemText>
         </MenuItem>
+
         <MenuItem onClick={() => navigate("/my-favourites").then(closeMenu)}>
           <ListItemIcon>
             <FavoriteIcon />
