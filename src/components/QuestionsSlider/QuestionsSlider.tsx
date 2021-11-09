@@ -49,6 +49,12 @@ const QuestionsSlider: React.FC<{ filter?: (question: Question) => boolean }> = 
 }
 
 const wrapper = {
+  maxWidth: {
+    sm: 600,
+    md: 500,
+  },
+  margin: "0 auto",
+  maxHeight: 278,
   display: "flex",
   flexDirection: "column",
   overflow: "hidden",
