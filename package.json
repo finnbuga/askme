@@ -2,7 +2,7 @@
   "name": "askme",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://finnbuga.github.io/askme",
+  "homepage": "https://askme.github.io",
   "dependencies": {
     "@emotion/react": "^11.5.0",
     "@emotion/styled": "^11.3.0",
