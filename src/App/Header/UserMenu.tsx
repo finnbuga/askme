@@ -2,12 +2,12 @@ import React, { useRef } from "react"
 import { useDispatch, useSelector } from "store"
 import { navigate } from "@reach/router"
 import { Button, IconButton, Menu, MenuItem, ListItemIcon, ListItemText } from "@mui/material"
-import AccountCircle from "@mui/icons-material/AccountCircle"
-import ExitToAppIcon from "@mui/icons-material/ExitToApp"
+import AccountIcon from "@mui/icons-material/AccountCircle"
+import LogoutIcon from "@mui/icons-material/ExitToApp"
 
 import { signInWithGoogle, signOut } from "api/auth"
 import useToggle from "hooks/useToggle"
-import { notifyError } from "store/notificationsSlice"
+import { notifyError, notifySuccess } from "store/notificationsSlice"
 
 function UserMenu() {
   const { user, isAuthenticating } = useSelector((state) => state.user)
@@ -16,7 +16,16 @@ function UserMenu() {
   const menuButtonRef = useRef(null)
   const [isOpen, openMenu, closeMenu] = useToggle(false)
 
-  const login = () => signInWithGoogle().catch(() => dispatch(notifyError("Cannot login")))
+  const login = () =>
+    signInWithGoogle()
+      .then(() => dispatch(notifySuccess("Welcome")))
+      .catch(() => dispatch(notifyError("Cannot login")))
+
+  const logout = () =>
+    signOut().then(() => {
+      navigate("/")
+      dispatch(notifySuccess("See you soon"))
+    })
 
   if (isAuthenticating) {
     return null
@@ -33,13 +42,13 @@ function UserMenu() {
   return (
     <>
       <IconButton edge="start" color="inherit" onClick={openMenu} ref={menuButtonRef}>
-        <AccountCircle />
+        <AccountIcon />
       </IconButton>
 
       <Menu open={isOpen} onClose={closeMenu} anchorEl={menuButtonRef.current} keepMounted>
-        <MenuItem onClick={() => navigate("/").then(signOut)}>
+        <MenuItem onClick={logout}>
           <ListItemIcon>
-            <ExitToAppIcon />
+            <LogoutIcon />
           </ListItemIcon>
           <ListItemText>Logout</ListItemText>
         </MenuItem>
