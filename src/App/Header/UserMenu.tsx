@@ -1,5 +1,5 @@
 import React, { useRef } from "react"
-import { useSelector } from "store"
+import { useDispatch, useSelector } from "store"
 import { navigate } from "@reach/router"
 import { Button, IconButton, Menu, MenuItem, ListItemIcon, ListItemText } from "@mui/material"
 import AccountCircle from "@mui/icons-material/AccountCircle"
@@ -7,11 +7,16 @@ import ExitToAppIcon from "@mui/icons-material/ExitToApp"
 
 import { signInWithGoogle, signOut } from "api/auth"
 import useToggle from "hooks/useToggle"
+import { notifyError } from "store/notificationsSlice"
 
 function UserMenu() {
   const { user, isAuthenticating } = useSelector((state) => state.user)
+  const dispatch = useDispatch()
+
   const menuButtonRef = useRef(null)
   const [isOpen, openMenu, closeMenu] = useToggle(false)
+
+  const login = () => signInWithGoogle().catch(() => dispatch(notifyError("Cannot login")))
 
   if (isAuthenticating) {
     return null
@@ -19,7 +24,7 @@ function UserMenu() {
 
   if (!user) {
     return (
-      <Button color="inherit" onClick={signInWithGoogle}>
+      <Button color="inherit" onClick={login}>
         Login
       </Button>
     )
