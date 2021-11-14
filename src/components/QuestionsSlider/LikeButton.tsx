@@ -15,7 +15,7 @@ const LikeButton: React.FC<{ questionId: Question["id"] }> = ({ questionId: id }
 
   const handleLike = () => {
     if (!user) {
-      notifyError("You can't like if you're not logged in")
+      dispatch(notifyError("Please log in first"))
     } else if (isLiked) {
       dispatch(unlikeQuestion(id))
     } else {
