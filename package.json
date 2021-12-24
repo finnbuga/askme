@@ -57,7 +57,15 @@
       "react-app/jest",
       "plugin:lodash-fp/recommended",
       "prettier"
-    ]
+    ],
+    "rules": {
+      "no-param-reassign": [
+        "error",
+        {
+          "props": true
+        }
+      ]
+    }
   },
   "browserslist": {
     "production": [
