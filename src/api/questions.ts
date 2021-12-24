@@ -9,6 +9,7 @@ export interface Question {
   id: string
   text: string
   userId?: User["id"]
+  isPublic?: boolean
 }
 
 const questionsRef = collection(db, "questions")
@@ -24,6 +25,7 @@ export const getQuestions = () =>
       id: doc.id,
       text: doc.data().text as string,
       userId: doc.data().userId as string,
+      isPublic: doc.data().isPublic as boolean,
     }))
   )
 
