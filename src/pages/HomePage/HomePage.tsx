@@ -2,6 +2,7 @@ import React from "react"
 import { Box, Theme } from "@mui/material"
 import { RouteComponentProps } from "@reach/router"
 
+import { Question } from "api/questions"
 import QuestionsSlider from "components/QuestionsSlider"
 import lady from "./lady.png"
 
@@ -22,11 +23,13 @@ const HomePage: React.FC<RouteComponentProps> = () => (
       </Box>
 
       <Box sx={slider}>
-        <QuestionsSlider />
+        <QuestionsSlider filter={isPublicQuestion} />
       </Box>
     </Box>
   </div>
 )
+
+const isPublicQuestion = (question: Question) => !!question.isPublic
 
 const wrapper = {
   display: "flex",
