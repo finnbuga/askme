@@ -9,6 +9,7 @@ const store = configureStore({
   reducer: {
     questions: () => [
       { id: "22", text: "What would you do if you had all the money in the world?" },
+      { id: "24", text: "Who would you like to have for dinner?" },
     ],
     user: () => ({ user: null, isAuthenticating: false }),
   },
