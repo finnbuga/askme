@@ -36,13 +36,20 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "lint": "eslint --ignore-path .gitignore --ext .js,.ts,.tsx .",
+    "prettier": "prettier --ignore-path .gitignore \"**/*.+(js|jsx|ts|tsx|json)\"",
+    "format": "yarn prettier --write",
+    "check-format": "yarn prettier --list-different",
+    "type-check": "tsc",
     "build": "react-scripts build",
+    "validate": "npm-run-all --parallel check-format lint type-check build",
     "deploy": "yarn build && firebase deploy --only hosting",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public",
-    "chromatic": "npx chromatic --project-token 62b526088cad"
+    "chromatic": "npx chromatic --project-token 62b526088cad",
+    "prepare": "husky install"
   },
   "prettier": {
     "printWidth": 100,
@@ -91,6 +98,8 @@
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-cypress": "^2.12.1",
     "eslint-plugin-lodash-fp": "^2.2.0-a1",
+    "husky": "^7.0.0",
+    "npm-run-all": "^4.1.5",
     "prettier": "^2.4.1"
   }
 }
