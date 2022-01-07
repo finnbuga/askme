@@ -16,16 +16,15 @@ const store = configureStore({
 })
 
 // @TODO Log actions
+// Use https://github.com/frodare/addon-redux
+// Or do it manually:
 
-// Either manually:
 // import { action } from "@storybook/addon-actions"
 // const originalDispatch = store.dispatch.bind(store)
 // store.dispatch = (arg: any) => {
 //   action("dispatch")
 //   return originalDispatch(arg)
 // }
-//
-// Or use https://github.com/frodare/addon-redux
 
 export default {
   title: "QuestionsSlider",
