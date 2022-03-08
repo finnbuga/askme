@@ -1,4 +1,4 @@
-import React from "react"
+import { useState } from "react"
 import { useDispatch, useSelector } from "store"
 import { navigate } from "@reach/router"
 import { Button, IconButton, Menu, MenuItem, ListItemIcon, ListItemText } from "@mui/material"
@@ -17,7 +17,7 @@ function UserMenu() {
 const AuthMenu: React.FC = () => {
   const logout = useLogout()
 
-  const [anchorEl, setAnchorEl] = React.useState<HTMLElement | null>(null)
+  const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null)
 
   const isOpen = Boolean(anchorEl)
   const openMenu = (e: React.MouseEvent<HTMLElement>) => setAnchorEl(e.currentTarget)

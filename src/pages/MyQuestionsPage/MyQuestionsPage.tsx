@@ -1,4 +1,3 @@
-import React from "react"
 import { RouteComponentProps } from "@reach/router"
 import { Alert, List, ListItem, Fade } from "@mui/material"
 import { useAsync } from "react-use"

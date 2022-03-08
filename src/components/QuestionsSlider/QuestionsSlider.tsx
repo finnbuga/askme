@@ -1,4 +1,3 @@
-import React from "react"
 import { Box, Alert, IconButton, SvgIcon } from "@mui/material"
 import type { SxProps } from "@mui/material"
 import { useAsync } from "react-use"

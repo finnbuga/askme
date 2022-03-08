@@ -1,4 +1,3 @@
-import React from "react"
 import { Router } from "@reach/router"
 import { ThemeProvider } from "@mui/material/styles"
 import { Box, CssBaseline } from "@mui/material"

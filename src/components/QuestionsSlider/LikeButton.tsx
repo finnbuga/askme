@@ -1,4 +1,3 @@
-import React from "react"
 import { IconButton, SvgIcon } from "@mui/material"
 
 import { useDispatch, useSelector } from "store"
