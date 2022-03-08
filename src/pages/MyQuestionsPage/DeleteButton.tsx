@@ -9,7 +9,6 @@ import { deleteQuestion as deleteQuestionThunk } from "store/questionsSlice"
 
 const DeleteButton: React.FC<{ id: Question["id"] }> = ({ id }) => {
   const dispatch = useDispatch()
-
   const [{ loading }, deleteQuestion] = useAsyncFn(() => dispatch(deleteQuestionThunk(id)))
 
   return (

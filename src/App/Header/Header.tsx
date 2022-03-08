@@ -7,26 +7,14 @@ import UserMenu from "./UserMenu"
 
 function Header() {
   return (
-    <AppBar position="static" color="transparent" sx={wrapper}>
-      <Toolbar sx={inner}>
+    <AppBar position="static" color="transparent" sx={{ boxShadow: "none" }}>
+      <Toolbar sx={{ p: 3, pt: 4, pb: 2 }}>
         <MainMenu />
-
         <Logo />
-
         <UserMenu />
       </Toolbar>
     </AppBar>
   )
 }
-
-const wrapper = {
-  boxShadow: "none",
-} as const
-
-const inner = {
-  padding: 3,
-  paddingTop: 4,
-  paddingBottom: 2,
-} as const
 
 export default Header
