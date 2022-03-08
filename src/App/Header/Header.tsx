@@ -1,4 +1,3 @@
-import React from "react"
 import { AppBar, Toolbar } from "@mui/material"
 
 import MainMenu from "./MainMenu"

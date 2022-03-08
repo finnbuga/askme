@@ -1,4 +1,3 @@
-import React from "react"
 import { RouteComponentProps } from "@reach/router"
 import { Box, Alert } from "@mui/material"
 

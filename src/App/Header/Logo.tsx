@@ -1,4 +1,3 @@
-import React from "react"
 import { Link } from "@reach/router"
 import { Typography } from "@mui/material"
 
