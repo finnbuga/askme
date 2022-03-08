@@ -4,14 +4,18 @@ import { useForm } from "react-hook-form"
 import { useAsyncFn } from "react-use"
 
 import { useDispatch } from "store"
-import { addQuestion as addQuestionAC } from "store/questionsSlice"
+import { addQuestion as addQuestionThunk } from "store/questionsSlice"
+
+interface Form {
+  text: string
+}
 
 const AddQuestion: React.FC = () => {
   const dispatch = useDispatch()
 
-  const { register, handleSubmit, reset } = useForm<{ text: string }>()
-  const [{ loading }, addQuestion] = useAsyncFn(({ text }: { text: string }) =>
-    dispatch(addQuestionAC({ text })).then(() => reset({ text: "" }))
+  const { register, handleSubmit, reset } = useForm<Form>()
+  const [{ loading }, addQuestion] = useAsyncFn(({ text }: Form) =>
+    dispatch(addQuestionThunk({ text })).then(() => reset({ text: "" }))
   )
 
   return (
