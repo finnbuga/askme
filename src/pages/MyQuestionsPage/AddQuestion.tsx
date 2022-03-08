@@ -11,9 +11,9 @@ interface Form {
 }
 
 const AddQuestion: React.FC = () => {
-  const dispatch = useDispatch()
-
   const { register, handleSubmit, reset } = useForm<Form>()
+
+  const dispatch = useDispatch()
   const [{ loading }, addQuestion] = useAsyncFn(({ text }: Form) =>
     dispatch(addQuestionThunk({ text })).then(() => reset({ text: "" }))
   )

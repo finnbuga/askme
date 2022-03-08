@@ -1,5 +1,6 @@
 import React from "react"
 import { Box, Container } from "@mui/material"
+import type { SxProps } from "@mui/material"
 
 import backgroundImage from "./bottom-background.png"
 
@@ -12,20 +13,20 @@ const PageWrapper: React.FC = ({ children }) => (
   </Box>
 )
 
-const wrapper = {
+const wrapper: SxProps = {
   minHeight: "100vh",
   display: "flex",
   flexDirection: "column",
   justifyContent: "space-between",
-} as const
+}
 
-const container = {
+const container: SxProps = {
   maxWidth: {
     md: 1200,
   },
-} as const
+}
 
-const footerStyle = {
+const footerStyle: SxProps = {
   height: {
     sm: 200,
     md: 250,
@@ -33,6 +34,6 @@ const footerStyle = {
   background: {
     sm: `url(${backgroundImage}) no-repeat bottom`,
   },
-} as const
+}
 
 export default PageWrapper

@@ -11,11 +11,10 @@ import AddQuestion from "pages/MyQuestionsPage/AddQuestion"
 const MyQuestionsPage: React.FC<RouteComponentProps> = () => {
   const { user, isAuthenticating } = useSelector((state) => state.user)
   const questions = useSelector((state) => state.questions)
+  const myQuestions = questions.filter(({ userId }) => userId === user?.id)
+
   const dispatch = useDispatch()
-
   const { loading, error } = useAsync(() => dispatch(getQuestions()))
-
-  const myQuestions = questions.filter((question) => question.userId === user?.id)
 
   return (
     <>

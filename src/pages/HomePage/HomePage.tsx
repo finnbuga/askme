@@ -1,5 +1,6 @@
 import React from "react"
-import { Box, Theme } from "@mui/material"
+import { Box } from "@mui/material"
+import type { SxProps, Theme } from "@mui/material"
 import { RouteComponentProps } from "@reach/router"
 
 import { Question } from "api/questions"
@@ -31,7 +32,7 @@ const HomePage: React.FC<RouteComponentProps> = () => (
 
 const isPublicQuestion = (question: Question) => !!question.isPublic
 
-const wrapper = {
+const wrapper: SxProps = {
   display: "flex",
   flexDirection: {
     xs: "column",
@@ -40,10 +41,10 @@ const wrapper = {
   margin: "0 auto",
   justifyContent: "center",
   alignItems: "end",
-} as const
+}
 
-const image = {
-  margin: (theme: Theme) => ({
+const image: SxProps<Theme> = {
+  margin: (theme) => ({
     xs: theme.spacing(5, "auto", 3),
     // sm: theme.spacing(5, "auto", 7),
   }),
@@ -55,13 +56,13 @@ const image = {
     xs: 167,
     sm: 278,
   },
-} as const
+}
 
-const slider = {
-  margin: (theme: Theme) => ({
+const slider: SxProps<Theme> = {
+  margin: (theme) => ({
     xs: theme.spacing(5, "auto", 3),
     sm: theme.spacing(5, "auto"),
   }),
-} as const
+}
 
 export default HomePage

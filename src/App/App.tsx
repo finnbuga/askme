@@ -2,7 +2,6 @@ import React from "react"
 import { Router } from "@reach/router"
 import { ThemeProvider } from "@mui/material/styles"
 import { Box, CssBaseline } from "@mui/material"
-import { SxProps, Theme } from "@mui/material/styles"
 
 import HomePage from "pages/HomePage"
 import MyQuestionsPage from "pages/MyQuestionsPage"
@@ -24,7 +23,7 @@ const App: React.FC = () => {
 
         <Header />
 
-        <Box component="main" sx={wrapper}>
+        <Box component="main" sx={{ p: 3, pt: 0 }}>
           <Router>
             <MyQuestionsPage path="my-questions" />
             <MyFavouritesPage path="my-favourites" />
@@ -34,11 +33,6 @@ const App: React.FC = () => {
       </PageWrapper>
     </ThemeProvider>
   )
-}
-
-const wrapper: SxProps<Theme> = {
-  padding: 3,
-  paddingTop: 0,
 }
 
 export default App

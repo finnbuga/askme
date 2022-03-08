@@ -1,5 +1,6 @@
 import React from "react"
 import { Box, Alert, IconButton, SvgIcon } from "@mui/material"
+import type { SxProps } from "@mui/material"
 import { useAsync } from "react-use"
 
 import { useDispatch, useSelector } from "store"
@@ -11,12 +12,12 @@ import type { Question } from "api/questions"
 
 const QuestionsSlider: React.FC<{ filter?: (question: Question) => boolean }> = ({ filter }) => {
   const dispatch = useDispatch()
-  const allQuestions = useSelector((state) => state.questions)
-
   const { loading, error } = useAsync(() => dispatch(getQuestions()))
-  const questions = filter ? allQuestions.filter(filter) : allQuestions
-  const { current, goToNext, goToPrev } = useNavigator(questions.length)
 
+  const allQuestions = useSelector((state) => state.questions)
+  const questions = filter ? allQuestions.filter(filter) : allQuestions
+
+  const { current, goToNext, goToPrev } = useNavigator(questions.length)
   const currentQuestion = questions[current]
 
   if (error) {
@@ -26,7 +27,7 @@ const QuestionsSlider: React.FC<{ filter?: (question: Question) => boolean }> = 
   return (
     <>
       <Box sx={wrapper}>
-        <Box component="h1" sx={question}>
+        <Box component="h1" mt={2}>
           {loading ? "Loading..." : questions.length === 0 ? "No questions" : currentQuestion.text}
         </Box>
 
@@ -48,7 +49,7 @@ const QuestionsSlider: React.FC<{ filter?: (question: Question) => boolean }> = 
   )
 }
 
-const wrapper = {
+const wrapper: SxProps = {
   maxWidth: {
     sm: 600,
     md: 500,
@@ -62,17 +63,13 @@ const wrapper = {
   overflow: "hidden",
   padding: 4,
   boxShadow: "0px 7px 25px 2px rgba(0, 0, 0, 0.1)",
-} as const
+}
 
-const question = {
-  marginTop: 2,
-} as const
-
-const buttonsWrapper = {
+const buttonsWrapper: SxProps = {
   marginBottom: 0.5,
   display: "flex",
   justifyContent: "center",
-} as const
+}
 
 const NextIcon: React.FC<{ filled?: boolean }> = ({ filled }) => (
   <SvgIcon viewBox="0 0 41 40" color="primary" style={{ fontSize: 32 }}>
