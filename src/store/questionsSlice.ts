@@ -15,7 +15,7 @@ const questionsSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder
-      .addCase(getQuestions.fulfilled, (state, action) => {
+      .addCase(getQuestions.fulfilled, (_, action) => {
         const fetchedQuestions = action.payload
         return fetchedQuestions
       })

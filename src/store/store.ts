@@ -1,9 +1,6 @@
 import { configureStore, ActionCreatorsMapObject, bindActionCreators } from "@reduxjs/toolkit"
-import {
-  useSelector as useReduxSelector,
-  useDispatch as useReduxDispatch,
-  TypedUseSelectorHook,
-} from "react-redux"
+import { useSelector as useReduxSelector, useDispatch as useReduxDispatch } from "react-redux"
+import type { TypedUseSelectorHook } from "react-redux"
 
 import user from "./userSlice"
 import questions from "./questionsSlice"
