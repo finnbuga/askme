@@ -21,7 +21,7 @@ const MyQuestionsPage: React.FC = () => {
       {isAuthenticating || loading ? null : !user ? (
         <Alert severity="info">In order to add your own questions please login</Alert>
       ) : error ? (
-        <Alert severity="error">{error}</Alert>
+        <Alert severity="error">{error.message}</Alert>
       ) : (
         <>
           <List>
