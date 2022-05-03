@@ -1,6 +1,6 @@
-import { Router } from "@reach/router"
 import { ThemeProvider } from "@mui/material/styles"
 import { Box, CssBaseline } from "@mui/material"
+import { Routes, Route } from "react-router-dom"
 
 import HomePage from "pages/HomePage"
 import MyQuestionsPage from "pages/MyQuestionsPage"
@@ -23,11 +23,11 @@ const App: React.FC = () => {
         <Header />
 
         <Box component="main" sx={{ p: 3, pt: 0 }}>
-          <Router>
-            <MyQuestionsPage path="my-questions" />
-            <MyFavouritesPage path="my-favourites" />
-            <HomePage path="*" />
-          </Router>
+          <Routes>
+            <Route path="my-questions" element={<MyQuestionsPage />} />
+            <Route path="my-favourites" element={<MyFavouritesPage />} />
+            <Route path="*" element={<HomePage />} />
+          </Routes>
         </Box>
       </PageWrapper>
     </ThemeProvider>

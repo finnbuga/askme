@@ -1,13 +1,11 @@
-import React from "react"
 import { Box } from "@mui/material"
 import type { SxProps, Theme } from "@mui/material"
-import { RouteComponentProps } from "@reach/router"
 
 import { Question } from "api/questions"
 import QuestionsSlider from "components/QuestionsSlider"
 import lady from "./lady.png"
 
-const HomePage: React.FC<RouteComponentProps> = () => (
+const HomePage: React.FC = () => (
   <div style={{ textAlign: "center" }}>
     <h1 style={{ maxWidth: 500, margin: "auto" }}>
       Spark insightful conversations and get you know yourself and your friends better

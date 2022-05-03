@@ -1,4 +1,3 @@
-import { RouteComponentProps } from "@reach/router"
 import { Alert, List, ListItem, Fade } from "@mui/material"
 import { useAsync } from "react-use"
 
@@ -7,7 +6,7 @@ import { getQuestions } from "store/questionsSlice"
 import DeleteButton from "pages/MyQuestionsPage/DeleteButton"
 import AddQuestion from "pages/MyQuestionsPage/AddQuestion"
 
-const MyQuestionsPage: React.FC<RouteComponentProps> = () => {
+const MyQuestionsPage: React.FC = () => {
   const { user, isAuthenticating } = useSelector((state) => state.user)
   const questions = useSelector((state) => state.questions)
   const myQuestions = questions.filter(({ userId }) => userId === user?.id)

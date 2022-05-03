@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { useDispatch, useSelector } from "store"
-import { navigate } from "@reach/router"
+import { useNavigate } from "react-router-dom"
 import { Button, IconButton, Menu, MenuItem, ListItemIcon, ListItemText } from "@mui/material"
 import AccountIcon from "@mui/icons-material/AccountCircle"
 import LogoutIcon from "@mui/icons-material/ExitToApp"
@@ -43,6 +43,7 @@ const AuthMenu: React.FC = () => {
 
 const useLogout = () => {
   const dispatch = useDispatch()
+  const navigate = useNavigate()
 
   const logout = () =>
     signOut()
