@@ -1,7 +1,6 @@
-import * as React from "react"
+import { useState } from "react"
 import { Paper, BottomNavigation, BottomNavigationAction } from "@mui/material"
 import { Favorite, Person } from "@mui/icons-material"
-import { useState } from "react"
 
 const Navigation: React.FC = () => {
   const [value, setValue] = useState(0)
