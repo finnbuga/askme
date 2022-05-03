@@ -1,13 +1,13 @@
 import { Box, Alert, IconButton, SvgIcon } from "@mui/material"
 import type { SxProps } from "@mui/material"
+import { useDispatch, useSelector } from "store"
 import { useAsync } from "react-use"
 
-import { useDispatch, useSelector } from "store"
 import { getQuestions } from "store/questionsSlice"
-import useNavigator from "./useNavigator"
-import LikeButton from "./LikeButton"
-
 import type { Question } from "api/questions"
+
+import LikeButton from "./LikeButton"
+import useNavigator from "./useNavigator"
 
 const QuestionsSlider: React.FC<{ filter?: (question: Question) => boolean }> = ({ filter }) => {
   const dispatch = useDispatch()

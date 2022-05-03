@@ -1,8 +1,7 @@
 import { Box, Alert } from "@mui/material"
-
 import { useSelector } from "store"
-import QuestionsSlider from "components/QuestionsSlider"
 
+import QuestionsSlider from "components/QuestionsSlider"
 import type { Question } from "api/questions"
 
 const MyFavouritesPage: React.FC = () => {
