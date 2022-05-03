@@ -3,7 +3,6 @@ import { arrayUnion, arrayRemove } from "firebase/firestore"
 
 import { db } from "./firebase"
 import { getCurrentUserId } from "./auth"
-
 import type { Question } from "./questions"
 
 export interface User {

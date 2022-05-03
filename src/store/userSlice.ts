@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"
-import * as api from "api/users"
 
+import * as api from "api/users"
 import type { User } from "api/users"
 
 export const likeQuestion = createAsyncThunk("user/likeQuestion", api.addLikedQuestion)

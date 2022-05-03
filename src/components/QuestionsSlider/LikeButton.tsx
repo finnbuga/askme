@@ -1,9 +1,8 @@
 import { IconButton, SvgIcon } from "@mui/material"
-
 import { useDispatch, useSelector } from "store"
+
 import { notifyError } from "store/notificationsSlice"
 import { likeQuestion, unlikeQuestion } from "store/userSlice"
-
 import type { Question } from "api/questions"
 
 const LikeButton: React.FC<{ questionId: Question["id"] }> = ({ questionId: id }) => {

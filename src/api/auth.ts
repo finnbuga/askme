@@ -1,4 +1,5 @@
 import { signInWithPopup, GoogleAuthProvider, signOut as firebaseSignOut } from "firebase/auth"
+
 import { auth } from "./firebase"
 
 export const signInWithGoogle = () => signInWithPopup(auth, new GoogleAuthProvider())

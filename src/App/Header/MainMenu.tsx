@@ -5,6 +5,7 @@ import MenuIcon from "@mui/icons-material/Menu"
 import HomeIcon from "@mui/icons-material/Home"
 import LightbulbIcon from "@mui/icons-material/Lightbulb"
 import FavoriteIcon from "@mui/icons-material/Favorite"
+
 import useToggle from "hooks/useToggle"
 
 function MainMenu() {

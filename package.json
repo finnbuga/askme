@@ -19,6 +19,7 @@
     "@types/react-dom": "^18.0.3",
     "@types/react-redux": "^7.1.24",
     "babel-loader": "8.2.5",
+    "eslint-plugin-import": "^2.26.0",
     "firebase": "^9.7.0",
     "lodash": "^4.17.21",
     "react": "^18.1.0",
@@ -73,6 +74,49 @@
           "ignorePropertyModificationsFor": [
             "state"
           ]
+        }
+      ],
+      "import/order": [
+        "error",
+        {
+          "pathGroups": [
+            {
+              "pattern": "api/**",
+              "group": "internal"
+            },
+            {
+              "pattern": "components/**",
+              "group": "internal"
+            },
+            {
+              "pattern": "hooks/**",
+              "group": "internal"
+            },
+            {
+              "pattern": "pages/**",
+              "group": "internal"
+            },
+            {
+              "pattern": "store/**",
+              "group": "internal"
+            },
+            {
+              "pattern": "stories/**",
+              "group": "internal"
+            }
+          ],
+          "groups": [
+            "builtin",
+            "external",
+            "internal",
+            "parent",
+            "sibling",
+            "index"
+          ],
+          "pathGroupsExcludedImportTypes": [
+            "builtin"
+          ],
+          "newlines-between": "always"
         }
       ]
     }

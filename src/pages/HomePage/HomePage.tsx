@@ -3,6 +3,7 @@ import type { SxProps, Theme } from "@mui/material"
 
 import { Question } from "api/questions"
 import QuestionsSlider from "components/QuestionsSlider"
+
 import lady from "./lady.png"
 
 const HomePage: React.FC = () => (
