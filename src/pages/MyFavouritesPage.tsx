@@ -1,4 +1,3 @@
-import { RouteComponentProps } from "@reach/router"
 import { Box, Alert } from "@mui/material"
 
 import { useSelector } from "store"
@@ -6,7 +5,7 @@ import QuestionsSlider from "components/QuestionsSlider"
 
 import type { Question } from "api/questions"
 
-const MyFavouritesPage: React.FC<RouteComponentProps> = () => {
+const MyFavouritesPage: React.FC = () => {
   const { user, isAuthenticating } = useSelector((state) => state.user)
   const isMyFavourite = (question: Question) => !!user?.likedQuestions?.includes(question.id)
 
