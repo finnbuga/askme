@@ -3,7 +3,7 @@ import type { SxProps } from "@mui/material"
 
 import backgroundImage from "./bottom-background.png"
 
-const PageWrapper: React.FC = ({ children }) => (
+const PageWrapper: React.FC<React.PropsWithChildren<{}>> = ({ children }) => (
   <Box sx={wrapper}>
     <Container disableGutters sx={container}>
       {children}

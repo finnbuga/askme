@@ -20,7 +20,7 @@ const QuestionsSlider: React.FC<{ filter?: (question: Question) => boolean }> = 
   const currentQuestion = questions[current]
 
   if (error) {
-    return <Alert severity="error">{error}</Alert>
+    return <Alert severity="error">{error.message}</Alert>
   }
 
   return (
