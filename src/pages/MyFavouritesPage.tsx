@@ -1,8 +1,8 @@
 import { Box, Alert } from "@mui/material"
-import { useSelector } from "store"
 
-import QuestionsSlider from "components/QuestionsSlider"
 import type { Question } from "api/questions"
+import { useSelector } from "store"
+import QuestionsSlider from "components/QuestionsSlider"
 
 const MyFavouritesPage: React.FC = () => {
   const { user, isAuthenticating } = useSelector((state) => state.user)

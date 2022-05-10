@@ -81,6 +81,10 @@
         {
           "pathGroups": [
             {
+              "pattern": "App",
+              "group": "internal"
+            },
+            {
               "pattern": "api/**",
               "group": "internal"
             },

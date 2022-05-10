@@ -1,9 +1,9 @@
 import { Alert, Snackbar } from "@mui/material"
 import { useEffect } from "react"
-import { useSelector, useDispatch } from "store"
 
-import useToggle from "hooks/useToggle"
+import { useSelector, useDispatch } from "store"
 import { showNext } from "store/notificationsSlice"
+import useToggle from "hooks/useToggle"
 
 const Notifications: React.FC = () => {
   const notifications = useSelector((state) => state.notifications)
