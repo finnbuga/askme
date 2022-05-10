@@ -1,9 +1,9 @@
 import { IconButton, CircularProgress } from "@mui/material"
 import DeleteIcon from "@mui/icons-material/Delete"
 import { useAsyncFn } from "react-use"
-import { useDispatch } from "store"
 
 import { Question } from "api/questions"
+import { useDispatch } from "store"
 import { deleteQuestion as deleteQuestionThunk } from "store/questionsSlice"
 
 const DeleteButton: React.FC<{ id: Question["id"] }> = ({ id }) => {
