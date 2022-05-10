@@ -59,6 +59,7 @@ const image: SxProps<Theme> = {
 
 const slider: SxProps<Theme> = {
   margin: (theme) => ({
+    flexGrow: 1,
     xs: theme.spacing(5, "auto", 3),
     sm: theme.spacing(5, "auto"),
   }),
