@@ -3,8 +3,6 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"
 import * as api from "api/questions"
 import { Question } from "api/questions"
 
-export const getQuestions = createAsyncThunk("questions/getQuestions", api.getQuestions)
-
 export const addQuestion = createAsyncThunk("questions/addQuestion", api.addQuestion)
 
 export const deleteQuestion = createAsyncThunk("questions/deleteQuestion", api.deleteQuestion)
@@ -15,10 +13,6 @@ const questionsSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder
-      .addCase(getQuestions.fulfilled, (_, action) => {
-        const fetchedQuestions = action.payload
-        return fetchedQuestions
-      })
       .addCase(addQuestion.fulfilled, (state, action) => {
         const addedQuestion = action.payload
         state.push(addedQuestion)

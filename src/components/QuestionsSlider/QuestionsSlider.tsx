@@ -1,21 +1,14 @@
 import { Box, Alert, IconButton, SvgIcon } from "@mui/material"
 import type { SxProps } from "@mui/material"
-import { useAsync } from "react-use"
 
 import type { Question } from "api/questions"
-import { useDispatch, useSelector } from "store"
-import { getQuestions } from "store/questionsSlice"
+import { useQuestions } from "hooks/useQuestions"
 
 import LikeButton from "./LikeButton"
 import useNavigator from "./useNavigator"
 
 const QuestionsSlider: React.FC<{ filter?: (question: Question) => boolean }> = ({ filter }) => {
-  const dispatch = useDispatch()
-  const { loading, error } = useAsync(() => dispatch(getQuestions()))
-
-  const allQuestions = useSelector((state) => state.questions)
-  const questions = filter ? allQuestions.filter(filter) : allQuestions
-
+  const { questions, isLoading, error } = useQuestions({ filter })
   const { current, goToNext, goToPrev } = useNavigator(questions.length)
   const currentQuestion = questions[current]
 
@@ -27,7 +20,7 @@ const QuestionsSlider: React.FC<{ filter?: (question: Question) => boolean }> = 
     <>
       <Box sx={wrapper}>
         <Box component="h1" mt={2}>
-          {loading ? "Loading..." : questions.length === 0 ? "No questions" : currentQuestion.text}
+          {isLoading ? null : questions.length === 0 ? "No questions" : currentQuestion.text}
         </Box>
 
         {questions.length > 0 && (
