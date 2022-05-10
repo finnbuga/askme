@@ -13,7 +13,7 @@ function UserMenu() {
 
   return (
     // set a fixed width do avoid the header resizing on auth user response
-    <div style={{ width: 100 }}>
+    <div style={{ width: 100, display: "flex", flexDirection: "row-reverse" }}>
       {isAuthenticating ? null : user ? <AuthMenu /> : <LoginButton />}
     </div>
   )
@@ -30,7 +30,7 @@ const AuthMenu: React.FC = () => {
 
   return (
     <>
-      <IconButton edge="start" color="inherit" onClick={openMenu}>
+      <IconButton color="inherit" onClick={openMenu}>
         <AccountIcon />
       </IconButton>
 
