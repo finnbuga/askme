@@ -1,10 +1,10 @@
 import { Box, Alert, IconButton, SvgIcon } from "@mui/material"
 import type { SxProps } from "@mui/material"
-import { useDispatch, useSelector } from "store"
 import { useAsync } from "react-use"
 
-import { getQuestions } from "store/questionsSlice"
 import type { Question } from "api/questions"
+import { useDispatch, useSelector } from "store"
+import { getQuestions } from "store/questionsSlice"
 
 import LikeButton from "./LikeButton"
 import useNavigator from "./useNavigator"

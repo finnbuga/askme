@@ -1,11 +1,11 @@
 import { useState } from "react"
-import { useDispatch, useSelector } from "store"
 import { useNavigate } from "react-router-dom"
 import { Button, IconButton, Menu, MenuItem, ListItemIcon, ListItemText } from "@mui/material"
 import AccountIcon from "@mui/icons-material/AccountCircle"
 import LogoutIcon from "@mui/icons-material/ExitToApp"
 
 import { signInWithGoogle, signOut } from "api/auth"
+import { useDispatch, useSelector } from "store"
 import { notifyError, notifySuccess } from "store/notificationsSlice"
 
 function UserMenu() {
