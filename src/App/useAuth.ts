@@ -1,5 +1,4 @@
 import { useDispatch } from "store"
-
 import { onAuthStateChanged } from "api/auth"
 import { getUser, addUser } from "api/users"
 import { setUser } from "store/userSlice"
