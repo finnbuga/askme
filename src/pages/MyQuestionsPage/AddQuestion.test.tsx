@@ -4,7 +4,7 @@ import { render, screen } from "@testing-library/react"
 
 import AddQuestion from "./AddQuestion"
 
-const store = configureStore({ reducer: {} })
+const store = configureStore({ reducer: { user: () => null } })
 const ReduxProvider: React.FC<React.PropsWithChildren<{}>> = ({ children }) => (
   <Provider store={store}>{children}</Provider>
 )
