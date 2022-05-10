@@ -4,16 +4,14 @@ import MainMenu from "./MainMenu"
 import Logo from "./Logo"
 import UserMenu from "./UserMenu"
 
-const Header: React.FC = () => {
-  return (
-    <AppBar position="static" color="transparent" sx={{ boxShadow: "none" }}>
-      <Toolbar sx={{ p: 3, pt: 4, pb: 2 }}>
-        <MainMenu />
-        <Logo />
-        <UserMenu />
-      </Toolbar>
-    </AppBar>
-  )
-}
+const Header: React.FC = () => (
+  <AppBar position="static" color="transparent" sx={{ boxShadow: "none" }}>
+    <Toolbar sx={{ p: 3, pt: 4, pb: 2 }}>
+      <MainMenu />
+      <Logo />
+      <UserMenu />
+    </Toolbar>
+  </AppBar>
+)
 
 export default Header
