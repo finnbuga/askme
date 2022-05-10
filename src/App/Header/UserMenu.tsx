@@ -11,7 +11,12 @@ import { notifyError, notifySuccess } from "store/notificationsSlice"
 function UserMenu() {
   const { user, isAuthenticating } = useSelector((state) => state.user)
 
-  return isAuthenticating ? null : user ? <AuthMenu /> : <LoginButton />
+  return (
+    // set a fixed width do avoid the header resizing on auth user response
+    <div style={{ width: 100 }}>
+      {isAuthenticating ? null : user ? <AuthMenu /> : <LoginButton />}
+    </div>
+  )
 }
 
 const AuthMenu: React.FC = () => {
