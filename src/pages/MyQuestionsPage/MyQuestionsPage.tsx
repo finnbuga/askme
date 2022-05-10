@@ -10,6 +10,7 @@ const MyQuestionsPage: React.FC = () => {
   const { user, isAuthenticating } = useSelector((state) => state.user)
   const questions = useSelector((state) => state.questions)
   const myQuestions = questions.filter(({ userId }) => userId === user?.id)
+  myQuestions.sort((a, b) => a.timestamp - b.timestamp)
 
   const dispatch = useDispatch()
   const { loading, error } = useAsync(() => dispatch(getQuestions()))
