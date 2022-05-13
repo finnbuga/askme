@@ -38,7 +38,10 @@ const footerStyle: SxProps = {
     md: 250,
   },
   background: {
-    sm: `url(${backgroundImage}) no-repeat bottom`,
+    sm: `url(${backgroundImage}) center top no-repeat`,
+  },
+  backgroundSize: {
+    sm: "cover",
   },
 }
 
