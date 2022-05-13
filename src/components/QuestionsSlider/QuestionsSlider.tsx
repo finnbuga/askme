@@ -19,7 +19,7 @@ const QuestionsSlider: React.FC<{ filter?: (question: Question) => boolean }> = 
   return (
     <>
       <Box sx={wrapper}>
-        <Box component="h1" mt={2}>
+        <Box component="h1" my="auto">
           {isLoading ? null : questions.length === 0 ? "No questions" : currentQuestion.text}
         </Box>
 
