@@ -1,5 +1,3 @@
-import { ThemeProvider } from "@mui/material/styles"
-import { CssBaseline } from "@mui/material"
 import { Routes, Route } from "react-router-dom"
 
 import HomePage from "pages/HomePage"
@@ -7,15 +5,14 @@ import MyQuestionsPage from "pages/MyQuestionsPage"
 import MyFavouritesPage from "pages/MyFavouritesPage"
 
 import useAuth from "./useAuth"
-import { theme } from "./theme"
+import ThemeProvider from "./ThemeProvider"
 import PageWrapper from "./PageWrapper"
 
 const App: React.FC = () => {
   useAuth()
 
   return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
+    <ThemeProvider>
       <PageWrapper>
         <Routes>
           <Route path="my-questions" element={<MyQuestionsPage />} />
