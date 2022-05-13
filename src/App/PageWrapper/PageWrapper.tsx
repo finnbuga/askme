@@ -1,12 +1,19 @@
 import { Box, Container } from "@mui/material"
 import type { SxProps } from "@mui/material"
 
+import Notifications from "../Notifications"
+import Header from "../Header/Header"
+
 import backgroundImage from "./bottom-background.png"
 
 const PageWrapper: React.FC<React.PropsWithChildren<{}>> = ({ children }) => (
   <Box sx={wrapper}>
     <Container disableGutters sx={container}>
-      {children}
+      <Notifications />
+      <Header />
+      <Box component="main" sx={{ p: 3, pt: 0 }}>
+        {children}
+      </Box>
     </Container>
     <Box component="footer" sx={footerStyle} />
   </Box>
