@@ -1,4 +1,5 @@
-import { Box } from "@mui/material"
+import { ErrorBoundary } from "react-error-boundary"
+import { Box, Alert } from "@mui/material"
 import type { SxProps, Theme } from "@mui/material"
 
 import { Question } from "api/questions"
@@ -23,13 +24,19 @@ const HomePage: React.FC = () => (
       </Box>
 
       <Box sx={slider}>
-        <QuestionsSlider filter={isPublicQuestion} />
+        <ErrorBoundary FallbackComponent={Error}>
+          <QuestionsSlider filter={isPublicQuestion} />
+        </ErrorBoundary>
       </Box>
     </Box>
   </div>
 )
 
 const isPublicQuestion = (question: Question) => !!question.isPublic
+
+const Error: React.FC<{ error: Error }> = () => (
+  <Alert severity="error">Sorry, an error occured. Please refresh the page.</Alert>
+)
 
 const wrapper: SxProps = {
   display: "flex",
