@@ -17,27 +17,25 @@ const QuestionsSlider: React.FC<{ filter?: (question: Question) => boolean }> = 
   }
 
   return (
-    <>
-      <Box sx={wrapper}>
-        <Box component="h1" my="auto">
-          {isLoading ? null : questions.length === 0 ? "No questions" : currentQuestion.text}
-        </Box>
-
-        {questions.length > 0 && (
-          <Box sx={buttonsWrapper}>
-            <IconButton onClick={goToPrev} disabled={!goToPrev}>
-              <PreviousIcon />
-            </IconButton>
-
-            <LikeButton questionId={currentQuestion.id} />
-
-            <IconButton onClick={goToNext} disabled={!goToNext}>
-              <NextIcon />
-            </IconButton>
-          </Box>
-        )}
+    <Box sx={wrapper}>
+      <Box component="h1" my="auto">
+        {isLoading ? null : questions.length === 0 ? "No questions" : currentQuestion.text}
       </Box>
-    </>
+
+      {questions.length > 0 && (
+        <Box sx={buttonsWrapper}>
+          <IconButton onClick={goToPrev} disabled={!goToPrev}>
+            <PreviousIcon />
+          </IconButton>
+
+          <LikeButton questionId={currentQuestion.id} />
+
+          <IconButton onClick={goToNext} disabled={!goToNext}>
+            <NextIcon />
+          </IconButton>
+        </Box>
+      )}
+    </Box>
   )
 }
 
