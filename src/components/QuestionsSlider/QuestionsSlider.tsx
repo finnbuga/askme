@@ -1,9 +1,8 @@
-import { Box, Alert, IconButton, SvgIcon } from "@mui/material"
+import { Box, Alert, IconButton, SvgIcon, Typography } from "@mui/material"
 import type { SxProps } from "@mui/material"
 
 import type { Question } from "api/questions"
 import { useQuestions } from "hooks/useQuestions"
-import { H1 } from "components/ui/H1"
 
 import LikeButton from "./LikeButton"
 import useNavigator from "./useNavigator"
@@ -19,9 +18,9 @@ const QuestionsSlider: React.FC<{ filter?: (question: Question) => boolean }> = 
 
   return (
     <Box sx={wrapper}>
-      <H1 my="auto">
+      <Typography component="div" variant="h1" my="auto">
         {isLoading ? null : questions.length === 0 ? "No questions" : currentQuestion.text}
-      </H1>
+      </Typography>
 
       {questions.length > 0 && (
         <Box sx={buttonsWrapper}>
