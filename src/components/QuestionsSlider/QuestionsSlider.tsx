@@ -3,6 +3,7 @@ import type { SxProps } from "@mui/material"
 
 import type { Question } from "api/questions"
 import { useQuestions } from "hooks/useQuestions"
+import { H1 } from "components/ui/H1"
 
 import LikeButton from "./LikeButton"
 import useNavigator from "./useNavigator"
@@ -18,9 +19,9 @@ const QuestionsSlider: React.FC<{ filter?: (question: Question) => boolean }> = 
 
   return (
     <Box sx={wrapper}>
-      <Box component="h1" my="auto">
+      <H1 my="auto">
         {isLoading ? null : questions.length === 0 ? "No questions" : currentQuestion.text}
-      </Box>
+      </H1>
 
       {questions.length > 0 && (
         <Box sx={buttonsWrapper}>
