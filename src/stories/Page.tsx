@@ -2,7 +2,7 @@ import { Header } from "./Header"
 import "./page.css"
 
 export interface PageProps {
-  user?: {}
+  user?: Record<string, never>
   onLogin: () => void
   onLogout: () => void
   onCreateAccount: () => void

@@ -61,7 +61,7 @@ const buttonsWrapper: SxProps = {
   justifyContent: "center",
 }
 
-const NextIcon: React.FC<{ filled?: boolean }> = ({ filled }) => (
+const NextIcon: React.FC<{ filled?: boolean }> = () => (
   <SvgIcon viewBox="0 0 41 40" color="primary" style={{ fontSize: 40 }}>
     <svg fill="none">
       <circle cx="20.2629" cy="20" r="20" fill="#DEDEDE" />
@@ -70,7 +70,7 @@ const NextIcon: React.FC<{ filled?: boolean }> = ({ filled }) => (
   </SvgIcon>
 )
 
-const PreviousIcon: React.FC<{ filled?: boolean }> = ({ filled }) => (
+const PreviousIcon: React.FC<{ filled?: boolean }> = () => (
   <SvgIcon viewBox="0 0 41 40" color="primary" style={{ fontSize: 40 }}>
     <svg fill="none">
       <circle cx="20.2629" cy="20" r="20" fill="#DEDEDE" />

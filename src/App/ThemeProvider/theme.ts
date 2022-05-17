@@ -4,7 +4,7 @@ import type { Theme } from "@mui/material"
 import "./theme.css"
 
 declare module "@mui/material/styles" {
-  interface DefaultTheme extends Theme {}
+  type DefaultTheme = Theme
 }
 
 const palette = {
