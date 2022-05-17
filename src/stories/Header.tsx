@@ -2,7 +2,7 @@ import { Button } from "@mui/material"
 import "./header.css"
 
 export interface HeaderProps {
-  user?: {}
+  user?: Record<string, never>
   onLogin: () => void
   onLogout: () => void
   onCreateAccount: () => void

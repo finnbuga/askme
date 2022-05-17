@@ -1,11 +1,12 @@
 import { Provider } from "react-redux"
 import { configureStore } from "@reduxjs/toolkit"
 import { render, screen } from "@testing-library/react"
+import type { ReactNode } from "react"
 
 import AddQuestion from "./AddQuestion"
 
 const store = configureStore({ reducer: { user: () => null } })
-const ReduxProvider: React.FC<React.PropsWithChildren<{}>> = ({ children }) => (
+const ReduxProvider: React.FC<{ children: ReactNode }> = ({ children }) => (
   <Provider store={store}>{children}</Provider>
 )
 

@@ -58,79 +58,6 @@
     "printWidth": 100,
     "semi": false
   },
-  "eslintConfig": {
-    "plugins": [
-      "lodash-fp"
-    ],
-    "extends": [
-      "react-app",
-      "react-app/jest",
-      "plugin:lodash-fp/recommended",
-      "prettier"
-    ],
-    "rules": {
-      "no-param-reassign": [
-        "error",
-        {
-          "props": true,
-          "ignorePropertyModificationsFor": [
-            "state"
-          ]
-        }
-      ],
-      "import/order": [
-        "error",
-        {
-          "pathGroups": [
-            {
-              "pattern": "App",
-              "group": "internal"
-            },
-            {
-              "pattern": "api/**",
-              "group": "internal"
-            },
-            {
-              "pattern": "components/**",
-              "group": "internal"
-            },
-            {
-              "pattern": "hooks/**",
-              "group": "internal"
-            },
-            {
-              "pattern": "pages/**",
-              "group": "internal"
-            },
-            {
-              "pattern": "store",
-              "group": "internal"
-            },
-            {
-              "pattern": "store/**",
-              "group": "internal"
-            },
-            {
-              "pattern": "stories/**",
-              "group": "internal"
-            }
-          ],
-          "groups": [
-            "builtin",
-            "external",
-            "internal",
-            "parent",
-            "sibling",
-            "index"
-          ],
-          "pathGroupsExcludedImportTypes": [
-            "builtin"
-          ],
-          "newlines-between": "always"
-        }
-      ]
-    }
-  },
   "browserslist": {
     "production": [
       ">0.2%",
@@ -150,6 +77,8 @@
     "@storybook/node-logger": "^6.4.22",
     "@storybook/preset-create-react-app": "^4.1.0",
     "@storybook/react": "^6.4.22",
+    "@typescript-eslint/eslint-plugin": "^5.25.0",
+    "@typescript-eslint/parser": "^5.25.0",
     "chromatic": "^6.5.4",
     "cypress": "^9.6.0",
     "eslint-config-prettier": "^8.5.0",
