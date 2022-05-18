@@ -34,6 +34,10 @@
             "group": "internal"
           },
           {
+            "pattern": "App/**",
+            "group": "internal"
+          },
+          {
             "pattern": "api/**",
             "group": "internal"
           },
