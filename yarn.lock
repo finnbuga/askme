@@ -2463,7 +2463,7 @@
   dependencies:
     "@sinonjs/commons" "^1.7.0"
 
-"@storybook/addon-actions@6.5.7", "@storybook/addon-actions@^6.5.0-rc.0":
+"@storybook/addon-actions@6.5.7", "@storybook/addon-actions@^6.5.0":
   version "6.5.7"
   resolved "https://registry.yarnpkg.com/@storybook/addon-actions/-/addon-actions-6.5.7.tgz#0280a994f42e80ae7e8b71ccf04cd0279cbce01d"
   integrity sha512-gTkPr2FYX+vySZKEg5Wq7uHPkVUq3hJ7ZKvGls+/xjgaTwfu3iIly53FEFUl8A6kMQ+4gtTC+YRr3cSJgXMbAg==
@@ -2559,7 +2559,7 @@
     ts-dedent "^2.0.0"
     util-deprecate "^1.0.2"
 
-"@storybook/addon-essentials@^6.5.0-rc.0":
+"@storybook/addon-essentials@^6.5.0":
   version "6.5.7"
   resolved "https://registry.yarnpkg.com/@storybook/addon-essentials/-/addon-essentials-6.5.7.tgz#455b754f79399f0dcf7409b8a45ccae9b6433bab"
   integrity sha512-JZ80W9PgZOEUp2SjhBYyYHxQduxSIe4n9Wdoy8XDtV28152jDNms6UPjFeEVb+a9rVybYOwWnOnEhBWF6ZfJ/g==
@@ -2580,7 +2580,7 @@
     regenerator-runtime "^0.13.7"
     ts-dedent "^2.0.0"
 
-"@storybook/addon-links@^6.5.0-rc.0":
+"@storybook/addon-links@^6.5.0":
   version "6.5.7"
   resolved "https://registry.yarnpkg.com/@storybook/addon-links/-/addon-links-6.5.7.tgz#b3a794b19c5c0277c3f20f86915c851f577dc45b"
   integrity sha512-kiCzGLlCyhfBjwYfM/xACe5l6s2+8exQNOGoLzNeAhprgD7dzpsZ0ZaEgpF4ay9bG9H9gOeX4jc/TAvVW/v6nw==
@@ -2751,7 +2751,7 @@
     webpack-hot-middleware "^2.25.1"
     webpack-virtual-modules "^0.2.2"
 
-"@storybook/builder-webpack5@^6.5.0-rc.0":
+"@storybook/builder-webpack5@^6.5.0":
   version "6.5.7"
   resolved "https://registry.yarnpkg.com/@storybook/builder-webpack5/-/builder-webpack5-6.5.7.tgz#499706419d6b75808534a699a1fa23c35d82999c"
   integrity sha512-3mbQ09KBTUsFYxnEtR4vr7W1wodRen3o8fANY5XxvE1sr1TopHVOKpIlePjrpcrXcLKFI/ZWrX3IfK88LCuI9w==
@@ -3106,7 +3106,7 @@
     webpack-dev-middleware "^3.7.3"
     webpack-virtual-modules "^0.2.2"
 
-"@storybook/manager-webpack5@^6.5.0-rc.0":
+"@storybook/manager-webpack5@^6.5.0":
   version "6.5.7"
   resolved "https://registry.yarnpkg.com/@storybook/manager-webpack5/-/manager-webpack5-6.5.7.tgz#a7446c86d96bb4b91e5dc554d21da8102795a11f"
   integrity sha512-4TZKe71noCRui8sUxSuSqO6zMnCxCLn7dE1dOlCr/UvyZbCaGWACO5olUDQrT+n1glZL8i9L998JGQroksucNw==
@@ -3161,7 +3161,7 @@
     prettier ">=2.2.1 <=2.3.0"
     ts-dedent "^2.0.0"
 
-"@storybook/node-logger@6.5.7", "@storybook/node-logger@^6.5.0-rc.0":
+"@storybook/node-logger@6.5.7", "@storybook/node-logger@^6.5.0":
   version "6.5.7"
   resolved "https://registry.yarnpkg.com/@storybook/node-logger/-/node-logger-6.5.7.tgz#a31d91be3cd9d9f033d340b1dc2b8e1c0de61cb6"
   integrity sha512-OrHu5p2E5i7P2v2hQAOtZw6Od1e2nrP6L7w5SxUPgccUnKUD9dRX5Y8qbAcPZO3XCkMLjpjAbC1xBXG0eFkn9g==
@@ -3226,7 +3226,7 @@
     react-docgen-typescript "^2.1.1"
     tslib "^2.0.0"
 
-"@storybook/react@^6.5.0-rc.0":
+"@storybook/react@^6.5.0":
   version "6.5.7"
   resolved "https://registry.yarnpkg.com/@storybook/react/-/react-6.5.7.tgz#70224ddd150f31fc1cb0e2f7bf9ba56657f38644"
   integrity sha512-jMY1vk1WL1otEODl5BxD1kSh5Eqg+SvZW5CJ7sS6q53i3teOhaGhugvuSTuV9lnBzLOZu8atIdFL0ewdOkpwsg==
@@ -13667,9 +13667,9 @@ rollup-plugin-terser@^7.0.0:
     terser "^5.0.0"
 
 rollup@^2.43.1:
-  version "2.75.5"
-  resolved "https://registry.yarnpkg.com/rollup/-/rollup-2.75.5.tgz#7985c1962483235dd07966f09fdad5c5f89f16d0"
-  integrity sha512-JzNlJZDison3o2mOxVmb44Oz7t74EfSd1SQrplQk0wSaXV7uLQXtVdHbxlcT3w+8tZ1TL4r/eLfc7nAbz38BBA==
+  version "2.75.6"
+  resolved "https://registry.yarnpkg.com/rollup/-/rollup-2.75.6.tgz#ac4dc8600f95942a0180f61c7c9d6200e374b439"
+  integrity sha512-OEf0TgpC9vU6WGROJIk1JA3LR5vk/yvqlzxqdrE2CzzXnqKXNzbAwlWUXis8RS3ZPe7LAq+YUxsRa0l3r27MLA==
   optionalDependencies:
     fsevents "~2.3.2"
 
@@ -13724,7 +13724,7 @@ safe-buffer@5.2.1, safe-buffer@>=5.1.0, safe-buffer@^5.0.1, safe-buffer@^5.1.0, 
 safe-regex@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/safe-regex/-/safe-regex-1.1.0.tgz#40a3669f3b077d1e943d44629e157dd48023bf2e"
-  integrity sha1-QKNmnzsHfR6UPURinhV91IAjvy4=
+  integrity sha512-aJXcif4xnaNUzvUuC5gcb46oTS7zvg4jpMTnuqtrEPlR3vFr4pxtdTwaF1Qs3Enjn9HK+ZlwQui+a7z0SywIzg==
   dependencies:
     ret "~0.1.10"
 
