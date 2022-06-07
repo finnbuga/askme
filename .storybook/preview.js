@@ -6,7 +6,7 @@ import { theme } from "App/ThemeProvider/theme"
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
-  viewport: { defaultViewport: "mobile2", disable: false },
+  viewport: { defaultViewport: "tablet", disable: false },
 }
 
 const queryClient = new QueryClient()
