@@ -1,5 +1,6 @@
 import { ThemeProvider } from "@mui/material/styles"
 import { CssBaseline } from "@mui/material"
+import { QueryClient, QueryClientProvider } from "react-query"
 
 import { theme } from "App/ThemeProvider/theme"
 
@@ -8,11 +9,15 @@ export const parameters = {
   viewport: { defaultViewport: "mobile2", disable: false },
 }
 
+const queryClient = new QueryClient()
+
 export const decorators = [
   (Story) => (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Story />
+      <QueryClientProvider client={queryClient}>
+        <Story />
+      </QueryClientProvider>
     </ThemeProvider>
   ),
 ]
