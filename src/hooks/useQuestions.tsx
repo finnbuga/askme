@@ -1,7 +1,7 @@
 import { useQuery } from "react-query"
 
-import type { Question } from "api/questions"
 import { getQuestions } from "api/questions"
+import type { Question } from "api/questions"
 
 export type Filter = (question: Question) => boolean
 
