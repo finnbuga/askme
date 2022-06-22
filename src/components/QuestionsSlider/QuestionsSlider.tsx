@@ -18,7 +18,7 @@ const QuestionsSlider: React.FC<{ filter?: (question: Question) => boolean }> = 
 
   return (
     <Box sx={wrapper}>
-      <Typography component="div" variant="h1" my="auto">
+      <Typography component="div" variant="h1" my="auto" aria-label="question">
         {isLoading ? null : questions.length === 0 ? "No questions." : currentQuestion.text}
       </Typography>
 
