@@ -1,18 +1,10 @@
-import { Provider } from "react-redux"
-import { configureStore } from "@reduxjs/toolkit"
-import { render, screen } from "@testing-library/react"
-import type { ReactNode } from "react"
+import { render, screen } from "testing"
 
 import AddQuestion from "./AddQuestion"
 
-const store = configureStore({ reducer: { user: () => null } })
-const ReduxProvider: React.FC<{ children: ReactNode }> = ({ children }) => (
-  <Provider store={store}>{children}</Provider>
-)
-
 describe("AddQuestion", () => {
   test("renders the right CTA", () => {
-    render(<AddQuestion />, { wrapper: ReduxProvider })
+    render(<AddQuestion />)
     const button = screen.getByText("Add question")
     expect(button).toBeInTheDocument()
   })
