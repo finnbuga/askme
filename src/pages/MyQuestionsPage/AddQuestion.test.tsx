@@ -25,10 +25,10 @@ describe("AddQuestion", () => {
 
     const user = userEvent.setup()
 
-    const nameInput = screen.getByText(/text/i)
-    user.type(nameInput, text)
+    const input = screen.getByText(/text/i)
+    user.type(input, text)
 
-    const button = screen.getByText("Add question")
-    user.click(button)
+    const addButton = screen.getByText("Add question")
+    user.click(addButton)
   })
 })
