@@ -4,12 +4,8 @@ import { useMutation, useQueryClient } from "react-query"
 
 import { addQuestion } from "api/questions"
 
-interface Form {
-  text: string
-}
-
 const AddQuestion: React.FC = () => {
-  const { register, handleSubmit, reset } = useForm<Form>()
+  const { register, handleSubmit, reset } = useForm<{ text: string }>()
 
   const queryClient = useQueryClient()
   const { mutate, isLoading } = useMutation(addQuestion, {
