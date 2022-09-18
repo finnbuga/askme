@@ -1,4 +1,5 @@
 import { Routes, Route } from "react-router-dom"
+import { SnackbarProvider } from "notistack"
 
 import HomePage from "pages/HomePage"
 import MyQuestionsPage from "pages/MyQuestionsPage"
@@ -13,13 +14,15 @@ const App: React.FC = () => {
 
   return (
     <ThemeProvider>
-      <PageWrapper>
-        <Routes>
-          <Route path="my-questions" element={<MyQuestionsPage />} />
-          <Route path="my-favourites" element={<MyFavouritesPage />} />
-          <Route path="*" element={<HomePage />} />
-        </Routes>
-      </PageWrapper>
+      <SnackbarProvider maxSnack={3}>
+        <PageWrapper>
+          <Routes>
+            <Route path="my-questions" element={<MyQuestionsPage />} />
+            <Route path="my-favourites" element={<MyFavouritesPage />} />
+            <Route path="*" element={<HomePage />} />
+          </Routes>
+        </PageWrapper>
+      </SnackbarProvider>
     </ThemeProvider>
   )
 }
