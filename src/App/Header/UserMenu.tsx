@@ -5,8 +5,8 @@ import AccountIcon from "@mui/icons-material/AccountCircle"
 import LogoutIcon from "@mui/icons-material/ExitToApp"
 
 import { signInWithGoogle, signOut } from "api/auth"
-import { useDispatch, useSelector } from "store"
-import { notifyError, notifySuccess } from "store/notificationsSlice"
+import { useSelector } from "store"
+import { useNotifications } from "hooks/useNotifications"
 
 function UserMenu() {
   const { user, isAuthenticating } = useSelector((state) => state.user)
@@ -48,24 +48,24 @@ const AuthMenu: React.FC = () => {
 }
 
 const useLogout = () => {
-  const dispatch = useDispatch()
+  const { notifySuccess } = useNotifications()
   const navigate = useNavigate()
 
   const logout = () =>
     signOut()
       .then(() => navigate("/"))
-      .then(() => dispatch(notifySuccess("See you soon")))
+      .then(() => notifySuccess("See you soon"))
 
   return logout
 }
 
 const LoginButton: React.FC = () => {
-  const dispatch = useDispatch()
+  const { notifyError, notifySuccess } = useNotifications()
 
   const login = () =>
     signInWithGoogle()
-      .then(() => dispatch(notifySuccess("Welcome")))
-      .catch(() => dispatch(notifyError("Cannot login")))
+      .then(() => notifySuccess("Welcome"))
+      .catch(() => notifyError("Cannot login"))
 
   return (
     <Button color="inherit" onClick={login}>

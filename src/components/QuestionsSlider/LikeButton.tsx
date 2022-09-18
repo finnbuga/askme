@@ -1,7 +1,7 @@
 import { IconButton, SvgIcon } from "@mui/material"
 
 import { useDispatch, useSelector } from "store"
-import { notifyError } from "store/notificationsSlice"
+import { useNotifications } from "hooks/useNotifications"
 import { likeQuestion, unlikeQuestion } from "store/userSlice"
 import type { Question } from "api/questions"
 
@@ -9,11 +9,12 @@ const LikeButton: React.FC<{ questionId: Question["id"] }> = ({ questionId: id }
   const user = useSelector((state) => state.user.user)
   const isLiked = user?.likedQuestions?.includes(id)
 
+  const { notifyError } = useNotifications()
   const dispatch = useDispatch()
 
   const handleLike = () => {
     if (!user) {
-      dispatch(notifyError("Please log in first"))
+      notifyError("Please log in first")
     } else if (isLiked) {
       dispatch(unlikeQuestion(id))
     } else {
