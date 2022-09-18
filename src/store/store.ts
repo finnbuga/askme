@@ -3,13 +3,11 @@ import { useSelector as useReduxSelector, useDispatch as useReduxDispatch } from
 import type { TypedUseSelectorHook } from "react-redux"
 
 import user from "./userSlice"
-import questions from "./questionsSlice"
 import notifications from "./notificationsSlice"
 
 const store = configureStore({
   reducer: {
     user,
-    questions,
     notifications,
   },
 })

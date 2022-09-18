@@ -1,9 +1,8 @@
 import { Button, CircularProgress, Stack, TextField } from "@mui/material"
 import { useForm } from "react-hook-form"
-import { useAsyncFn } from "react-use"
+import { useMutation, useQueryClient } from "react-query"
 
-import { useDispatch } from "store"
-import { addQuestion as addQuestionThunk } from "store/questionsSlice"
+import { addQuestion } from "api/questions"
 
 interface Form {
   text: string
@@ -12,13 +11,21 @@ interface Form {
 const AddQuestion: React.FC = () => {
   const { register, handleSubmit, reset } = useForm<Form>()
 
-  const dispatch = useDispatch()
-  const [{ loading }, addQuestion] = useAsyncFn(({ text }: Form) =>
-    dispatch(addQuestionThunk({ text })).then(() => reset({ text: "" }))
-  )
+  const queryClient = useQueryClient()
+  const { mutate, isLoading } = useMutation(addQuestion, {
+    onSuccess: () => {
+      queryClient.invalidateQueries("questions")
+      reset({ text: "" })
+    },
+  })
 
   return (
-    <Stack component="form" onSubmit={handleSubmit(addQuestion)} spacing={1} mt={3}>
+    <Stack
+      component="form"
+      onSubmit={handleSubmit(({ text }) => mutate({ text }))}
+      spacing={1}
+      mt={3}
+    >
       <TextField
         inputProps={register("text", { required: true })}
         autoFocus
@@ -27,9 +34,9 @@ const AddQuestion: React.FC = () => {
         fullWidth
       />
 
-      <Button type="submit" disabled={loading} color="primary" variant="contained">
+      <Button type="submit" disabled={isLoading} color="primary" variant="contained">
         Add question
-        {loading && <CircularProgress size={24} sx={{ position: "absolute" }} />}
+        {isLoading && <CircularProgress size={24} sx={{ position: "absolute" }} />}
       </Button>
     </Stack>
   )
