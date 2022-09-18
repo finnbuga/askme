@@ -1,18 +1,19 @@
 import { IconButton, CircularProgress } from "@mui/material"
 import DeleteIcon from "@mui/icons-material/Delete"
-import { useAsyncFn } from "react-use"
+import { useMutation, useQueryClient } from "react-query"
 
-import { Question } from "api/questions"
-import { useDispatch } from "store"
-import { deleteQuestion as deleteQuestionThunk } from "store/questionsSlice"
+import { deleteQuestion } from "api/questions"
+import type { Question } from "api/questions"
 
 const DeleteButton: React.FC<{ id: Question["id"] }> = ({ id }) => {
-  const dispatch = useDispatch()
-  const [{ loading }, deleteQuestion] = useAsyncFn(() => dispatch(deleteQuestionThunk(id)))
+  const queryClient = useQueryClient()
+  const { mutate, isLoading } = useMutation(deleteQuestion, {
+    onSuccess: () => queryClient.invalidateQueries("questions"),
+  })
 
   return (
-    <IconButton onClick={deleteQuestion} edge="end">
-      {loading ? <CircularProgress size={24} /> : <DeleteIcon />}
+    <IconButton onClick={() => mutate(id)} edge="end">
+      {isLoading ? <CircularProgress size={24} /> : <DeleteIcon />}
     </IconButton>
   )
 }
