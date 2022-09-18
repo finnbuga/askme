@@ -1,5 +1,5 @@
 import { render, screen } from "testing"
-import { type, click } from "@testing-library/user-event"
+import userEvent from "@testing-library/user-event"
 
 import * as api from "api/questions"
 
@@ -23,9 +23,12 @@ describe("AddQuestion", () => {
     addQuestionMock.mockResolvedValueOnce(question)
     render(<AddQuestion />)
 
+    const user = userEvent.setup()
+
     const nameInput = screen.getByText(/text/i)
-    type(nameInput, text)
+    user.type(nameInput, text)
+
     const button = screen.getByText("Add question")
-    click(button)
+    user.click(button)
   })
 })
