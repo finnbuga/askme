@@ -1,4 +1,4 @@
-import { Alert, List, ListItem, Fade } from "@mui/material"
+import { Alert, List, ListItem, Fade, Box } from "@mui/material"
 
 import type { Question } from "api/questions"
 import { useSelector } from "store"
@@ -15,25 +15,31 @@ const MyQuestionsPage: React.FC = () => {
     <>
       <h1>My Questions</h1>
 
-      {isAuthenticating || isLoading ? null : !user ? (
-        <Alert severity="info">In order to add your own questions please login</Alert>
-      ) : error ? (
-        <Alert severity="error">{error.message}</Alert>
-      ) : (
-        <>
-          <List>
-            {questions.map(({ id, text }) => (
-              <Fade in key={id} timeout={300}>
-                <ListItem secondaryAction={<DeleteButton id={id} />} divider sx={{ py: 3, px: 0 }}>
-                  {text}
-                </ListItem>
-              </Fade>
-            ))}
-          </List>
+      <Box sx={{ mt: 10 }}>
+        {isAuthenticating || isLoading ? null : !user ? (
+          <Alert severity="info">In order to add your own questions please login</Alert>
+        ) : error ? (
+          <Alert severity="error">{error.message}</Alert>
+        ) : (
+          <>
+            <List>
+              {questions.map(({ id, text }) => (
+                <Fade in key={id} timeout={300}>
+                  <ListItem
+                    secondaryAction={<DeleteButton id={id} />}
+                    divider
+                    sx={{ py: 3, px: 0 }}
+                  >
+                    {text}
+                  </ListItem>
+                </Fade>
+              ))}
+            </List>
 
-          <AddQuestion />
-        </>
-      )}
+            <AddQuestion />
+          </>
+        )}
+      </Box>
     </>
   )
 }
