@@ -8,7 +8,11 @@ import type { Question } from "api/questions"
 const DeleteButton: React.FC<{ id: Question["id"] }> = ({ id }) => {
   const queryClient = useQueryClient()
   const { mutate, isLoading } = useMutation(deleteQuestion, {
-    onSuccess: () => queryClient.invalidateQueries("questions"),
+    onSuccess: () => {
+      queryClient.setQueryData("questions", (questions?: Question[]) =>
+        questions!.filter((question) => question.id !== id)
+      )
+    },
   })
 
   return (
