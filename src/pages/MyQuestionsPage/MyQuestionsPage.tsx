@@ -3,8 +3,9 @@ import { Alert, List, ListItem, Fade, Box } from "@mui/material"
 import type { Question } from "api/questions"
 import { useSelector } from "store"
 import { useQuestions } from "hooks/useQuestions"
-import DeleteButton from "pages/MyQuestionsPage/DeleteButton"
-import AddQuestion from "pages/MyQuestionsPage/AddQuestion"
+
+import DeleteButton from "./DeleteButton"
+import AddQuestion from "./AddQuestion"
 
 const MyQuestionsPage: React.FC = () => {
   const { user, isAuthenticating } = useSelector((state) => state.user)
