@@ -15,9 +15,7 @@ const AddQuestion: React.FC = () => {
       queryClient.invalidateQueries("questions")
       reset({ text: "" })
     },
-    onError: (error: Error) => {
-      notifyError(error.message)
-    },
+    onError: notifyError,
   })
 
   return (

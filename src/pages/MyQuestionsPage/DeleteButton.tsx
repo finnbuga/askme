@@ -19,7 +19,7 @@ const DeleteButton: React.FC<{ id: Question["id"] }> = ({ id }) => {
       return { previousQuestions }
     },
     onError: (error: Error, _, context) => {
-      notifyError(error.message)
+      notifyError(error)
       queryClient.setQueryData("questions", context?.previousQuestions)
     },
   })
