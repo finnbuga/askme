@@ -13,6 +13,7 @@ const DeleteButton: React.FC<{ id: Question["id"] }> = ({ id }) => {
   const { mutate, isLoading } = useMutation(deleteQuestion, {
     onMutate: () => {
       queryClient.cancelQueries("questions")
+      // Optimistically update
       const previousQuestions = queryClient.getQueryData<Question[]>("questions")
       const optimisticUpdate = previousQuestions?.filter((q) => q.id !== id)
       queryClient.setQueryData("questions", optimisticUpdate)
@@ -20,6 +21,7 @@ const DeleteButton: React.FC<{ id: Question["id"] }> = ({ id }) => {
     },
     onError: (error: Error, _, context) => {
       notifyError(error)
+      // Rollback optimistic update
       queryClient.setQueryData("questions", context?.previousQuestions)
     },
   })
