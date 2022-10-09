@@ -25,6 +25,7 @@ const AddQuestion: React.FC = () => {
       <TextField
         inputProps={register("text", { required: true })}
         autoFocus
+        autoComplete="off"
         variant="outlined"
         size="small"
         fullWidth
