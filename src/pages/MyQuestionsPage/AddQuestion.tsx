@@ -3,15 +3,20 @@ import { useForm } from "react-hook-form"
 import { useMutation, useQueryClient } from "react-query"
 
 import { addQuestion } from "api/questions"
+import { useNotifications } from "hooks/useNotifications"
 
 const AddQuestion: React.FC = () => {
   const { register, handleSubmit, reset } = useForm<{ text: string }>()
+  const { notifyError } = useNotifications()
 
   const queryClient = useQueryClient()
   const { mutate, isLoading } = useMutation(addQuestion, {
     onSuccess: () => {
       queryClient.invalidateQueries("questions")
       reset({ text: "" })
+    },
+    onError: (error: Error) => {
+      notifyError(error.message)
     },
   })
 
