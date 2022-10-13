@@ -6,7 +6,7 @@ import { deleteQuestion } from "api/questions"
 import type { Question } from "api/questions"
 import { useNotifications } from "hooks/useNotifications"
 
-const DeleteButton: React.FC<{ id: Question["id"] }> = ({ id }) => {
+export const DeleteButton: React.FC<{ id: Question["id"] }> = ({ id }) => {
   const queryClient = useQueryClient()
   const { notifyError } = useNotifications()
 
@@ -32,5 +32,3 @@ const DeleteButton: React.FC<{ id: Question["id"] }> = ({ id }) => {
     </IconButton>
   )
 }
-
-export default DeleteButton

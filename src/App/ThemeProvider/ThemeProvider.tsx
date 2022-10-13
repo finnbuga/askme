@@ -4,11 +4,9 @@ import type { ReactNode } from "react"
 
 import { theme } from "./theme"
 
-const ThemeProvider: React.FC<{ children?: ReactNode }> = ({ children }) => (
+export const ThemeProvider: React.FC<{ children?: ReactNode }> = ({ children }) => (
   <MuiThemeProvider theme={theme}>
     <CssBaseline />
     {children}
   </MuiThemeProvider>
 )
-
-export default ThemeProvider

@@ -2,11 +2,11 @@ import { Box, Container } from "@mui/material"
 import type { SxProps } from "@mui/material"
 import type { ReactNode } from "react"
 
-import Header from "../Header/Header"
+import { Header } from "../Header/Header"
 
 import backgroundImage from "./bottom-background.png"
 
-const PageWrapper: React.FC<{ children?: ReactNode }> = ({ children }) => (
+export const PageWrapper: React.FC<{ children?: ReactNode }> = ({ children }) => (
   <Box sx={wrapper}>
     <Container disableGutters sx={container}>
       <Header />
@@ -43,5 +43,3 @@ const footerStyle: SxProps = {
     sm: "cover",
   },
 }
-
-export default PageWrapper

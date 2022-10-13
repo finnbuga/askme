@@ -2,10 +2,10 @@ import { Alert } from "@mui/material"
 
 import type { Question } from "api/questions"
 import { useSelector } from "store"
-import QuestionsSlider from "components/QuestionsSlider"
+import { QuestionsSlider } from "components/QuestionsSlider"
 import { H1 } from "components/ui/H1"
 
-const MyFavouritesPage: React.FC = () => {
+export const MyFavouritesPage: React.FC = () => {
   const { user, isAuthenticating } = useSelector((state) => state.user)
   const isMyFavourite = (question: Question) => !!user?.likedQuestions?.includes(question.id)
 
@@ -21,5 +21,3 @@ const MyFavouritesPage: React.FC = () => {
     </>
   )
 }
-
-export default MyFavouritesPage

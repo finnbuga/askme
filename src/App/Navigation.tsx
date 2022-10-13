@@ -2,7 +2,7 @@ import { useState } from "react"
 import { Paper, BottomNavigation, BottomNavigationAction } from "@mui/material"
 import { Favorite, Person } from "@mui/icons-material"
 
-const Navigation: React.FC = () => {
+export const Navigation: React.FC = () => {
   const [value, setValue] = useState(0)
 
   return (
@@ -14,5 +14,3 @@ const Navigation: React.FC = () => {
     </Paper>
   )
 }
-
-export default Navigation

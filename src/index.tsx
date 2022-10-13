@@ -5,7 +5,7 @@ import { BrowserRouter } from "react-router-dom"
 import { QueryClient, QueryClientProvider } from "react-query"
 
 import store from "store"
-import App from "App"
+import { App } from "App"
 
 import reportWebVitals from "./reportWebVitals"
 

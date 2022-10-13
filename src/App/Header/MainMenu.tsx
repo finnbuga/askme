@@ -6,9 +6,9 @@ import HomeIcon from "@mui/icons-material/Home"
 import LightbulbIcon from "@mui/icons-material/Lightbulb"
 import FavoriteIcon from "@mui/icons-material/Favorite"
 
-import useToggle from "hooks/useToggle"
+import { useToggle } from "hooks/useToggle"
 
-function MainMenu() {
+export function MainMenu() {
   const navigate = useNavigate()
   const menuButtonRef = useRef(null)
   const [isOpen, openMenu, closeMenu] = useToggle(false)
@@ -44,5 +44,3 @@ function MainMenu() {
     </>
   )
 }
-
-export default MainMenu

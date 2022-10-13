@@ -4,10 +4,12 @@ import type { SxProps } from "@mui/material"
 import type { Question } from "api/questions"
 import { useQuestions } from "hooks/useQuestions"
 
-import LikeButton from "./LikeButton"
-import useNavigator from "./useNavigator"
+import { LikeButton } from "./LikeButton"
+import { useNavigator } from "./useNavigator"
 
-const QuestionsSlider: React.FC<{ filter?: (question: Question) => boolean }> = ({ filter }) => {
+export const QuestionsSlider: React.FC<{
+  filter?: (question: Question) => boolean
+}> = ({ filter }) => {
   const { questions, isLoading, error } = useQuestions({ filter })
   const { current, goToNext, goToPrev } = useNavigator(questions.length)
   const currentQuestion = questions[current]
@@ -78,5 +80,3 @@ const PreviousIcon: React.FC<{ filled?: boolean }> = () => (
     </svg>
   </SvgIcon>
 )
-
-export default QuestionsSlider

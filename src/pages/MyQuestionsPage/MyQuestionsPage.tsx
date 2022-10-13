@@ -5,10 +5,10 @@ import { useSelector } from "store"
 import { useQuestions } from "hooks/useQuestions"
 import { H1 } from "components/ui/H1"
 
-import AddQuestion from "./AddQuestion"
-import QuestionsList from "./QuestionsList"
+import { AddQuestion } from "./AddQuestion"
+import { QuestionsList } from "./QuestionsList"
 
-const MyQuestionsPage: React.FC = () => {
+export const MyQuestionsPage: React.FC = () => {
   const { user, isAuthenticating } = useSelector((state) => state.user)
   const isMyQuestion = (question: Question) => !!user && question.userId === user.id
   const { questions, isLoading, error } = useQuestions({ filter: isMyQuestion })
@@ -30,5 +30,3 @@ const MyQuestionsPage: React.FC = () => {
     </>
   )
 }
-
-export default MyQuestionsPage

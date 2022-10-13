@@ -1,10 +1,10 @@
 import { AppBar, Toolbar } from "@mui/material"
 
-import MainMenu from "./MainMenu"
-import Logo from "./Logo"
-import UserMenu from "./UserMenu"
+import { MainMenu } from "./MainMenu"
+import { Logo } from "./Logo"
+import { UserMenu } from "./UserMenu"
 
-const Header: React.FC = () => (
+export const Header: React.FC = () => (
   <AppBar position="static" color="transparent" sx={{ boxShadow: "none" }}>
     <Toolbar sx={{ p: 3, pt: 4, pb: 2 }}>
       <MainMenu />
@@ -13,5 +13,3 @@ const Header: React.FC = () => (
     </Toolbar>
   </AppBar>
 )
-
-export default Header

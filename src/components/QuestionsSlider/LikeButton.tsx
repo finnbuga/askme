@@ -5,7 +5,7 @@ import { useNotifications } from "hooks/useNotifications"
 import { likeQuestion, unlikeQuestion } from "store/userSlice"
 import type { Question } from "api/questions"
 
-const LikeButton: React.FC<{ questionId: Question["id"] }> = ({ questionId: id }) => {
+export const LikeButton: React.FC<{ questionId: Question["id"] }> = ({ questionId: id }) => {
   const user = useSelector((state) => state.user.user)
   const isLiked = user?.likedQuestions?.includes(id)
 
@@ -37,5 +37,3 @@ const HeartIcon: React.FC<{ filled?: boolean }> = ({ filled }) => (
     </svg>
   </SvgIcon>
 )
-
-export default LikeButton

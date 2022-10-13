@@ -5,7 +5,7 @@ import { useMutation, useQueryClient } from "react-query"
 import { addQuestion } from "api/questions"
 import { useNotifications } from "hooks/useNotifications"
 
-const AddQuestion: React.FC = () => {
+export const AddQuestion: React.FC = () => {
   const { register, handleSubmit, reset } = useForm<{ text: string }>()
   const { notifyError } = useNotifications()
 
@@ -41,5 +41,3 @@ const AddQuestion: React.FC = () => {
     </Stack>
   )
 }
-
-export default AddQuestion
