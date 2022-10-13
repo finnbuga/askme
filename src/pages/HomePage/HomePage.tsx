@@ -3,11 +3,11 @@ import { Box, Alert } from "@mui/material"
 import type { SxProps, Theme } from "@mui/material"
 
 import { Question } from "api/questions"
-import QuestionsSlider from "components/QuestionsSlider"
+import { QuestionsSlider } from "components/QuestionsSlider"
 
 import lady from "./lady.png"
 
-const HomePage: React.FC = () => (
+export const HomePage: React.FC = () => (
   <div style={{ textAlign: "center" }}>
     <h1 style={{ maxWidth: 500, margin: "auto" }}>
       Spark insightful conversations and get you know yourself and your friends better
@@ -71,5 +71,3 @@ const slider: SxProps<Theme> = {
     sm: theme.spacing(5, "auto"),
   }),
 }
-
-export default HomePage

@@ -2,7 +2,7 @@ import { render, screen } from "testing"
 
 import { getQuestions } from "api/questions"
 
-import QuestionsSlider from "./QuestionsSlider"
+import { QuestionsSlider } from "./QuestionsSlider"
 
 jest.mock("api/questions")
 const getQuestionsMock = getQuestions as jest.MockedFunction<typeof getQuestions>

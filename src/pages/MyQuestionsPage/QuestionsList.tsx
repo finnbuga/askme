@@ -2,9 +2,9 @@ import { List, ListItem, Fade } from "@mui/material"
 
 import type { Question } from "api/questions"
 
-import DeleteButton from "./DeleteButton"
+import { DeleteButton } from "./DeleteButton"
 
-const QuestionsList: React.FC<{ questions: Question[] }> = ({ questions }) => {
+export const QuestionsList: React.FC<{ questions: Question[] }> = ({ questions }) => {
   return (
     <List>
       {questions.map(({ id, text }) => (
@@ -17,5 +17,3 @@ const QuestionsList: React.FC<{ questions: Question[] }> = ({ questions }) => {
     </List>
   )
 }
-
-export default QuestionsList

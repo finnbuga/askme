@@ -3,7 +3,7 @@ import userEvent from "@testing-library/user-event"
 
 import * as api from "api/questions"
 
-import AddQuestion from "./AddQuestion"
+import { AddQuestion } from "./AddQuestion"
 
 jest.mock("api/questions")
 

@@ -1,15 +1,15 @@
 import { Routes, Route } from "react-router-dom"
 import { SnackbarProvider } from "notistack"
 
-import HomePage from "pages/HomePage"
-import MyQuestionsPage from "pages/MyQuestionsPage"
-import MyFavouritesPage from "pages/MyFavouritesPage"
+import { HomePage } from "pages/HomePage"
+import { MyQuestionsPage } from "pages/MyQuestionsPage"
+import { MyFavouritesPage } from "pages/MyFavouritesPage"
 
-import useAuth from "./useAuth"
-import ThemeProvider from "./ThemeProvider"
-import PageWrapper from "./PageWrapper"
+import { useAuth } from "./useAuth"
+import { ThemeProvider } from "./ThemeProvider"
+import { PageWrapper } from "./PageWrapper"
 
-const App: React.FC = () => {
+export const App: React.FC = () => {
   useAuth()
 
   return (
@@ -26,5 +26,3 @@ const App: React.FC = () => {
     </ThemeProvider>
   )
 }
-
-export default App

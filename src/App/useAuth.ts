@@ -3,7 +3,7 @@ import { onAuthStateChanged } from "api/auth"
 import { getUser, addUser } from "api/users"
 import { setUser } from "store/userSlice"
 
-const useAuth = () => {
+export const useAuth = () => {
   const dispatch = useDispatch()
 
   onAuthStateChanged(async (authUser) => {
@@ -22,5 +22,3 @@ const useAuth = () => {
     }
   })
 }
-
-export default useAuth

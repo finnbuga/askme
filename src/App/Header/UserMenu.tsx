@@ -8,7 +8,7 @@ import { signInWithGoogle, signOut } from "api/auth"
 import { useSelector } from "store"
 import { useNotifications } from "hooks/useNotifications"
 
-function UserMenu() {
+export function UserMenu() {
   const { user, isAuthenticating } = useSelector((state) => state.user)
 
   return (
@@ -73,5 +73,3 @@ const LoginButton: React.FC = () => {
     </Button>
   )
 }
-
-export default UserMenu

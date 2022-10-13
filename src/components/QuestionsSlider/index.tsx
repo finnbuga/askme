@@ -1,1 +1,1 @@
-export { default } from "./QuestionsSlider"
+export * from "./QuestionsSlider"
