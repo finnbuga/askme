@@ -2,6 +2,7 @@ import { useState } from "react"
 import { Paper, BottomNavigation, BottomNavigationAction } from "@mui/material"
 import { Favorite, Person } from "@mui/icons-material"
 
+// @todo add bottom navigation
 export const Navigation: React.FC = () => {
   const [value, setValue] = useState(0)
 
