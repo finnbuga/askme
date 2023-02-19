@@ -8,6 +8,7 @@ import store from "store"
 import { App } from "App"
 
 import reportWebVitals from "./reportWebVitals"
+import "sentry-init"
 
 const queryClient = new QueryClient()
 
