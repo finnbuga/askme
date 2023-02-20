@@ -8,7 +8,7 @@ import { useNotifications } from "hooks/useNotifications"
 
 export const DeleteButton: React.FC<{ id: Question["id"] }> = ({ id }) => {
   const queryClient = useQueryClient()
-  const { notifyError } = useNotifications()
+  const { notifyError, notifySuccess } = useNotifications()
 
   const { mutate, isLoading } = useMutation(deleteQuestion, {
     onMutate: () => {
@@ -18,6 +18,9 @@ export const DeleteButton: React.FC<{ id: Question["id"] }> = ({ id }) => {
       const optimisticUpdate = previousQuestions?.filter((q) => q.id !== id)
       queryClient.setQueryData("questions", optimisticUpdate)
       return { previousQuestions }
+    },
+    onSuccess: () => {
+      notifySuccess("Question deleted")
     },
     onError: (error: Error, _, context) => {
       notifyError(error)
