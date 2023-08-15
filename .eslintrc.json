@@ -1,14 +1,30 @@
 {
-  "plugins": [
-    "lodash-fp"
-  ],
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaVersion": "latest"
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "plugins": ["react", "lodash-fp", "import"],
   "extends": [
-    "react-app",
-    "react-app/jest",
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
+    "plugin:react/jsx-runtime",
     "plugin:lodash-fp/recommended",
     "prettier"
   ],
   "rules": {
+    "react/no-unescaped-entities": "off",
+    "react/prop-types": "off",
     "@typescript-eslint/no-non-null-assertion": "off",
     "no-unused-vars": "off",
     "@typescript-eslint/no-unused-vars": [
@@ -23,9 +39,7 @@
       "error",
       {
         "props": true,
-        "ignorePropertyModificationsFor": [
-          "state"
-        ]
+        "ignorePropertyModificationsFor": ["state"]
       }
     ],
     "import/order": [
@@ -69,17 +83,8 @@
             "group": "internal"
           }
         ],
-        "groups": [
-          "builtin",
-          "external",
-          "internal",
-          "parent",
-          "sibling",
-          "index"
-        ],
-        "pathGroupsExcludedImportTypes": [
-          "builtin"
-        ],
+        "groups": ["builtin", "external", "internal", "parent", "sibling", "index"],
+        "pathGroupsExcludedImportTypes": ["builtin"],
         "newlines-between": "always"
       }
     ]

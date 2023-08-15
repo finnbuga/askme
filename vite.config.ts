@@ -14,6 +14,9 @@ export default defineConfig({
     checker({
       overlay: { initialIsOpen: false },
       typescript: true,
+      eslint: {
+        lintCommand: 'eslint "./src/**/*.{ts,tsx}"',
+      },
     }),
     viteTsconfigPaths(),
     svgrPlugin(),
