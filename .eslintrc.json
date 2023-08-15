@@ -1,10 +1,9 @@
 {
-  "plugins": ["lodash-fp", "@typescript-eslint"],
+  "plugins": ["lodash-fp"],
   "extends": [
     "react-app",
     "react-app/jest",
     "plugin:lodash-fp/recommended",
-    "plugin:@typescript-eslint/recommended",
     "prettier"
   ],
   "rules": {
