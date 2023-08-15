@@ -1,5 +1,7 @@
 {
-  "plugins": ["lodash-fp"],
+  "plugins": [
+    "lodash-fp"
+  ],
   "extends": [
     "react-app",
     "react-app/jest",
@@ -21,7 +23,9 @@
       "error",
       {
         "props": true,
-        "ignorePropertyModificationsFor": ["state"]
+        "ignorePropertyModificationsFor": [
+          "state"
+        ]
       }
     ],
     "import/order": [
@@ -65,8 +69,17 @@
             "group": "internal"
           }
         ],
-        "groups": ["builtin", "external", "internal", "parent", "sibling", "index"],
-        "pathGroupsExcludedImportTypes": ["builtin"],
+        "groups": [
+          "builtin",
+          "external",
+          "internal",
+          "parent",
+          "sibling",
+          "index"
+        ],
+        "pathGroupsExcludedImportTypes": [
+          "builtin"
+        ],
         "newlines-between": "always"
       }
     ]
