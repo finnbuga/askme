@@ -12,7 +12,11 @@
       "version": "detect"
     }
   },
-  "plugins": ["react", "lodash-fp", "import"],
+  "plugins": [
+    "react",
+    "lodash-fp",
+    "import"
+  ],
   "extends": [
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
@@ -20,7 +24,8 @@
     "plugin:react-hooks/recommended",
     "plugin:react/jsx-runtime",
     "plugin:lodash-fp/recommended",
-    "prettier"
+    "prettier",
+    "plugin:storybook/recommended"
   ],
   "rules": {
     "react/no-unescaped-entities": "off",
@@ -39,7 +44,9 @@
       "error",
       {
         "props": true,
-        "ignorePropertyModificationsFor": ["state"]
+        "ignorePropertyModificationsFor": [
+          "state"
+        ]
       }
     ],
     "import/order": [
@@ -83,8 +90,17 @@
             "group": "internal"
           }
         ],
-        "groups": ["builtin", "external", "internal", "parent", "sibling", "index"],
-        "pathGroupsExcludedImportTypes": ["builtin"],
+        "groups": [
+          "builtin",
+          "external",
+          "internal",
+          "parent",
+          "sibling",
+          "index"
+        ],
+        "pathGroupsExcludedImportTypes": [
+          "builtin"
+        ],
         "newlines-between": "always"
       }
     ]
