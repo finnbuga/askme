@@ -20,7 +20,7 @@ export const QuestionsSlider: React.FC<{
 
   return (
     <Box sx={wrapper}>
-      <Typography component="div" variant="h1" my="auto" aria-label="question">
+      <Typography component="div" variant="h1" aria-label="question" sx={question}>
         {isLoading ? null : questions.length === 0 ? "No questions." : currentQuestion.text}
       </Typography>
 
@@ -42,23 +42,29 @@ export const QuestionsSlider: React.FC<{
 }
 
 const wrapper: SxProps = {
+  mt: 3,
+  width: "100%",
   maxWidth: {
     sm: 600,
     md: 500,
   },
-  margin: "0 auto",
-  minHeight: 204,
-  maxHeight: 278,
   display: "flex",
   flexDirection: "column",
   justifyContent: "space-between",
-  overflow: "hidden",
-  padding: 4,
+  pt: 1,
+  pb: 2.3,
+  px: 3,
   boxShadow: "0px 7px 25px 2px rgba(0, 0, 0, 0.1)",
 }
 
+const question: SxProps = {
+  flexGrow: 1,
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+}
+
 const buttonsWrapper: SxProps = {
-  marginBottom: 0.5,
   display: "flex",
   justifyContent: "center",
 }

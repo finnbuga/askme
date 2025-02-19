@@ -10,7 +10,7 @@ export const PageWrapper: React.FC<{ children?: ReactNode }> = ({ children }) =>
   <Box sx={wrapper}>
     <Container disableGutters sx={container}>
       <Header />
-      <Box component="main" sx={{ p: 3, pt: 0 }}>
+      <Box component="main" sx={main}>
         {children}
       </Box>
     </Container>
@@ -31,8 +31,13 @@ const container: SxProps = {
   },
 }
 
+const main: SxProps = {
+  px: 4,
+}
+
 const footerStyle: SxProps = {
   height: {
+    xs: 24,
     sm: 200,
     md: 250,
   },

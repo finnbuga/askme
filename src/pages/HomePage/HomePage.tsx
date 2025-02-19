@@ -1,5 +1,5 @@
 import type { SxProps, Theme } from "@mui/material"
-import { Alert, Box } from "@mui/material"
+import { Alert, Box, Stack } from "@mui/material"
 import { ErrorBoundary } from "react-error-boundary"
 
 import { Question } from "api/questions"
@@ -8,28 +8,28 @@ import { QuestionsSlider } from "components/QuestionsSlider"
 import lady from "./lady.png"
 
 export const HomePage: React.FC = () => (
-  <div style={{ textAlign: "center" }}>
-    <h1 style={{ maxWidth: 500, margin: "auto" }}>
+  <Stack sx={{ alignItems: "center" }}>
+    <h1 style={{ maxWidth: 500 }}>
       Spark insightful conversations and get you know yourself and your friends better
     </h1>
 
-    <Box mt={3.5} mx="auto" style={{ maxWidth: 600 }}>
+    <Box sx={message}>
       Pick a random question and speak uninterrupted for 3 minutes. Only then can others share
       thoughts or ask clarifying questions. Now it's your friend's turn.
     </Box>
 
     <Box sx={wrapper}>
-      <Box sx={image}>
+      <Box sx={fixedDimensions}>
         <img src={lady} alt="chatty lady" style={{ maxHeight: "100%", maxWidth: "100%" }} />
       </Box>
 
-      <Box sx={slider}>
+      <Box sx={fixedDimensions}>
         <ErrorBoundary FallbackComponent={Error}>
           <QuestionsSlider filter={isPublicQuestion} />
         </ErrorBoundary>
       </Box>
     </Box>
-  </div>
+  </Stack>
 )
 
 const isPublicQuestion = (question: Question) => !!question.isPublic
@@ -38,36 +38,40 @@ const Error: React.FC<{ error: Error }> = () => (
   <Alert severity="error">Sorry, an error occured. Please refresh the page.</Alert>
 )
 
-const wrapper: SxProps = {
+const message: SxProps<Theme> = {
+  textAlign: "center",
+  mt: {
+    xs: 3,
+    md: 5,
+  },
+  mb: {
+    xs: 2,
+    md: 4,
+  },
+  maxWidth: 600,
+}
+
+const wrapper: SxProps<Theme> = {
   display: "flex",
   flexDirection: {
     xs: "column",
     md: "row",
   },
-  margin: "0 auto",
+  gap: {
+    md: 2.5,
+  },
   justifyContent: "center",
-  alignItems: "end",
+  alignItems: "center",
 }
 
-const image: SxProps<Theme> = {
-  margin: (theme) => ({
-    xs: theme.spacing(5, "auto", 3),
-    // sm: theme.spacing(5, "auto", 7),
-  }),
+const fixedDimensions: SxProps<Theme> = {
+  display: "flex",
   width: {
-    xs: 280,
+    xs: 358,
     sm: 466,
   },
   height: {
-    xs: 167,
+    xs: 214,
     sm: 278,
   },
-}
-
-const slider: SxProps<Theme> = {
-  margin: (theme) => ({
-    flexGrow: 1,
-    xs: theme.spacing(5, "auto", 3),
-    sm: theme.spacing(5, "auto"),
-  }),
 }
