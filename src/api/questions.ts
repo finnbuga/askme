@@ -1,7 +1,7 @@
-import { collection, addDoc, getDocs, deleteDoc, doc } from "firebase/firestore"
+import { addDoc, collection, deleteDoc, doc,getDocs } from "firebase/firestore"
 
-import { db } from "./firebase"
 import { getCurrentUserId } from "./auth"
+import { db } from "./firebase"
 import type { User } from "./users"
 
 export interface Question {

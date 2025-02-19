@@ -1,6 +1,6 @@
 import { Button, CircularProgress, Stack, TextField } from "@mui/material"
+import { useMutation, useQueryClient } from "@tanstack/react-query"
 import { useForm } from "react-hook-form"
-import { useMutation, useQueryClient } from "react-query"
 
 import { addQuestion } from "api/questions"
 import { useNotifications } from "hooks/useNotifications"
@@ -10,9 +10,10 @@ export const AddQuestion: React.FC = () => {
   const { notifyError } = useNotifications()
 
   const queryClient = useQueryClient()
-  const { mutate, isLoading } = useMutation(addQuestion, {
+  const { mutate, isPending } = useMutation({
+    mutationFn: addQuestion,
     onSuccess: () => {
-      queryClient.invalidateQueries("questions")
+      queryClient.invalidateQueries({ queryKey: ["questions"] })
       reset({ text: "" })
     },
     onError: notifyError,
@@ -34,9 +35,9 @@ export const AddQuestion: React.FC = () => {
         fullWidth
       />
 
-      <Button type="submit" disabled={isLoading} color="primary" variant="contained">
+      <Button type="submit" disabled={isPending} color="primary" variant="contained">
         Add question
-        {isLoading && <CircularProgress size={24} sx={{ position: "absolute" }} />}
+        {isPending && <CircularProgress size={24} sx={{ position: "absolute" }} />}
       </Button>
     </Stack>
   )

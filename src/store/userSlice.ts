@@ -1,7 +1,7 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 
-import * as api from "api/users"
 import type { User } from "api/users"
+import * as api from "api/users"
 
 export const likeQuestion = createAsyncThunk("user/likeQuestion", api.addLikedQuestion)
 
@@ -28,7 +28,7 @@ const userSlice = createSlice({
       .addCase(unlikeQuestion.fulfilled, (state, action) => {
         const unlikedQuestion = action.meta.arg
         state.user!.likedQuestions = state.user!.likedQuestions.filter(
-          (question) => question !== unlikedQuestion
+          (question) => question !== unlikedQuestion,
         )
       })
   },

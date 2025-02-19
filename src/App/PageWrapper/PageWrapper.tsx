@@ -1,5 +1,5 @@
-import { Box, Container } from "@mui/material"
 import type { SxProps } from "@mui/material"
+import { Box, Container } from "@mui/material"
 import type { ReactNode } from "react"
 
 import { Header } from "../Header/Header"

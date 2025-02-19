@@ -1,6 +1,6 @@
-import { useDispatch } from "store"
 import { onAuthStateChanged } from "api/auth"
-import { getUser, addUser } from "api/users"
+import { addUser,getUser } from "api/users"
+import { useDispatch } from "store"
 import { setUser } from "store/userSlice"
 
 export const useAuth = () => {

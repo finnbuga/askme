@@ -1,8 +1,8 @@
 import { doc, getDoc, setDoc, updateDoc } from "firebase/firestore"
-import { arrayUnion, arrayRemove } from "firebase/firestore"
+import { arrayRemove,arrayUnion } from "firebase/firestore"
 
-import { db } from "./firebase"
 import { getCurrentUserId } from "./auth"
+import { db } from "./firebase"
 import type { Question } from "./questions"
 
 export interface User {

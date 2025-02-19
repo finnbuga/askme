@@ -1,1 +1,1 @@
-export * from "./QuestionsSlider"
+export { QuestionsSlider } from "./QuestionsSlider"

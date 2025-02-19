@@ -4,6 +4,7 @@
 /node_modules
 /.pnp
 .pnp.js
+.yarn
 
 # testing
 /coverage
@@ -23,3 +24,5 @@ yarn-debug.log*
 yarn-error.log*
 
 .firebase
+
+*storybook.log

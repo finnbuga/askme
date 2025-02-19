@@ -1,5 +1,5 @@
-import { ThemeProvider as MuiThemeProvider } from "@mui/material/styles"
 import { CssBaseline } from "@mui/material"
+import { ThemeProvider as MuiThemeProvider } from "@mui/material/styles"
 import type { ReactNode } from "react"
 
 import { theme } from "./theme"

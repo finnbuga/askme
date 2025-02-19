@@ -1,9 +1,9 @@
 import { IconButton, SvgIcon } from "@mui/material"
 
-import { useDispatch, useSelector } from "store"
-import { useNotifications } from "hooks/useNotifications"
-import { likeQuestion, unlikeQuestion } from "store/userSlice"
 import type { Question } from "api/questions"
+import { useNotifications } from "hooks/useNotifications"
+import { useDispatch, useSelector } from "store"
+import { likeQuestion, unlikeQuestion } from "store/userSlice"
 
 export const LikeButton: React.FC<{ questionId: Question["id"] }> = ({ questionId: id }) => {
   const user = useSelector((state) => state.user.user)

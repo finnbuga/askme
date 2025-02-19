@@ -1,6 +1,6 @@
-import { ErrorBoundary } from "react-error-boundary"
-import { Box, Alert } from "@mui/material"
 import type { SxProps, Theme } from "@mui/material"
+import { Alert, Box } from "@mui/material"
+import { ErrorBoundary } from "react-error-boundary"
 
 import { Question } from "api/questions"
 import { QuestionsSlider } from "components/QuestionsSlider"

@@ -1,6 +1,6 @@
-import { useState } from "react"
-import { Paper, BottomNavigation, BottomNavigationAction } from "@mui/material"
 import { Favorite, Person } from "@mui/icons-material"
+import { BottomNavigation, BottomNavigationAction,Paper } from "@mui/material"
+import { useState } from "react"
 
 // @todo add bottom navigation
 export const Navigation: React.FC = () => {

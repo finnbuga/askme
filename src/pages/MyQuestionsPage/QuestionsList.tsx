@@ -1,4 +1,4 @@
-import { List, ListItem, Fade } from "@mui/material"
+import { Fade, List, ListItem } from "@mui/material"
 
 import type { Question } from "api/questions"
 

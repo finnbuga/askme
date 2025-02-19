@@ -1,1 +1,1 @@
-export * from "./MyQuestionsPage"
+export { MyQuestionsPage } from "./MyQuestionsPage"

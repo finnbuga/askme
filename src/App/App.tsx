@@ -1,13 +1,13 @@
-import { Routes, Route } from "react-router-dom"
 import { SnackbarProvider } from "notistack"
+import { Route, Routes } from "react-router-dom"
 
 import { HomePage } from "pages/HomePage"
-import { MyQuestionsPage } from "pages/MyQuestionsPage"
 import { MyFavouritesPage } from "pages/MyFavouritesPage"
+import { MyQuestionsPage } from "pages/MyQuestionsPage"
 
-import { useAuth } from "./useAuth"
-import { ThemeProvider } from "./ThemeProvider"
 import { PageWrapper } from "./PageWrapper"
+import { ThemeProvider } from "./ThemeProvider"
+import { useAuth } from "./useAuth"
 
 export const App: React.FC = () => {
   useAuth()

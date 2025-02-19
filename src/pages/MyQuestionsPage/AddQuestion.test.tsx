@@ -1,5 +1,5 @@
-import { render, screen } from "testing"
 import userEvent from "@testing-library/user-event"
+import { render, screen } from "testing"
 
 import * as api from "api/questions"
 

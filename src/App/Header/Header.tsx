@@ -1,7 +1,7 @@
 import { AppBar, Toolbar } from "@mui/material"
 
-import { MainMenu } from "./MainMenu"
 import { Logo } from "./Logo"
+import { MainMenu } from "./MainMenu"
 import { UserMenu } from "./UserMenu"
 
 export const Header: React.FC = () => (
